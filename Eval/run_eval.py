@@ -106,7 +106,7 @@ def check_and_impute_dataset(
         base_output_dir=imputed_data_dir,
     )
     if Path(imputed_path).exists():
-        print(f"  ✓ Imputed dataset exists: {imputed_path}")
+        print(f"  [OK] Imputed dataset exists: {imputed_path}")
         return imputed_path
 
     print("  [WARN] Imputed dataset not found, generating...")

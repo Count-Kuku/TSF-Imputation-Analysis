@@ -222,7 +222,7 @@ def batch_impute(
             )
             
             if Path(output_path).exists():
-                print(f"✓ Already exists: {output_path}")
+                print(f"[OK] Already exists: {output_path}")
                 imputed_paths.append(output_path)
                 continue
             

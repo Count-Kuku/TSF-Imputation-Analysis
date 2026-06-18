@@ -243,12 +243,12 @@ def main() -> None:
                 )
             if (not args.dataset) and invalid_terms:
                 print(
-                    f"⚠ Dataset {dataset}: ignored unsupported terms {invalid_terms}, "
+                    f"[WARN] Dataset {dataset}: ignored unsupported terms {invalid_terms}, "
                     f"allowed: {allowed_terms}"
                 )
 
         if not terms:
-            print(f"⚠ Dataset {dataset}: no matched terms, skip dataset")
+            print(f"[WARN] Dataset {dataset}: no matched terms, skip dataset")
             continue
         dataset_terms[dataset] = terms
 
@@ -337,7 +337,7 @@ def main() -> None:
         for eval_path, term in eval_paths_with_terms:
             eval_file = Path(eval_path)
             if not eval_file.exists():
-                tqdm.write(f"⚠ Missing eval dataset, skip file: {eval_path}")
+                tqdm.write(f"[WARN] Missing eval dataset, skip file: {eval_path}")
                 continue
             for method in imputation_methods:
                 tasks.append({
@@ -360,10 +360,10 @@ def main() -> None:
             clean_result_path = clean_output_dir / f"{dataset}_clean_{term}_results.csv"
             if clean_result_path.exists() and not args.force:
                 skipped += 1
-                tqdm.write(f"✓ Skip existing clean result: {clean_result_path}")
+                tqdm.write(f"[SKIP] Existing clean result: {clean_result_path}")
                 continue
 
-            tqdm.write(f"▶ Running clean: {dataset} | term={term}")
+            tqdm.write(f"[RUN] Clean: {dataset} | term={term}")
             try:
                 evaluate_clean(
                     model=args.model,
@@ -384,7 +384,7 @@ def main() -> None:
                 succeeded += 1
             except Exception as exc:
                 failed += 1
-                tqdm.write(f"✗ Failed clean: {dataset} / {term} -> {exc}")
+                tqdm.write(f"[FAIL] Clean: {dataset} / {term} -> {exc}")
             finally:
                 _cleanup_runtime(args.device)
         else:
@@ -396,10 +396,10 @@ def main() -> None:
             result_path = output_dir / result_filename
             if result_path.exists() and not args.force:
                 skipped += 1
-                tqdm.write(f"✓ Skip existing result: {result_path}")
+                tqdm.write(f"[SKIP] Existing result: {result_path}")
                 continue
 
-            tqdm.write(f"▶ Running: {eval_name} | term={term} | impute={method}")
+            tqdm.write(f"[RUN] {eval_name} | term={term} | impute={method}")
             try:
                 run_single_evaluation(
                     model=args.model,
@@ -424,7 +424,7 @@ def main() -> None:
                 succeeded += 1
             except Exception as exc:
                 failed += 1
-                tqdm.write(f"✗ Failed: {eval_name} / {method} -> {exc}")
+                tqdm.write(f"[FAIL] {eval_name} / {method} -> {exc}")
             finally:
                 _cleanup_runtime(args.device)
     pbar.close()

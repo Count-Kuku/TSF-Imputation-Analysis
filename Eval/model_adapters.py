@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import logging
+import os
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Protocol
 
 import numpy as np
@@ -16,6 +18,32 @@ from transformers import AutoModelForCausalLM
 
 logger = logging.getLogger(__name__)
 DEFAULT_QUANTILE_LEVELS = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+
+
+def _resolve_hf_snapshot_from_cache(model_name: str) -> str:
+    """Return a local HF snapshot path when it is already cached."""
+
+    if os.path.exists(model_name) or "/" not in model_name:
+        return model_name
+
+    cache_root = Path(os.environ.get("HF_HOME", Path.home() / ".cache" / "huggingface"))
+    hub_root = cache_root / "hub"
+    repo_cache = hub_root / f"models--{model_name.replace('/', '--')}"
+    refs_main = repo_cache / "refs" / "main"
+    snapshots_root = repo_cache / "snapshots"
+
+    candidates: List[Path] = []
+    if refs_main.exists():
+        revision = refs_main.read_text(encoding="utf-8").strip()
+        if revision:
+            candidates.append(snapshots_root / revision)
+    if snapshots_root.exists():
+        candidates.extend(sorted(snapshots_root.iterdir(), reverse=True))
+
+    for candidate in candidates:
+        if candidate.is_dir() and (candidate / "config.json").exists():
+            return str(candidate)
+    return model_name
 
 
 class ForecastAdapter(Protocol):
@@ -99,8 +127,16 @@ class SundialAdapter:
         except Exception:
             pass
 
+        resolved_model_name = _resolve_hf_snapshot_from_cache(self.model_name)
+        if resolved_model_name != self.model_name:
+            logger.info(
+                "Using cached HuggingFace snapshot for %s: %s",
+                self.model_name,
+                resolved_model_name,
+            )
+
         self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_name,
+            resolved_model_name,
             trust_remote_code=True,
             local_files_only=True,
         )
@@ -414,10 +450,35 @@ class Chronos2Adapter:
                 raise ValueError("torch_dtype 必须是 bfloat16/float16/float32")
             pipeline_kwargs["torch_dtype"] = dtype_map[self.torch_dtype]
 
-        self.pipeline = BaseChronosPipeline.from_pretrained(
-            self.model_name,
-            **pipeline_kwargs,
-        )
+        resolved_model_name = _resolve_hf_snapshot_from_cache(self.model_name)
+        if resolved_model_name != self.model_name:
+            logger.info(
+                "Using cached HuggingFace snapshot for %s: %s",
+                self.model_name,
+                resolved_model_name,
+            )
+
+        try:
+            self.pipeline = BaseChronosPipeline.from_pretrained(
+                resolved_model_name,
+                local_files_only=True,
+                **pipeline_kwargs,
+            )
+        except TypeError:
+            self.pipeline = BaseChronosPipeline.from_pretrained(
+                resolved_model_name,
+                **pipeline_kwargs,
+            )
+        except Exception as exc:
+            logger.warning(
+                "Chronos-2 local cache load failed for %s, retrying default load: %s",
+                resolved_model_name,
+                exc,
+            )
+            self.pipeline = BaseChronosPipeline.from_pretrained(
+                self.model_name,
+                **pipeline_kwargs,
+            )
         if not isinstance(self.pipeline, Chronos2Pipeline):
             raise TypeError("当前适配器仅支持 Chronos-2 管线")
 
@@ -505,9 +566,10 @@ class TimesFM2p5Adapter:
             ) from exc
 
         self.configs = configs
+        resolved_model_name = _resolve_hf_snapshot_from_cache(self.model_name)
         try:
             self.tfm = timesfm_pkg.TimesFM_2p5_200M_torch.from_pretrained(
-                self.model_name,
+                resolved_model_name,
                 torch_compile=True,
             )
         except Exception as pretrained_exc:
@@ -526,6 +588,7 @@ class TimesFM2p5Adapter:
                 weights_path = hf_hub_download(
                     repo_id=self.model_name,
                     filename=weights_filename,
+                    local_files_only=True,
                 )
                 self.tfm = timesfm_pkg.TimesFM_2p5_200M_torch(torch_compile=True)
                 self.tfm.model.load_checkpoint(
@@ -637,8 +700,9 @@ class Kairos23mAdapter:
 
         try:
             self._kairos_model = KairosAutoModel.from_pretrained(
-                self.model_name,
+                _resolve_hf_snapshot_from_cache(self.model_name),
                 trust_remote_code=True,
+                local_files_only=True,
             )
         except Exception as exc:
             raise RuntimeError(
@@ -776,8 +840,9 @@ class Kairos50mAdapter:
 
         try:
             self._kairos_model = KairosAutoModel.from_pretrained(
-                self.model_name,
+                _resolve_hf_snapshot_from_cache(self.model_name),
                 trust_remote_code=True,
+                local_files_only=True,
             )
         except Exception as exc:
             raise RuntimeError(
@@ -915,7 +980,8 @@ class TimesFM2p0Adapter:
 
         try:
             self._timesfm_model = TimesFmModelForPrediction.from_pretrained(
-                self.model_name
+                _resolve_hf_snapshot_from_cache(self.model_name),
+                local_files_only=True,
             )
         except Exception as exc:
             raise RuntimeError(
@@ -1057,7 +1123,11 @@ class VisionTSppAdapter:
         ckpt_name = ckpt_name.strip() or "visiontspp_model.ckpt"
 
         try:
-            ckpt_path = hf_hub_download(repo_id=repo_id, filename=ckpt_name)
+            ckpt_path = hf_hub_download(
+                repo_id=repo_id,
+                filename=ckpt_name,
+                local_files_only=True,
+            )
         except Exception as exc:
             raise RuntimeError(
                 f"VisionTS++ checkpoint download failed from repo '{repo_id}', file '{ckpt_name}'."
