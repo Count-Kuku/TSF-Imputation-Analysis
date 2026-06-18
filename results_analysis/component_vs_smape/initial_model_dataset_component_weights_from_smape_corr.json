@@ -1,2056 +1,3666 @@
 {
   "chronos2": {
     "Australia_Solar_H": {
-      "trend": 0.30191870764619844,
-      "seasonal": 0.35408062589206374,
-      "frequency": 0.3440006664617377,
+      "trend": -0.45601170357739457,
+      "seasonal": -0.13388928027239766,
+      "frequency": -0.4100990161502078,
       "corr": {
-        "trend": 0.13110380336200467,
-        "seasonal": 0.29047064616042784,
-        "frequency": 0.2615895969623379
+        "trend": -0.20664259901434442,
+        "seasonal": -0.060672190293801415,
+        "freq": -0.18583717454111737
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.7532350323192228,
+        "seasonal": -0.22115681584926822,
+        "frequency": -0.025608151831508982
+      },
+      "resid_corr": {
+        "trend": -0.20664259901434442,
+        "seasonal": -0.060672190293801415,
+        "freq": -0.007025343781639607
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_15T": {
-      "trend": 0.33713255159874755,
-      "seasonal": 0.3334237205816741,
-      "frequency": 0.32944372781957837,
+      "trend": -0.2948586053952756,
+      "seasonal": 0.5000172294392156,
+      "frequency": -0.20512416516550883,
       "corr": {
-        "trend": 0.06917564750190264,
-        "seasonal": 0.05811358159794804,
-        "frequency": 0.0461050251372958
+        "trend": -0.23274597531669108,
+        "seasonal": 0.3946874726107098,
+        "freq": -0.16191429725602755
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.2996195624000367,
+        "seasonal": 0.5080907958450818,
+        "frequency": -0.1922896417548815
+      },
+      "resid_corr": {
+        "trend": -0.23274597531669108,
+        "seasonal": 0.3946874726107098,
+        "freq": -0.14937155589922035
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_20T": {
-      "trend": 0.32163255463662815,
-      "seasonal": 0.3592730331144652,
-      "frequency": 0.31909441224890656,
+      "trend": 0.5413926253219206,
+      "seasonal": 0.43860940810524646,
+      "frequency": 0.01999796657283299,
       "corr": {
-        "trend": 0.3582108318033866,
-        "seasonal": 0.468883709866916,
-        "frequency": 0.35028809467685346
+        "trend": 0.3254876501027042,
+        "seasonal": 0.2636939235591289,
+        "freq": 0.012022866293668905
       },
-      "n_rows": 168,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3997897002285579,
+        "seasonal": 0.3238897531704554,
+        "frequency": 0.27632054660098676
+      },
+      "resid_corr": {
+        "trend": 0.3254876501027042,
+        "seasonal": 0.2636939235591289,
+        "freq": 0.2249655890004977
+      },
+      "n_rows": 7,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_5T": {
-      "trend": 0.36020943825061436,
-      "seasonal": 0.31541084324369073,
-      "frequency": 0.324379718505695,
+      "trend": 0.16389069449476854,
+      "seasonal": 0.8174156930671159,
+      "frequency": 0.018693612438115494,
       "corr": {
-        "trend": 0.506421630759347,
-        "seasonal": 0.3736120488325968,
-        "frequency": 0.4016507958224395
+        "trend": 0.02432017402540927,
+        "seasonal": 0.12129847864625014,
+        "freq": 0.0027739946374626904
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.10286926062775448,
+        "seasonal": 0.513067250282607,
+        "frequency": 0.3840634890896385
+      },
+      "resid_corr": {
+        "trend": 0.02432017402540927,
+        "seasonal": 0.12129847864625014,
+        "freq": 0.09079963085635114
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_H": {
-      "trend": 0.28811578167337887,
-      "seasonal": 0.3584244504247959,
-      "frequency": 0.3534597679018252,
+      "trend": -0.3255851972743503,
+      "seasonal": 0.3469418047705619,
+      "frequency": -0.3274729979550878,
       "corr": {
-        "trend": -0.013702091202324603,
-        "seasonal": 0.23205757198056723,
-        "frequency": 0.21810934027062415
+        "trend": -0.4199472505408729,
+        "seasonal": 0.44749349242777703,
+        "freq": -0.4223821791312439
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.31945745039330564,
+        "seasonal": 0.3404121112221928,
+        "frequency": 0.3401304383845016
+      },
+      "resid_corr": {
+        "trend": -0.4199472505408729,
+        "seasonal": 0.44749349242777703,
+        "freq": 0.4471232154672778
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh1": {
-      "trend": 0.34202626721156615,
-      "seasonal": 0.3153033281652051,
-      "frequency": 0.3426704046232287,
+      "trend": 0.45646013849453093,
+      "seasonal": -0.21828084751811608,
+      "frequency": 0.325259013987353,
       "corr": {
-        "trend": 0.09018100098391799,
-        "seasonal": 0.008828584204687795,
-        "frequency": 0.09206252787951288
+        "trend": 0.5559666258961942,
+        "seasonal": -0.2658652006123919,
+        "freq": 0.39616418017416505
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.659108002591811,
+        "seasonal": -0.3151877705821556,
+        "frequency": -0.02570422682603341
+      },
+      "resid_corr": {
+        "trend": 0.5559666258961942,
+        "seasonal": -0.2658652006123919,
+        "freq": -0.021681867316957055
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh2": {
-      "trend": 0.31715513156750347,
-      "seasonal": 0.3520932846261325,
-      "frequency": 0.33075158380636405,
+      "trend": 0.48052248041009155,
+      "seasonal": 0.41398869202325617,
+      "frequency": 0.10548882756665232,
       "corr": {
-        "trend": -0.06371443791278003,
-        "seasonal": -0.16821956334067784,
-        "frequency": -0.10569100122374016
+        "trend": 0.46060235667212696,
+        "seasonal": 0.39682673538767194,
+        "freq": 0.101115774101376
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.49512366238850203,
+        "seasonal": 0.42656817472316433,
+        "frequency": 0.07830816288833366
+      },
+      "resid_corr": {
+        "trend": 0.46060235667212696,
+        "seasonal": 0.39682673538767194,
+        "freq": 0.072848314699873
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "EWELD_Load_15T": {
-      "trend": 0.2963007929504314,
-      "seasonal": 0.35055630732912285,
-      "frequency": 0.3531428997204457,
+      "trend": 0.16253893375584055,
+      "seasonal": -0.11749342715600575,
+      "frequency": 0.7199676390881536,
       "corr": {
-        "trend": 0.20818424411788947,
-        "seasonal": 0.376330455524969,
-        "frequency": 0.383681903457563
+        "trend": 0.06825050634513555,
+        "seasonal": -0.049335785035162644,
+        "freq": 0.3023162191631677
       },
-      "n_rows": 432,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3109984464241105,
+        "seasonal": -0.2248093577717909,
+        "frequency": -0.46419219580409865
+      },
+      "resid_corr": {
+        "trend": 0.06825050634513555,
+        "seasonal": -0.049335785035162644,
+        "freq": -0.10186980922048074
+      },
+      "n_rows": 18,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Finland_Traffic_15T": {
-      "trend": 0.29085875697981384,
-      "seasonal": 0.35155888038971334,
-      "frequency": 0.3575823626304728,
+      "trend": -0.19470360573952855,
+      "seasonal": 0.2552861915162402,
+      "frequency": -0.5500102027442312,
       "corr": {
-        "trend": 0.4286909877302289,
-        "seasonal": 0.618230418592324,
-        "frequency": 0.6352189301727188
+        "trend": -0.08241858178291503,
+        "seasonal": 0.10806336006780262,
+        "freq": -0.2328208597069141
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.11319460667600553,
+        "seasonal": 0.1484154334417115,
+        "frequency": 0.738389959882283
+      },
+      "resid_corr": {
+        "trend": -0.08241858178291503,
+        "seasonal": 0.10806336006780262,
+        "freq": 0.5376320929355858
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "NE_China_Wind_H": {
-      "trend": 0.3436344928558482,
-      "seasonal": 0.30651464141302126,
-      "frequency": 0.34985086573113056,
+      "trend": -0.2762730866845143,
+      "seasonal": -0.4605296210963912,
+      "frequency": -0.2631972922190945,
       "corr": {
-        "trend": 0.29078929296693434,
-        "seasonal": 0.17647624517201024,
-        "frequency": 0.3087176870036668
+        "trend": -0.4001004862585032,
+        "seasonal": -0.6669420012942521,
+        "freq": -0.3811640354206231
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3523893492045019,
+        "seasonal": -0.5874105777551643,
+        "frequency": 0.060200073040333854
+      },
+      "resid_corr": {
+        "trend": -0.4001004862585032,
+        "seasonal": -0.6669420012942521,
+        "freq": 0.06835075620363636
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "OpenElectricity_NEM_5T": {
-      "trend": 0.31641954046916976,
-      "seasonal": 0.3456135950247318,
-      "frequency": 0.3379668645060983,
+      "trend": -0.42507915025148246,
+      "seasonal": 0.3030382346233527,
+      "frequency": 0.2718826151251649,
       "corr": {
-        "trend": 0.27531917829574576,
-        "seasonal": 0.36357155916914774,
-        "frequency": 0.3411980422288686
+        "trend": -0.3191786615785386,
+        "seasonal": 0.2275419485453052,
+        "freq": 0.20414816664327895
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.30545289309812323,
+        "seasonal": 0.21775687052702758,
+        "frequency": -0.47679023637484913
+      },
+      "resid_corr": {
+        "trend": -0.3191786615785386,
+        "seasonal": 0.2275419485453052,
+        "freq": -0.4982151845291342
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Port_Activity_D": {
-      "trend": 0.31890668117106447,
-      "seasonal": 0.34826909385213367,
-      "frequency": 0.33282422497680186,
+      "trend": -0.3371366024210108,
+      "seasonal": -0.3220769709179983,
+      "frequency": -0.3407864266609909,
       "corr": {
-        "trend": 0.03677286885617452,
-        "seasonal": -0.1248497835422649,
-        "frequency": -0.07948884207662321
+        "trend": -0.9877209302677868,
+        "seasonal": -0.9436001995882083,
+        "freq": -0.9984139483730272
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.34322871285217643,
+        "seasonal": -0.3278969514839693,
+        "frequency": -0.3288743356638543
+      },
+      "resid_corr": {
+        "trend": -0.9877209302677868,
+        "seasonal": -0.9436001995882083,
+        "freq": -0.946412851255264
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Customer_D": {
-      "trend": 0.3270618216937788,
-      "seasonal": 0.34272259684903916,
-      "frequency": 0.33021558145718205,
+      "trend": 0.07766510086211334,
+      "seasonal": -0.6160807609461735,
+      "frequency": 0.30625413819171327,
       "corr": {
-        "trend": 0.1513578501627659,
-        "seasonal": 0.1981300043716253,
-        "frequency": 0.1609543582779244
+        "trend": 0.06030176646611319,
+        "seasonal": -0.4783455858352509,
+        "freq": 0.2377858950225913
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.04083289107978552,
+        "seasonal": -0.32390814315337196,
+        "frequency": -0.6352589657668425
+      },
+      "resid_corr": {
+        "trend": 0.06030176646611319,
+        "seasonal": -0.4783455858352509,
+        "freq": -0.9381465966817343
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Location_D": {
-      "trend": 0.38135247869940125,
-      "seasonal": 0.3098311139448355,
-      "frequency": 0.3088164073557633,
+      "trend": -0.1033096542581534,
+      "seasonal": 0.4813190754163163,
+      "frequency": -0.41537127032553023,
       "corr": {
-        "trend": 0.2315820382611718,
-        "seasonal": 0.023885305169119672,
-        "frequency": 0.020604899238187764
+        "trend": -0.19321753974494013,
+        "seasonal": 0.9001993884507676,
+        "freq": -0.7768588086886891
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.11571746826379845,
+        "seasonal": 0.5391270083536522,
+        "frequency": 0.3451555233825493
+      },
+      "resid_corr": {
+        "trend": -0.19321753974494013,
+        "seasonal": 0.9001993884507676,
+        "freq": 0.5763183558883387
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Water_Quality_Darwin_15T": {
-      "trend": 0.3493808549281861,
-      "seasonal": 0.2858398763889113,
-      "frequency": 0.3647792686829027,
+      "trend": 0.35558722381567714,
+      "seasonal": 0.3782372739739282,
+      "frequency": 0.2661755022103947,
       "corr": {
-        "trend": 0.25917403644962295,
-        "seasonal": 0.05844321565543872,
-        "frequency": 0.30230386170588447
+        "trend": 0.38247636722096867,
+        "seasonal": 0.4068391910843795,
+        "freq": 0.2863034223676747
       },
-      "n_rows": 384,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.4203781663280043,
+        "seasonal": 0.44715524355420555,
+        "frequency": 0.1324665901177902
+      },
+      "resid_corr": {
+        "trend": 0.38247636722096867,
+        "seasonal": 0.4068391910843795,
+        "freq": 0.12052324365216752
+      },
+      "n_rows": 16,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "azure2019_U_5T": {
-      "trend": 0.31448402072523696,
-      "seasonal": 0.3193864079824951,
-      "frequency": 0.3661295712922679,
+      "trend": 0.39864692322783124,
+      "seasonal": -0.6013530767721688,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.030420564028868835,
         "seasonal": -0.04588897771437231,
         "frequency": -0.1824745883593083
       },
       "n_rows": 48,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "current_velocity_15T": {
-      "trend": 0.35291865513418824,
-      "seasonal": 0.28912623728337067,
-      "frequency": 0.35795510758244115,
+      "trend": -0.434789074740134,
+      "seasonal": 0.14899829505071968,
+      "frequency": -0.4162126302091463,
       "corr": {
-        "trend": 0.39230429964331476,
-        "seasonal": 0.19293010792727583,
-        "frequency": 0.40647428870177243
+        "trend": -0.24278282571419715,
+        "seasonal": 0.08319948499311332,
+        "freq": -0.2324098840811724
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5292579470361934,
+        "seasonal": 0.18137192568044475,
+        "frequency": -0.2893701272833618
+      },
+      "resid_corr": {
+        "trend": -0.24278282571419715,
+        "seasonal": 0.08319948499311332,
+        "freq": -0.13274075065390967
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_20T": {
-      "trend": 0.32698564180516215,
-      "seasonal": 0.3339223979322041,
-      "frequency": 0.33909196026263366,
+      "trend": -0.38048752150739906,
+      "seasonal": -0.012872028252268493,
+      "frequency": 0.6066404502403325,
       "corr": {
-        "trend": 0.14197845060055106,
-        "seasonal": 0.16297081398091545,
-        "frequency": 0.17833352932495372
+        "trend": -0.11622133321416764,
+        "seasonal": -0.003931809060970702,
+        "freq": 0.1853005891737328
       },
-      "n_rows": 336,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.2840669965140395,
+        "seasonal": -0.009610087579691274,
+        "frequency": -0.7063229159062692
+      },
+      "resid_corr": {
+        "trend": -0.11622133321416764,
+        "seasonal": -0.003931809060970702,
+        "freq": -0.28898038833697415
+      },
+      "n_rows": 14,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_5T": {
-      "trend": 0.30412509719294684,
-      "seasonal": 0.3464603832413002,
-      "frequency": 0.34941451956575303,
+      "trend": 0.19283150096257626,
+      "seasonal": 0.4878372902891685,
+      "frequency": 0.3193312087482553,
       "corr": {
-        "trend": 0.49398724681814793,
-        "seasonal": 0.6243166041456556,
-        "frequency": 0.6328070786807635
+        "trend": 0.17479818422726137,
+        "seasonal": 0.4422154685060685,
+        "freq": 0.2894678264581084
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.2026012589220096,
+        "seasonal": 0.5125534400153274,
+        "frequency": 0.284845301062663
+      },
+      "resid_corr": {
+        "trend": 0.17479818422726137,
+        "seasonal": 0.4422154685060685,
+        "freq": 0.24575583427439454
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_H": {
-      "trend": 0.33678488895365005,
-      "seasonal": 0.32692384932130625,
-      "frequency": 0.3362912617250437,
+      "trend": -0.732475455459184,
+      "seasonal": -0.05412001232550729,
+      "frequency": -0.21340453221530864,
       "corr": {
-        "trend": 0.19793611789005766,
-        "seasonal": 0.16821897013959866,
-        "frequency": 0.19646933789314472
+        "trend": -0.21458979700511305,
+        "seasonal": -0.015855278661268363,
+        "freq": -0.0625200952560874
       },
-      "n_rows": 120,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5957711681385743,
+        "seasonal": -0.04401941760987541,
+        "frequency": -0.3602094142515503
+      },
+      "resid_corr": {
+        "trend": -0.21458979700511305,
+        "seasonal": -0.015855278661268363,
+        "freq": -0.12974321218846188
+      },
+      "n_rows": 5,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "electricity": {
-      "trend": 0.32260712306442146,
-      "seasonal": 0.33886781628966584,
-      "frequency": 0.33852506064591276,
+      "trend": 0.06596985593300275,
+      "seasonal": -0.8831482106657691,
+      "frequency": -0.050881933401228215,
       "corr": {
-        "trend": -0.18430972182588057,
-        "seasonal": -0.23348458509520123,
-        "frequency": -0.23247260022002694
+        "trend": 0.00908900689668522,
+        "seasonal": -0.12167587853592307,
+        "freq": -0.00701026608380212
       },
-      "n_rows": 1440,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.02739049822630111,
+        "seasonal": -0.366680647633494,
+        "frequency": 0.6059288541402048
+      },
+      "resid_corr": {
+        "trend": 0.00908900689668522,
+        "seasonal": -0.12167587853592307,
+        "freq": 0.20106576699260773
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "exchange_rate": {
-      "trend": 0.3404142106847546,
-      "seasonal": 0.33298890725590485,
-      "frequency": 0.32659688205934057,
+      "trend": -0.019753450380320663,
+      "seasonal": 0.4555363839293137,
+      "frequency": -0.5247101656903657,
       "corr": {
-        "trend": 0.13490821538435033,
-        "seasonal": 0.11285425042079356,
-        "frequency": 0.09347170636521251
+        "trend": -0.014614354255730084,
+        "seasonal": 0.33702315104148345,
+        "freq": -0.38820054701032697
       },
-      "n_rows": 1128,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.0265196980327592,
+        "seasonal": 0.6115735282771572,
+        "frequency": -0.3619067736900836
+      },
+      "resid_corr": {
+        "trend": -0.014614354255730084,
+        "seasonal": 0.33702315104148345,
+        "freq": -0.19943793446372546
+      },
+      "n_rows": 11,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "national_illness": {
-      "trend": 0.38392574607555147,
-      "seasonal": 0.26478292185667524,
-      "frequency": 0.3512913320677733,
+      "trend": 0.6516884800080639,
+      "seasonal": 0.3483115199919361,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.798108003363553,
         "seasonal": 0.42656916655308774,
         "frequency": 0.7092747241616041
       },
       "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "traffic": {
-      "trend": 0.3005016989260469,
-      "seasonal": 0.35197953173178886,
-      "frequency": 0.34751876934216414,
+      "trend": -0.3501015225483966,
+      "seasonal": -0.3027937865390271,
+      "frequency": -0.3471046909125763,
       "corr": {
-        "trend": -0.06134292809605662,
-        "seasonal": -0.21946254589089864,
-        "frequency": -0.20670819651438752
+        "trend": -0.3813991671227091,
+        "seasonal": -0.329862312952244,
+        "freq": -0.3781344309924889
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5261529140602378,
+        "seasonal": -0.4550560991199904,
+        "frequency": -0.018790986819771892
+      },
+      "resid_corr": {
+        "trend": -0.3813991671227091,
+        "seasonal": -0.329862312952244,
+        "freq": -0.013621262053210428
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "weather": {
-      "trend": 0.3262840260078171,
-      "seasonal": 0.3474745173766391,
-      "frequency": 0.3262414566155437,
+      "trend": 0.017190683934761416,
+      "seasonal": -0.2653594759712032,
+      "frequency": 0.7174498400940355,
       "corr": {
-        "trend": -0.0667881419088322,
-        "seasonal": -0.1297112254590942,
-        "frequency": -0.06665766610836958
+        "trend": 0.00479630638252508,
+        "seasonal": -0.07403692331813304,
+        "freq": 0.2001729111095066
       },
-      "n_rows": 1440,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.010547326608490056,
+        "seasonal": -0.16281103604415104,
+        "frequency": 0.826641637347359
+      },
+      "resid_corr": {
+        "trend": 0.00479630638252508,
+        "seasonal": -0.07403692331813304,
+        "freq": 0.3759082001005486
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     }
   },
   "kairos23m": {
     "Australia_Solar_H": {
-      "trend": 0.36343148632374916,
-      "seasonal": 0.31637155792881305,
-      "frequency": 0.32019695574743773,
+      "trend": 0.44134115461201867,
+      "seasonal": 0.21531955169534983,
+      "frequency": 0.34333929369263155,
       "corr": {
-        "trend": 0.34107869586890105,
-        "seasonal": 0.20240523903828306,
-        "frequency": 0.21442419312171274
+        "trend": 0.3245339038523662,
+        "seasonal": 0.15833215179958274,
+        "freq": 0.25246963752097246
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.5476492151284761,
+        "seasonal": 0.26718465353958737,
+        "frequency": 0.18516613133193663
+      },
+      "resid_corr": {
+        "trend": 0.3245339038523662,
+        "seasonal": 0.15833215179958274,
+        "freq": 0.10972842798340514
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_15T": {
-      "trend": 0.3482506690522788,
-      "seasonal": 0.33062685029275224,
-      "frequency": 0.321122480654969,
+      "trend": 0.4498059341867026,
+      "seasonal": 0.020134587735721302,
+      "frequency": 0.530059478077576,
       "corr": {
-        "trend": 0.19105282776110383,
-        "seasonal": 0.1391206928646689,
-        "frequency": 0.10995290394661167
+        "trend": 0.23854099537928666,
+        "seasonal": 0.010677770645055495,
+        "freq": 0.28110103913917656
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.8131532365199208,
+        "seasonal": 0.036399042206722604,
+        "frequency": -0.1504477212733568
+      },
+      "resid_corr": {
+        "trend": 0.23854099537928666,
+        "seasonal": 0.010677770645055495,
+        "freq": -0.044134300367152046
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_20T": {
-      "trend": 0.35242938251501915,
-      "seasonal": 0.39169627487224645,
-      "frequency": 0.25587434261273445,
+      "trend": -0.06553169162660555,
+      "seasonal": 0.04168372877756734,
+      "frequency": -0.8927845795958271,
       "corr": {
-        "trend": 0.3844351201252941,
-        "seasonal": 0.49007158170455223,
-        "frequency": 0.06427132603775866
+        "trend": -0.03163169448981412,
+        "seasonal": 0.020120447697293497,
+        "freq": -0.4309409442366191
       },
-      "n_rows": 168,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.09270579216626344,
+        "seasonal": 0.05896876764278668,
+        "frequency": -0.8483254401909499
+      },
+      "resid_corr": {
+        "trend": -0.03163169448981412,
+        "seasonal": 0.020120447697293497,
+        "freq": -0.2894530160956044
+      },
+      "n_rows": 7,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_5T": {
-      "trend": 0.36327327915977997,
-      "seasonal": 0.3223237534187156,
-      "frequency": 0.31440296742150436,
+      "trend": 0.35312073114708675,
+      "seasonal": 0.014285257719291306,
+      "frequency": -0.6325940111336219,
       "corr": {
-        "trend": 0.7014233751759417,
-        "seasonal": 0.5818244748208922,
-        "frequency": 0.5569434878724926
+        "trend": 0.030531000291921608,
+        "seasonal": 0.0012351107401173506,
+        "freq": -0.054694404023941746
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3428598743321646,
+        "seasonal": 0.013870161773081187,
+        "frequency": 0.6432699638947542
+      },
+      "resid_corr": {
+        "trend": 0.030531000291921608,
+        "seasonal": 0.0012351107401173506,
+        "freq": 0.05728193039127149
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_H": {
-      "trend": 0.3229892717340085,
-      "seasonal": 0.3178881281179041,
-      "frequency": 0.3591226001480874,
+      "trend": -0.7036958260115836,
+      "seasonal": -0.2956652566698187,
+      "frequency": 0.0006389173185977031,
       "corr": {
-        "trend": -0.04695626581083651,
-        "seasonal": -0.03103668009882824,
-        "frequency": 0.15300099236521758
+        "trend": -0.698274682132021,
+        "seasonal": -0.29338750563400606,
+        "freq": 0.000633995216485923
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5666358612712872,
+        "seasonal": -0.23807806038960516,
+        "frequency": -0.1952860783391076
+      },
+      "resid_corr": {
+        "trend": -0.698274682132021,
+        "seasonal": -0.29338750563400606,
+        "freq": -0.24065424304615785
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh1": {
-      "trend": 0.32214771295351996,
-      "seasonal": 0.33719767875187895,
-      "frequency": 0.3406546082946011,
+      "trend": 0.02026926837765751,
+      "seasonal": -0.19127933177833248,
+      "frequency": -0.7884513998440099,
       "corr": {
-        "trend": 0.028547904493874003,
-        "seasonal": 0.07420707046888692,
-        "frequency": -0.08440681332968247
+        "trend": 0.00900660996121164,
+        "seasonal": -0.08499459886118171,
+        "freq": -0.3503468452563361
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.07535129271393365,
+        "seasonal": -0.711083629187235,
+        "frequency": 0.21356507809883138
+      },
+      "resid_corr": {
+        "trend": 0.00900660996121164,
+        "seasonal": -0.08499459886118171,
+        "freq": 0.025527065170259402
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh2": {
-      "trend": 0.3360433289398032,
-      "seasonal": 0.337467270571848,
-      "frequency": 0.32648940048834874,
+      "trend": -0.2603964154440802,
+      "seasonal": 0.2593343239106904,
+      "frequency": 0.4802692606452293,
       "corr": {
-        "trend": 0.03356180040405238,
-        "seasonal": 0.03779022310355341,
-        "frequency": -0.0047191777184472945
+        "trend": -0.17281522227811003,
+        "seasonal": 0.17211035241993844,
+        "freq": 0.31873648832763035
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.47761486386166985,
+        "seasonal": 0.47566679287051006,
+        "frequency": -0.046718343267820046
+      },
+      "resid_corr": {
+        "trend": -0.17281522227811003,
+        "seasonal": 0.17211035241993844,
+        "freq": -0.0169040821112965
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "EWELD_Load_15T": {
-      "trend": 0.31136641914777274,
-      "seasonal": 0.34516037709752834,
-      "frequency": 0.34347320375469903,
+      "trend": 0.43133560998292214,
+      "seasonal": 0.3675699497972909,
+      "frequency": 0.201094440219787,
       "corr": {
-        "trend": 0.37694091073067504,
-        "seasonal": 0.4799796656328967,
-        "frequency": 0.47507959463551525
+        "trend": 0.40418033592347996,
+        "seasonal": 0.34442912281304067,
+        "freq": 0.18843428763879647
       },
-      "n_rows": 432,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.518051838957474,
+        "seasonal": 0.44146665387894185,
+        "frequency": 0.040481507163584035
+      },
+      "resid_corr": {
+        "trend": 0.40418033592347996,
+        "seasonal": 0.34442912281304067,
+        "freq": 0.03158338207425854
+      },
+      "n_rows": 18,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Finland_Traffic_15T": {
-      "trend": 0.3047348161081925,
-      "seasonal": 0.35182750473806523,
-      "frequency": 0.3434376791537424,
+      "trend": -0.2529059587370066,
+      "seasonal": -0.3420177705006434,
+      "frequency": -0.40507627076234987,
       "corr": {
-        "trend": 0.3326503371412239,
-        "seasonal": 0.4763494062421918,
-        "frequency": 0.4522140603589051
+        "trend": -0.3218915538359715,
+        "seasonal": -0.43531054837838207,
+        "freq": -0.5155696246499472
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.28491630038553317,
+        "seasonal": -0.38530700630302217,
+        "frequency": -0.3297766933114447
+      },
+      "resid_corr": {
+        "trend": -0.3218915538359715,
+        "seasonal": -0.43531054837838207,
+        "freq": -0.3725737421315314
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "NE_China_Wind_H": {
-      "trend": 0.36821305193413645,
-      "seasonal": 0.32160296175453407,
-      "frequency": 0.31018398631132954,
+      "trend": -0.1528325580975649,
+      "seasonal": -0.42954034675657277,
+      "frequency": -0.4176270951458624,
       "corr": {
-        "trend": 0.3037946004656062,
-        "seasonal": 0.1684506310458987,
-        "frequency": 0.1322985100030611
+        "trend": -0.017071707169130312,
+        "seasonal": -0.04798052920421372,
+        "freq": -0.046649794801401565
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.15612969999409046,
+        "seasonal": -0.4388070598913166,
+        "frequency": 0.40506324011459294
+      },
+      "resid_corr": {
+        "trend": -0.017071707169130312,
+        "seasonal": -0.04798052920421372,
+        "freq": 0.04429087496150437
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "OpenElectricity_NEM_5T": {
-      "trend": 0.3088250005282173,
-      "seasonal": 0.34484899314935213,
-      "frequency": 0.34632600632243044,
+      "trend": 0.1282752515653865,
+      "seasonal": 0.6841888245843774,
+      "frequency": -0.18753592385023615,
       "corr": {
-        "trend": 0.38685229017769107,
-        "seasonal": 0.49718413524034183,
-        "frequency": 0.5014580613010973
+        "trend": 0.031001234757882037,
+        "seasonal": 0.16535300543805836,
+        "freq": -0.04532320248737875
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.10543888715697625,
+        "seasonal": 0.5623852410271359,
+        "frequency": -0.33217587181588787
+      },
+      "resid_corr": {
+        "trend": 0.031001234757882037,
+        "seasonal": 0.16535300543805836,
+        "freq": -0.0976666433109933
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Port_Activity_D": {
-      "trend": 0.3195169666695672,
-      "seasonal": 0.36527781160291545,
-      "frequency": 0.31520522172751725,
+      "trend": 0.3587542527718244,
+      "seasonal": 0.1973765454613184,
+      "frequency": 0.4438692017668571,
       "corr": {
-        "trend": 0.09092353698881539,
-        "seasonal": 0.22477135251500574,
-        "frequency": 0.07733708500498239
+        "trend": 0.3827108008259892,
+        "seasonal": 0.21055676746447477,
+        "freq": 0.47350947440400043
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.471188535020156,
+        "seasonal": 0.2592347396155019,
+        "frequency": 0.269576725364342
+      },
+      "resid_corr": {
+        "trend": 0.3827108008259892,
+        "seasonal": 0.21055676746447477,
+        "freq": 0.218956780100394
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Customer_D": {
-      "trend": 0.3444536120420375,
-      "seasonal": 0.31581952953556786,
-      "frequency": 0.33972685842239464,
+      "trend": -0.40542544173907213,
+      "seasonal": -0.12043178982623533,
+      "frequency": -0.47414276843469255,
       "corr": {
-        "trend": 0.11240946694202693,
-        "seasonal": -0.025620979930635168,
-        "frequency": -0.09859197571766674
+        "trend": -0.6937419685395462,
+        "seasonal": -0.2060763295722434,
+        "freq": -0.8113273210771309
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.37739551035759844,
+        "seasonal": -0.11210548748443508,
+        "frequency": 0.5104990021579664
+      },
+      "resid_corr": {
+        "trend": -0.6937419685395462,
+        "seasonal": -0.2060763295722434,
+        "freq": 0.9384175830787309
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Location_D": {
-      "trend": 0.3800548460296696,
-      "seasonal": 0.3075142502988044,
-      "frequency": 0.3124309036715261,
+      "trend": -0.16815821407004228,
+      "seasonal": 0.4057998084591981,
+      "frequency": -0.42604197747075967,
       "corr": {
-        "trend": 0.32915444457708426,
-        "seasonal": 0.11736029922237025,
-        "frequency": 0.13322220709174548
+        "trend": -0.3410352638378284,
+        "seasonal": 0.822987122624762,
+        "freq": -0.8640394939744744
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.18349314766499883,
+        "seasonal": 0.4428061072593025,
+        "frequency": 0.3737007450756986
+      },
+      "resid_corr": {
+        "trend": -0.3410352638378284,
+        "seasonal": 0.822987122624762,
+        "freq": 0.6945498173368246
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Water_Quality_Darwin_15T": {
-      "trend": 0.37302142786590664,
-      "seasonal": 0.2887459067705228,
-      "frequency": 0.3382326653635705,
+      "trend": -0.3719180633021357,
+      "seasonal": -0.5986512731768023,
+      "frequency": -0.02943066352106212,
       "corr": {
-        "trend": 0.3155865601384929,
-        "seasonal": 0.05949778083206009,
-        "frequency": 0.21768471251943786
+        "trend": -0.21175121184397983,
+        "seasonal": -0.3408415591370428,
+        "freq": -0.016756321568857577
       },
-      "n_rows": 384,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.21102328625587086,
+        "seasonal": -0.3396698667050315,
+        "frequency": -0.44930684703909757
+      },
+      "resid_corr": {
+        "trend": -0.21175121184397983,
+        "seasonal": -0.3408415591370428,
+        "freq": -0.45085673263075565
+      },
+      "n_rows": 16,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "azure2019_U_5T": {
-      "trend": 0.3315823817265651,
-      "seasonal": 0.3085048066176351,
-      "frequency": 0.3599128116557998,
+      "trend": 0.7228635663599998,
+      "seasonal": -0.27713643364000007,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.11699211195278802,
         "seasonal": -0.04485324503747383,
         "frequency": 0.19897763347764885
       },
       "n_rows": 48,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "current_velocity_15T": {
-      "trend": 0.3150469529021613,
-      "seasonal": 0.3677400646149603,
-      "frequency": 0.31721298248287827,
+      "trend": -0.10347853840259318,
+      "seasonal": -0.2671597144857823,
+      "frequency": -0.6293617471116244,
       "corr": {
-        "trend": 0.37080963971211145,
-        "seasonal": 0.5254642975960391,
-        "frequency": 0.3776613724675758
+        "trend": -0.06349019586746259,
+        "seasonal": -0.16391826616844282,
+        "freq": -0.38615060873921403
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.12746247769083904,
+        "seasonal": -0.3290811763792905,
+        "frequency": -0.5434563459298704
+      },
+      "resid_corr": {
+        "trend": -0.06349019586746259,
+        "seasonal": -0.16391826616844282,
+        "freq": -0.27070044826990564
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_20T": {
-      "trend": 0.3331928962766706,
-      "seasonal": 0.344240870328067,
-      "frequency": 0.32256623339526225,
+      "trend": -0.35613996610063464,
+      "seasonal": -0.33467322211688894,
+      "frequency": -0.3091868117824765,
       "corr": {
-        "trend": 0.04095533558009796,
-        "seasonal": -0.07357536199924254,
-        "frequency": -0.008542235230871872
+        "trend": -0.49414436443938253,
+        "seasonal": -0.4643592474288599,
+        "freq": -0.42899684153426043
       },
-      "n_rows": 336,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3637428242995683,
+        "seasonal": -0.3418178093380152,
+        "frequency": -0.2944393663624165
+      },
+      "resid_corr": {
+        "trend": -0.49414436443938253,
+        "seasonal": -0.4643592474288599,
+        "freq": -0.39999566682108567
+      },
+      "n_rows": 14,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_5T": {
-      "trend": 0.30845857158323975,
-      "seasonal": 0.342431797722801,
-      "frequency": 0.3491096306939591,
+      "trend": 0.5610197980758119,
+      "seasonal": 0.1267799314415434,
+      "frequency": -0.31220027048264476,
       "corr": {
-        "trend": 0.300730732718586,
-        "seasonal": 0.4052156953712383,
-        "frequency": 0.42452918917192045
+        "trend": 0.31377565544022984,
+        "seasonal": 0.07090740152339875,
+        "freq": -0.17461209895853128
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.498921530771569,
+        "seasonal": 0.11274689000793844,
+        "frequency": 0.38833157922049266
+      },
+      "resid_corr": {
+        "trend": 0.31377565544022984,
+        "seasonal": 0.07090740152339875,
+        "freq": 0.244224769393322
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_H": {
-      "trend": 0.304207206125801,
-      "seasonal": 0.3549478078306681,
-      "frequency": 0.3408449860435309,
+      "trend": -0.13095423166683845,
+      "seasonal": -0.3984794770971256,
+      "frequency": -0.470566291236036,
       "corr": {
-        "trend": 0.054690923354069686,
-        "seasonal": 0.2089526135045721,
-        "frequency": 0.16840964257818175
+        "trend": -0.16403864741738336,
+        "seasonal": -0.4991517541250354,
+        "freq": -0.5894506573178645
       },
-      "n_rows": 120,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.14263436455529993,
+        "seasonal": -0.4340208504958874,
+        "frequency": -0.42334478494881267
+      },
+      "resid_corr": {
+        "trend": -0.16403864741738336,
+        "seasonal": -0.4991517541250354,
+        "freq": -0.48687359550918174
+      },
+      "n_rows": 5,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "electricity": {
-      "trend": 0.3508999666291132,
-      "seasonal": 0.333070283513652,
-      "frequency": 0.31602974985723475,
+      "trend": -0.26453583690465454,
+      "seasonal": -0.35716248143017765,
+      "frequency": -0.3783016816651677,
       "corr": {
-        "trend": 0.2585886798498094,
-        "seasonal": 0.2064410216741262,
-        "frequency": 0.15392384663486047
+        "trend": -0.22152687200338594,
+        "seasonal": -0.2990940215662044,
+        "freq": -0.31679635240918363
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.2251241492773933,
+        "seasonal": -0.3039508776073764,
+        "frequency": -0.47092497311523024
+      },
+      "resid_corr": {
+        "trend": -0.22152687200338594,
+        "seasonal": -0.2990940215662044,
+        "freq": -0.46340002428593974
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "exchange_rate": {
-      "trend": 0.3355119889524619,
-      "seasonal": 0.3245915265847997,
-      "frequency": 0.3398964844627384,
+      "trend": 0.24786768475000082,
+      "seasonal": 0.539835359571461,
+      "frequency": -0.21229695567853824,
       "corr": {
-        "trend": 0.0790805342650298,
-        "seasonal": -0.045990394473944804,
-        "frequency": 0.09206395770024972
+        "trend": 0.24584103001084973,
+        "seasonal": 0.5354214728199859,
+        "freq": -0.21056113992761769
       },
-      "n_rows": 264,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.30037587532719245,
+        "seasonal": 0.6541938648734916,
+        "frequency": 0.04543025979931594
+      },
+      "resid_corr": {
+        "trend": 0.24584103001084973,
+        "seasonal": 0.5354214728199859,
+        "freq": 0.037182153362211964
+      },
+      "n_rows": 11,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "traffic": {
-      "trend": 0.31166950941929467,
-      "seasonal": 0.3408477074594051,
-      "frequency": 0.34748278312130026,
+      "trend": 0.017324675222363077,
+      "seasonal": -0.5591369456149301,
+      "frequency": -0.4235383791627068,
       "corr": {
-        "trend": 0.47560917376948963,
-        "seasonal": 0.5651015838936814,
-        "frequency": 0.5843809308618614
+        "trend": 0.007581518639436386,
+        "seasonal": -0.2446860977633328,
+        "freq": -0.18534628066180567
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.018122839072102912,
+        "seasonal": -0.5848969030926734,
+        "frequency": -0.3969802578352237
+      },
+      "resid_corr": {
+        "trend": 0.007581518639436386,
+        "seasonal": -0.2446860977633328,
+        "freq": -0.1660729432232813
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "weather": {
-      "trend": 0.3293256608000962,
-      "seasonal": 0.3458616393740837,
-      "frequency": 0.3248126998258201,
+      "trend": 0.5878519288909608,
+      "seasonal": -0.3371517345916163,
+      "frequency": 0.07499633651742288,
       "corr": {
-        "trend": 0.06995396890423976,
-        "seasonal": 0.1189456661414098,
-        "frequency": 0.05615556523363838
+        "trend": 0.20158422291763928,
+        "seasonal": -0.11561494839560472,
+        "freq": 0.025717493599206477
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.5743891163129197,
+        "seasonal": -0.32943038438403655,
+        "frequency": 0.09618049930304384
+      },
+      "resid_corr": {
+        "trend": 0.20158422291763928,
+        "seasonal": -0.11561494839560472,
+        "freq": 0.033754941835060906
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     }
   },
   "kairos50m": {
     "Australia_Solar_H": {
-      "trend": 0.3792665594694376,
-      "seasonal": 0.30461376477968133,
-      "frequency": 0.31611967575088107,
+      "trend": 0.36710632757654976,
+      "seasonal": -0.43784241038011995,
+      "frequency": -0.1950512620433303,
       "corr": {
-        "trend": 0.4027120882453551,
-        "seasonal": 0.18351743637077172,
-        "frequency": 0.22059366986133513
+        "trend": 0.10247687059316121,
+        "seasonal": -0.12222268225372722,
+        "freq": -0.05444810246502533
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.4299814539344435,
+        "seasonal": -0.5128326647274911,
+        "frequency": 0.05718588133806554
+      },
+      "resid_corr": {
+        "trend": 0.10247687059316121,
+        "seasonal": -0.12222268225372722,
+        "freq": 0.01362903006167863
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_15T": {
-      "trend": 0.35253351781327286,
-      "seasonal": 0.32243947611261015,
-      "frequency": 0.32502700607411705,
+      "trend": 0.32312855153228626,
+      "seasonal": 0.2067537575227227,
+      "frequency": 0.470117690944991,
       "corr": {
-        "trend": 0.11672926979333824,
-        "seasonal": -0.027499013721077978,
-        "frequency": -0.03549184055645747
+        "trend": 0.29171222640654043,
+        "seasonal": 0.18665202638042078,
+        "freq": 0.42441027773109863
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.4294681582494275,
+        "seasonal": 0.2747951396847095,
+        "frequency": 0.29573670206586294
+      },
+      "resid_corr": {
+        "trend": 0.29171222640654043,
+        "seasonal": 0.18665202638042078,
+        "freq": 0.20087638660199927
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_20T": {
-      "trend": 0.34111890314306226,
-      "seasonal": 0.31501155419380505,
-      "frequency": 0.34386954266313263,
+      "trend": -0.36751691863175867,
+      "seasonal": -0.4312964680489619,
+      "frequency": -0.20118661331927948,
       "corr": {
-        "trend": 0.372247675998305,
-        "seasonal": 0.2926258880570428,
-        "frequency": 0.3802789189244605
+        "trend": -0.31280916370953404,
+        "seasonal": -0.3670946305915537,
+        "freq": -0.17123841943454657
       },
-      "n_rows": 168,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.4209928314016227,
+        "seasonal": -0.4940526872434479,
+        "frequency": -0.08495448135492939
+      },
+      "resid_corr": {
+        "trend": -0.31280916370953404,
+        "seasonal": -0.3670946305915537,
+        "freq": -0.06312349827320654
+      },
+      "n_rows": 7,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_5T": {
-      "trend": 0.36333281841811293,
-      "seasonal": 0.31725020602647175,
-      "frequency": 0.31941697555541526,
+      "trend": 0.1364788657559306,
+      "seasonal": -0.19591505941119958,
+      "frequency": -0.6676060748328697,
       "corr": {
-        "trend": 0.6701832743197065,
-        "seasonal": 0.5345547609713941,
-        "frequency": 0.5413613875957456
+        "trend": 0.024912047975122188,
+        "seasonal": -0.03576118054665642,
+        "freq": -0.12186087913759466
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.15286903798666196,
+        "seasonal": -0.21944310932982955,
+        "frequency": 0.6276878526835086
+      },
+      "resid_corr": {
+        "trend": 0.024912047975122188,
+        "seasonal": -0.03576118054665642,
+        "freq": 0.10229010468959282
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_H": {
-      "trend": 0.3346446713096786,
-      "seasonal": 0.3120175291326228,
-      "frequency": 0.3533377995576985,
+      "trend": -0.6820235655059503,
+      "seasonal": -0.293243999218034,
+      "frequency": 0.02473243527601567,
       "corr": {
-        "trend": -0.07452700545264707,
-        "seasonal": 0.004517088555847088,
-        "frequency": 0.12888225782294918
+        "trend": -0.6592232394084729,
+        "seasonal": -0.2834407326647154,
+        "freq": 0.023905619872563177
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.560313396269703,
+        "seasonal": -0.24091329016714638,
+        "frequency": -0.19877331356315064
+      },
+      "resid_corr": {
+        "trend": -0.6592232394084729,
+        "seasonal": -0.2834407326647154,
+        "freq": -0.2338619575177586
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh1": {
-      "trend": 0.32808668358338366,
-      "seasonal": 0.33330326700744134,
-      "frequency": 0.338610049409175,
+      "trend": -0.11889783974853944,
+      "seasonal": -0.5918344105810946,
+      "frequency": 0.28926774967036595,
       "corr": {
-        "trend": 0.006327149269860853,
-        "seasonal": -0.022102083851863925,
-        "frequency": 0.037898445136967426
+        "trend": -0.07028670440536319,
+        "seasonal": -0.34986413850253956,
+        "freq": 0.1710012297791589
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.07462608458940194,
+        "seasonal": -0.37146414838446346,
+        "frequency": -0.5539097670261346
+      },
+      "resid_corr": {
+        "trend": -0.07028670440536319,
+        "seasonal": -0.34986413850253956,
+        "freq": -0.5217008540166468
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh2": {
-      "trend": 0.3291764504539283,
-      "seasonal": 0.34208001657350595,
-      "frequency": 0.3287435329725657,
+      "trend": -0.3803611457123251,
+      "seasonal": -0.046695123353546884,
+      "frequency": 0.572943730934128,
       "corr": {
-        "trend": -0.07090126246913922,
-        "seasonal": -0.10935200819156814,
-        "frequency": -0.06958524363782481
+        "trend": -0.3419223694329868,
+        "seasonal": -0.04197617816117801,
+        "freq": 0.515042822436279
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.7154228022801233,
+        "seasonal": -0.08782904452516492,
+        "frequency": 0.19674815319471176
+      },
+      "resid_corr": {
+        "trend": -0.3419223694329868,
+        "seasonal": -0.04197617816117801,
+        "freq": 0.09403194098300431
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "EWELD_Load_15T": {
-      "trend": 0.31991705530035863,
-      "seasonal": 0.34052854494147683,
-      "frequency": 0.3395543997581646,
+      "trend": 0.32274367783365004,
+      "seasonal": 0.38081046285603515,
+      "frequency": 0.2964458593103149,
       "corr": {
-        "trend": 0.26935524854154425,
-        "seasonal": 0.3317924430359142,
-        "frequency": 0.32892765762366966
+        "trend": 0.2641396279276603,
+        "seasonal": 0.3116626006276048,
+        "freq": 0.24261698789737854
       },
-      "n_rows": 432,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3500597654805994,
+        "seasonal": 0.4130411545618301,
+        "frequency": 0.23689907995757062
+      },
+      "resid_corr": {
+        "trend": 0.2641396279276603,
+        "seasonal": 0.3116626006276048,
+        "freq": 0.17875357583722568
+      },
+      "n_rows": 18,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Finland_Traffic_15T": {
-      "trend": 0.3208404096497885,
-      "seasonal": 0.34894288311789884,
-      "frequency": 0.3302167072323127,
+      "trend": -0.12319207402223094,
+      "seasonal": -0.34454424646622117,
+      "frequency": -0.5322636795115478,
       "corr": {
-        "trend": 0.41407070413391006,
-        "seasonal": 0.4980351209529365,
-        "frequency": 0.4428759983497173
+        "trend": -0.10572296537346403,
+        "seasonal": -0.2956865506802099,
+        "freq": -0.4567866480468307
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.15927272116223298,
+        "seasonal": -0.4454547918850951,
+        "frequency": -0.39527248695267186
+      },
+      "resid_corr": {
+        "trend": -0.10572296537346403,
+        "seasonal": -0.2956865506802099,
+        "freq": -0.2623762509125104
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "NE_China_Wind_H": {
-      "trend": 0.35474844501487424,
-      "seasonal": 0.3354965135960237,
-      "frequency": 0.30975504138910215,
+      "trend": -0.3453673718462163,
+      "seasonal": -0.14572045294265762,
+      "frequency": -0.5089121752111261,
       "corr": {
-        "trend": 0.27288372686735163,
-        "seasonal": 0.2170863588550906,
-        "frequency": 0.1372565902112835
+        "trend": -0.13193209020994068,
+        "seasonal": -0.05566595315675806,
+        "freq": -0.1944070357601356
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.6285835438428635,
+        "seasonal": -0.26521752252227543,
+        "frequency": 0.10619893363486096
+      },
+      "resid_corr": {
+        "trend": -0.13193209020994068,
+        "seasonal": -0.05566595315675806,
+        "freq": 0.022289872889221757
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "OpenElectricity_NEM_5T": {
-      "trend": 0.3179653789261444,
-      "seasonal": 0.3388305836755553,
-      "frequency": 0.3432040373983002,
+      "trend": -0.4566788536993659,
+      "seasonal": -0.2198194603257254,
+      "frequency": -0.32350168597490875,
       "corr": {
-        "trend": 0.269736721708095,
-        "seasonal": 0.3332944454490223,
-        "frequency": 0.3461193476819345
+        "trend": -0.2849545449790467,
+        "seasonal": -0.137161057025627,
+        "freq": -0.20185580081099905
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.4508109295336606,
+        "seasonal": -0.2169949723668703,
+        "frequency": -0.3321940980994692
+      },
+      "resid_corr": {
+        "trend": -0.2849545449790467,
+        "seasonal": -0.137161057025627,
+        "freq": -0.20997764665240018
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Port_Activity_D": {
-      "trend": 0.3216618015243828,
-      "seasonal": 0.3585377262708811,
-      "frequency": 0.31980047220473606,
+      "trend": 0.3509174301246014,
+      "seasonal": 0.24258289779278108,
+      "frequency": 0.4064996720826175,
       "corr": {
-        "trend": 0.026040036197492365,
-        "seasonal": 0.1345732366091818,
-        "frequency": -0.020236625397077466
+        "trend": 0.523317039805124,
+        "seasonal": 0.3617596422474409,
+        "freq": 0.606205867290476
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.41703850881932014,
+        "seasonal": 0.28829120834678823,
+        "frequency": 0.2946702828338917
+      },
+      "resid_corr": {
+        "trend": 0.523317039805124,
+        "seasonal": 0.3617596422474409,
+        "freq": 0.3697643667673381
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Customer_D": {
-      "trend": 0.2794652329493141,
-      "seasonal": 0.3565042864922604,
-      "frequency": 0.36403048055842546,
+      "trend": 0.38668551676336965,
+      "seasonal": 0.1845879780033706,
+      "frequency": 0.42872650523325984,
       "corr": {
-        "trend": -0.05717575682260977,
-        "seasonal": -0.30064412573128213,
-        "frequency": -0.32153546405680894
+        "trend": 0.8199083100381088,
+        "seasonal": 0.39139096381184135,
+        "freq": 0.9090498845589173
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.39701084515494645,
+        "seasonal": 0.18951687088245991,
+        "frequency": -0.41347228396259356
+      },
+      "resid_corr": {
+        "trend": 0.8199083100381088,
+        "seasonal": 0.39139096381184135,
+        "freq": -0.853904536182274
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Location_D": {
-      "trend": 0.3335493857579634,
-      "seasonal": 0.3451951574962597,
-      "frequency": 0.32125545674577694,
+      "trend": -0.15445532127145717,
+      "seasonal": 0.42175748619857945,
+      "frequency": -0.4237871925299634,
       "corr": {
-        "trend": 0.14505764016654898,
-        "seasonal": -0.17937663354222647,
-        "frequency": -0.10750332458607777
+        "trend": -0.30839240242856125,
+        "seasonal": 0.8420998599486037,
+        "freq": -0.8461524623879839
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.1694648627376638,
+        "seasonal": 0.4627427136784078,
+        "frequency": 0.3677924235839284
+      },
+      "resid_corr": {
+        "trend": -0.30839240242856125,
+        "seasonal": 0.8420998599486037,
+        "freq": 0.669309184639973
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Water_Quality_Darwin_15T": {
-      "trend": 0.3703614743520587,
-      "seasonal": 0.2775008476966402,
-      "frequency": 0.3521376779513011,
+      "trend": 0.23304099904577524,
+      "seasonal": 0.5894511355057899,
+      "frequency": 0.1775078654484348,
       "corr": {
-        "trend": 0.38699170326013643,
-        "seasonal": 0.09833620477068206,
-        "frequency": 0.3365344464961459
+        "trend": 0.13077446487725733,
+        "seasonal": 0.33077937844713695,
+        "freq": 0.09961121094817968
       },
-      "n_rows": 384,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.21886973938969967,
+        "seasonal": 0.5536065196226407,
+        "frequency": -0.22752374098765965
+      },
+      "resid_corr": {
+        "trend": 0.13077446487725733,
+        "seasonal": 0.33077937844713695,
+        "freq": -0.1359452227498434
+      },
+      "n_rows": 16,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "azure2019_U_5T": {
-      "trend": 0.3403709957666996,
-      "seasonal": 0.32077508904007707,
-      "frequency": 0.3388539151932234,
+      "trend": 0.6998693096496461,
+      "seasonal": -0.30013069035035383,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.10381640665847516,
         "seasonal": -0.044520440274340836,
         "frequency": 0.09934930578578
       },
       "n_rows": 48,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "current_velocity_15T": {
-      "trend": 0.34439603865429036,
-      "seasonal": 0.33212631740386145,
-      "frequency": 0.32347764394184814,
+      "trend": -0.017155098531639202,
+      "seasonal": -0.7899320912653166,
+      "frequency": -0.1929128102030442,
       "corr": {
-        "trend": 0.13776141664308172,
-        "seasonal": 0.10148451698348489,
-        "frequency": 0.07509915104805057
+        "trend": -0.007081817877868237,
+        "seasonal": -0.3260928636409313,
+        "freq": -0.07963658067285843
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.014474024457268827,
+        "seasonal": -0.6664780378538119,
+        "frequency": -0.3190479376889193
+      },
+      "resid_corr": {
+        "trend": -0.007081817877868237,
+        "seasonal": -0.3260928636409313,
+        "freq": -0.1561030517595743
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_20T": {
-      "trend": 0.32306405463405774,
-      "seasonal": 0.34797081535729,
-      "frequency": 0.3289651300086522,
+      "trend": -0.2428303422438743,
+      "seasonal": -0.49010108384252765,
+      "frequency": -0.26706857391359806,
       "corr": {
-        "trend": 0.047444758613604365,
-        "seasonal": -0.12171275583340191,
-        "frequency": -0.06554590082415528
+        "trend": -0.2871851592707927,
+        "seasonal": -0.5796217907593672,
+        "freq": -0.3158506891143458
       },
-      "n_rows": 336,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.2703886013254566,
+        "seasonal": -0.545721532753036,
+        "frequency": -0.18388986592150725
+      },
+      "resid_corr": {
+        "trend": -0.2871851592707927,
+        "seasonal": -0.5796217907593672,
+        "freq": -0.19531311665533868
+      },
+      "n_rows": 14,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_5T": {
-      "trend": 0.32394530814645406,
-      "seasonal": 0.3423328956281352,
-      "frequency": 0.3337217962254107,
+      "trend": 0.20161475267010326,
+      "seasonal": 0.18795250902650604,
+      "frequency": 0.6104327383033906,
       "corr": {
-        "trend": 0.2791890241524609,
-        "seasonal": 0.33439796729197563,
-        "frequency": 0.3089220250779116
+        "trend": 0.1517444946880951,
+        "seasonal": 0.14146166453530576,
+        "freq": 0.4594396302262952
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.22818586087828924,
+        "seasonal": 0.21272304981880144,
+        "frequency": 0.5590910893029093
+      },
+      "resid_corr": {
+        "trend": 0.1517444946880951,
+        "seasonal": 0.14146166453530576,
+        "freq": 0.37179777267680225
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_H": {
-      "trend": 0.3299812054312435,
-      "seasonal": 0.34670439222318367,
-      "frequency": 0.3233144023455728,
+      "trend": -0.08914388724313059,
+      "seasonal": -0.42500596720935363,
+      "frequency": -0.4858501455475157,
       "corr": {
-        "trend": -0.023803572788263956,
-        "seasonal": -0.07324039445545043,
-        "frequency": 0.0033931048568421373
+        "trend": -0.0890373062984211,
+        "seasonal": -0.424497827628579,
+        "freq": -0.4852692603168945
       },
-      "n_rows": 120,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.093448700013286,
+        "seasonal": -0.44552976498861263,
+        "frequency": -0.46102153499810145
+      },
+      "resid_corr": {
+        "trend": -0.0890373062984211,
+        "seasonal": -0.424497827628579,
+        "freq": -0.4392582841276362
+      },
+      "n_rows": 5,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "electricity": {
-      "trend": 0.3443031402611483,
-      "seasonal": 0.3365513585945376,
-      "frequency": 0.31914550114431406,
+      "trend": 0.34835662155915226,
+      "seasonal": 0.2769150148218795,
+      "frequency": 0.3747283636189681,
       "corr": {
-        "trend": 0.403609125643644,
-        "seasonal": 0.38083739790553456,
-        "frequency": 0.32773374986395676
+        "trend": 0.2814006922810701,
+        "seasonal": 0.22369052876082013,
+        "freq": 0.30270365026440177
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3287942263835583,
+        "seasonal": 0.2613645110715691,
+        "frequency": 0.40984126254487246
+      },
+      "resid_corr": {
+        "trend": 0.2814006922810701,
+        "seasonal": 0.22369052876082013,
+        "freq": 0.35076532904484753
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "exchange_rate": {
-      "trend": 0.36118906737353534,
-      "seasonal": 0.3194638997134579,
-      "frequency": 0.31934703291300676,
+      "trend": 0.26472576244658186,
+      "seasonal": 0.4832619169434168,
+      "frequency": -0.2520123206100013,
       "corr": {
-        "trend": 0.3753748752767164,
-        "seasonal": 0.252617599198602,
-        "frequency": 0.25225171065228535
+        "trend": 0.32304619161087084,
+        "seasonal": 0.5897269701910552,
+        "freq": -0.3075319140066939
       },
-      "n_rows": 264,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3409176888284663,
+        "seasonal": 0.6223517284473163,
+        "frequency": 0.03673058272421738
+      },
+      "resid_corr": {
+        "trend": 0.32304619161087084,
+        "seasonal": 0.5897269701910552,
+        "freq": 0.034805101798858894
+      },
+      "n_rows": 11,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "traffic": {
-      "trend": 0.32151110633240526,
-      "seasonal": 0.33478734584352804,
-      "frequency": 0.34370154782406664,
+      "trend": -0.11274842550379999,
+      "seasonal": -0.4530411494222431,
+      "frequency": -0.4342104250739569,
       "corr": {
-        "trend": 0.4701445904867205,
-        "seasonal": 0.5106080437830628,
-        "frequency": 0.5368861893099313
+        "trend": -0.05274463737968675,
+        "seasonal": -0.21193636219378814,
+        "freq": -0.20312719503327895
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.15059336233536225,
+        "seasonal": -0.6051081393191912,
+        "frequency": -0.2442984983454466
+      },
+      "resid_corr": {
+        "trend": -0.05274463737968675,
+        "seasonal": -0.21193636219378814,
+        "freq": -0.08556443330442083
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "weather": {
-      "trend": 0.3398593530549423,
-      "seasonal": 0.33830713387070677,
-      "frequency": 0.32183351307435104,
+      "trend": 0.47096970159362805,
+      "seasonal": 0.4021895416799498,
+      "frequency": 0.12684075672642212,
       "corr": {
-        "trend": 0.060116561418151755,
-        "seasonal": 0.055538859851447776,
-        "frequency": -0.005619068568701681
+        "trend": 0.2561096455034537,
+        "seasonal": 0.21870753170811202,
+        "freq": 0.06897501289504031
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3830187140604309,
+        "seasonal": 0.3270828686889199,
+        "frequency": 0.28989841725064913
+      },
+      "resid_corr": {
+        "trend": 0.2561096455034537,
+        "seasonal": 0.21870753170811202,
+        "freq": 0.19384374222080938
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     }
   },
   "sundial": {
     "Australia_Solar_H": {
-      "trend": 0.36960168196948506,
-      "seasonal": 0.3089287814383757,
-      "frequency": 0.3214695365921392,
+      "trend": 0.5248725362031202,
+      "seasonal": 0.3026563735614552,
+      "frequency": 0.1724710902354246,
       "corr": {
-        "trend": 0.3504599636996045,
-        "seasonal": 0.171144842710204,
-        "frequency": 0.210936858357187
+        "trend": 0.3218822450267684,
+        "seasonal": 0.18560642112911208,
+        "freq": 0.10576926376980209
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.4880254697769034,
+        "seasonal": 0.28140931121445306,
+        "frequency": 0.23056521900864355
+      },
+      "resid_corr": {
+        "trend": 0.3218822450267684,
+        "seasonal": 0.18560642112911208,
+        "freq": 0.15207167436059718
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_15T": {
-      "trend": 0.3277840499095138,
-      "seasonal": 0.33467192659983913,
-      "frequency": 0.3375440234906471,
+      "trend": 0.17638718685079516,
+      "seasonal": 0.5990341975020632,
+      "frequency": 0.22457861564714163,
       "corr": {
-        "trend": 0.02001421308008706,
-        "seasonal": -0.04080993434020331,
-        "frequency": -0.04935514772667688
+        "trend": 0.08079753404806478,
+        "seasonal": 0.274399103658078,
+        "freq": 0.10287254232115091
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.21927241835636532,
+        "seasonal": 0.7446781113162804,
+        "frequency": 0.0360494703273544
+      },
+      "resid_corr": {
+        "trend": 0.08079753404806478,
+        "seasonal": 0.274399103658078,
+        "freq": 0.01328351430618754
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_20T": {
-      "trend": 0.3431634738050804,
-      "seasonal": 0.36280089694296974,
-      "frequency": 0.29403562925194987,
+      "trend": 0.41764166353906895,
+      "seasonal": 0.4021719448079696,
+      "frequency": -0.18018639165296152,
       "corr": {
-        "trend": 0.233718807511456,
-        "seasonal": 0.2893660643857531,
-        "frequency": 0.07921282179623781
+        "trend": 0.8452487840062938,
+        "seasonal": 0.8139402195408189,
+        "freq": -0.36467225790776536
       },
-      "n_rows": 168,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.4468487951150597,
+        "seasonal": 0.4302972252424961,
+        "frequency": 0.12285397964244417
+      },
+      "resid_corr": {
+        "trend": 0.8452487840062938,
+        "seasonal": 0.8139402195408189,
+        "freq": 0.23238772944743297
+      },
+      "n_rows": 7,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_5T": {
-      "trend": 0.364392937016532,
-      "seasonal": 0.31461581359844726,
-      "frequency": 0.3209912493850206,
+      "trend": 0.25509289189045553,
+      "seasonal": 0.24150064710924538,
+      "frequency": 0.5034064610002991,
       "corr": {
-        "trend": 0.7509548374734191,
-        "seasonal": 0.6040743098669711,
-        "frequency": 0.6241359170523834
+        "trend": 0.06093171498579557,
+        "seasonal": 0.05768505931111876,
+        "freq": 0.12024411490403389
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.15177876469358828,
+        "seasonal": 0.14369145929273505,
+        "frequency": 0.7045297760136767
+      },
+      "resid_corr": {
+        "trend": 0.06093171498579557,
+        "seasonal": 0.05768505931111876,
+        "freq": 0.2828340815511011
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_H": {
-      "trend": 0.319941091008401,
-      "seasonal": 0.3556795825094324,
-      "frequency": 0.32437932648216666,
+      "trend": 0.06871513138865387,
+      "seasonal": 0.2613660136400023,
+      "frequency": -0.6699188549713438,
       "corr": {
-        "trend": 0.022119517174234434,
-        "seasonal": -0.12801290535976279,
-        "frequency": 0.03589622065980062
+        "trend": 0.027006744505772486,
+        "seasonal": 0.10272330140713812,
+        "freq": -0.2632946629102729
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.19231800257095102,
+        "seasonal": 0.7315039448716957,
+        "frequency": -0.0761780525573534
+      },
+      "resid_corr": {
+        "trend": 0.027006744505772486,
+        "seasonal": 0.10272330140713812,
+        "freq": -0.010697496723452882
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh1": {
-      "trend": 0.3393790112146904,
-      "seasonal": 0.32957961667586344,
-      "frequency": 0.33104137210944606,
+      "trend": 0.40933947448531743,
+      "seasonal": 0.3272205588343989,
+      "frequency": 0.2634399666802837,
       "corr": {
-        "trend": 0.06420873964739349,
-        "seasonal": 0.03490918312525281,
-        "frequency": 0.03933458844542072
+        "trend": 0.39943931497021473,
+        "seasonal": 0.31930650233360613,
+        "freq": 0.25706848810234434
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.38391854575249923,
+        "seasonal": 0.30689940481791617,
+        "frequency": 0.3091820494295847
+      },
+      "resid_corr": {
+        "trend": 0.39943931497021473,
+        "seasonal": 0.31930650233360613,
+        "freq": 0.3216814279788838
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh2": {
-      "trend": 0.3222529757341448,
-      "seasonal": 0.34661430136638793,
-      "frequency": 0.33113272289946727,
+      "trend": 0.012698607063935309,
+      "seasonal": 0.1554943154418306,
+      "frequency": 0.8318070774942342,
       "corr": {
-        "trend": -0.025004364238141005,
-        "seasonal": -0.09788012652727157,
-        "frequency": -0.05218675875548467
+        "trend": 0.0009878839850221623,
+        "seasonal": 0.012096629434517267,
+        "freq": 0.06471015965352567
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.015588177032140712,
+        "seasonal": 0.19087707056333045,
+        "frequency": 0.793534752404529
+      },
+      "resid_corr": {
+        "trend": 0.0009878839850221623,
+        "seasonal": 0.012096629434517267,
+        "freq": 0.050289413049558224
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "EWELD_Load_15T": {
-      "trend": 0.311620673905355,
-      "seasonal": 0.3451582221698047,
-      "frequency": 0.3432211039248404,
+      "trend": 0.24989264891988344,
+      "seasonal": -0.47757221529379557,
+      "frequency": 0.272535135786321,
       "corr": {
-        "trend": 0.43667850462368524,
-        "seasonal": 0.5388947721344249,
-        "frequency": 0.5332667025956044
+        "trend": 0.14518670307743503,
+        "seasonal": -0.2774676875033764,
+        "freq": 0.15834190404801718
       },
-      "n_rows": 432,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.23820292746239652,
+        "seasonal": -0.4552318775657767,
+        "frequency": -0.3065651949718268
+      },
+      "resid_corr": {
+        "trend": 0.14518670307743503,
+        "seasonal": -0.2774676875033764,
+        "freq": -0.18685408450018717
+      },
+      "n_rows": 18,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Finland_Traffic_15T": {
-      "trend": 0.30561346426892566,
-      "seasonal": 0.35084028396897216,
-      "frequency": 0.3435462517621022,
+      "trend": 0.35911281982939125,
+      "seasonal": 0.4178974430184621,
+      "frequency": 0.22298973715214657,
       "corr": {
-        "trend": 0.4177664812644178,
-        "seasonal": 0.5557764549512031,
-        "frequency": 0.5347671175759383
+        "trend": 0.38971150938567223,
+        "seasonal": 0.4535049552519727,
+        "freq": 0.24198987684250017
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.36896491785652163,
+        "seasonal": 0.4293622706340872,
+        "frequency": 0.20167281150939115
+      },
+      "resid_corr": {
+        "trend": 0.38971150938567223,
+        "seasonal": 0.4535049552519727,
+        "freq": 0.21301270655206225
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "NE_China_Wind_H": {
-      "trend": 0.32603851283932134,
-      "seasonal": 0.35392238076219484,
-      "frequency": 0.32003910639848365,
+      "trend": -0.5875324562302097,
+      "seasonal": -0.41197706982830806,
+      "frequency": 0.0004904739414822689,
       "corr": {
-        "trend": 0.35650065409858817,
-        "seasonal": 0.4385627678740542,
-        "frequency": 0.3379283379879463
+        "trend": -0.48455523455031585,
+        "seasonal": -0.3397695626567895,
+        "freq": 0.0004045082330951892
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5589372556941007,
+        "seasonal": -0.3919261487207205,
+        "frequency": -0.04913659558517898
+      },
+      "resid_corr": {
+        "trend": -0.48455523455031585,
+        "seasonal": -0.3397695626567895,
+        "freq": -0.04259761602259521
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "OpenElectricity_NEM_5T": {
-      "trend": 0.3148667604265395,
-      "seasonal": 0.3340073413333341,
-      "frequency": 0.3511258982401264,
+      "trend": -0.5034889242479198,
+      "seasonal": -0.3829010420088271,
+      "frequency": 0.11361003374325324,
       "corr": {
-        "trend": 0.3789863287709126,
-        "seasonal": 0.43799973497568245,
-        "frequency": 0.4879816057994
+        "trend": -0.16113697526385254,
+        "seasonal": -0.12254393843289124,
+        "freq": 0.036359840932663146
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.551373164756911,
+        "seasonal": -0.41931678961257346,
+        "frequency": 0.029310045630515653
+      },
+      "resid_corr": {
+        "trend": -0.16113697526385254,
+        "seasonal": -0.12254393843289124,
+        "freq": 0.008565763442312309
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Port_Activity_D": {
-      "trend": 0.32863512553640606,
-      "seasonal": 0.34939624711225664,
-      "frequency": 0.3219686273513372,
+      "trend": 0.3639171823270638,
+      "seasonal": 0.16759442290436877,
+      "frequency": 0.46848839476856735,
       "corr": {
-        "trend": 0.20376044334263022,
-        "seasonal": 0.26501900563380126,
-        "frequency": 0.1832664591528264
+        "trend": 0.3246770876244527,
+        "seasonal": 0.14952322059305154,
+        "freq": 0.4179727008949239
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.5135492382618816,
+        "seasonal": 0.2365043268062188,
+        "frequency": 0.2499464349318996
+      },
+      "resid_corr": {
+        "trend": 0.3246770876244527,
+        "seasonal": 0.14952322059305154,
+        "freq": 0.15802161605859688
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Customer_D": {
-      "trend": 0.2989246576790863,
-      "seasonal": 0.3459793818307797,
-      "frequency": 0.35509596049013403,
+      "trend": -0.0994271254651238,
+      "seasonal": -0.7679651800179317,
+      "frequency": 0.1326076945169446,
       "corr": {
-        "trend": 0.07602955208319842,
-        "seasonal": 0.22221717464917307,
-        "frequency": 0.24822605563918934
+        "trend": -0.07691186837664846,
+        "seasonal": -0.594059584515564,
+        "freq": 0.1025787027303289
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.04952829025854044,
+        "seasonal": -0.38255156393636586,
+        "frequency": -0.5679201458050936
+      },
+      "resid_corr": {
+        "trend": -0.07691186837664846,
+        "seasonal": -0.594059584515564,
+        "freq": -0.8819161589184156
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Location_D": {
-      "trend": 0.3378934289323632,
-      "seasonal": 0.3272373468484697,
-      "frequency": 0.33486922421916715,
+      "trend": -0.056390764921563835,
+      "seasonal": 0.5359583787319129,
+      "frequency": -0.4076508563465233,
       "corr": {
-        "trend": -0.06976980526821215,
-        "seasonal": 0.037724997469022185,
-        "frequency": -0.06077933866261215
+        "trend": -0.0986562906574385,
+        "seasonal": 0.9376653369751585,
+        "freq": -0.713189853452355
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.06439788498445498,
+        "seasonal": 0.6120609656215943,
+        "frequency": 0.32354114939395073
+      },
+      "resid_corr": {
+        "trend": -0.0986562906574385,
+        "seasonal": 0.9376653369751585,
+        "freq": 0.49565866459676994
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Water_Quality_Darwin_15T": {
-      "trend": 0.36091226599306014,
-      "seasonal": 0.2787005956155676,
-      "frequency": 0.3603871383913723,
+      "trend": 0.05782916228261723,
+      "seasonal": 0.40738800103670725,
+      "frequency": 0.5347828366806756,
       "corr": {
-        "trend": 0.30512556899560744,
-        "seasonal": 0.046628742295981046,
-        "frequency": 0.3036695087485775
+        "trend": 0.0052056955572068134,
+        "seasonal": 0.03667246460690337,
+        "freq": 0.048140359069594595
       },
-      "n_rows": 384,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.01885412665086746,
+        "seasonal": 0.13282130787321822,
+        "frequency": -0.8483245654759143
+      },
+      "resid_corr": {
+        "trend": 0.0052056955572068134,
+        "seasonal": 0.03667246460690337,
+        "freq": -0.23422561560888774
+      },
+      "n_rows": 16,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "azure2019_U_5T": {
-      "trend": 0.32345953840289626,
-      "seasonal": 0.32585011688932936,
-      "frequency": 0.3506903447077745,
+      "trend": 0.48511409217730245,
+      "seasonal": 0.5148859078226975,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.11998354063698284,
         "seasonal": 0.1273470205068285,
         "frequency": 0.20081313428811337
       },
       "n_rows": 48,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "current_velocity_15T": {
-      "trend": 0.3243206217931083,
-      "seasonal": 0.34017173513364235,
-      "frequency": 0.33550764307324943,
+      "trend": -0.82928633680351,
+      "seasonal": -0.11815056845816206,
+      "frequency": -0.052563094738327834,
       "corr": {
-        "trend": 0.18749787462466486,
-        "seasonal": 0.2352158681245321,
-        "frequency": 0.22141001199640614
+        "trend": -0.5466989075611522,
+        "seasonal": -0.07788960680671489,
+        "freq": -0.034651706167306465
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.7400352094231932,
+        "seasonal": -0.10543472958860789,
+        "frequency": 0.15453006098819888
+      },
+      "resid_corr": {
+        "trend": -0.5466989075611522,
+        "seasonal": -0.07788960680671489,
+        "freq": 0.11415864333462464
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_20T": {
-      "trend": 0.3376638798026592,
-      "seasonal": 0.3359842661579031,
-      "frequency": 0.32635185403943767,
+      "trend": -0.4386207499756626,
+      "seasonal": -0.17547343322811237,
+      "frequency": -0.3859058167962251,
       "corr": {
-        "trend": 0.10489335026294846,
-        "seasonal": 0.09990671997135464,
-        "frequency": 0.07081849421881349
+        "trend": -0.21001723180037557,
+        "seasonal": -0.08401892683627257,
+        "freq": -0.18477664675851074
       },
-      "n_rows": 336,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.29748238766346197,
+        "seasonal": -0.11901000098855406,
+        "frequency": -0.583507611347984
+      },
+      "resid_corr": {
+        "trend": -0.21001723180037557,
+        "seasonal": -0.08401892683627257,
+        "freq": -0.4119459112597566
+      },
+      "n_rows": 14,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_5T": {
-      "trend": 0.34315179240939114,
-      "seasonal": 0.32412891481470724,
-      "frequency": 0.3327192927759016,
+      "trend": -0.06728298388669882,
+      "seasonal": -0.377354783387306,
+      "frequency": -0.5553622327259952,
       "corr": {
-        "trend": 0.42332398076257205,
-        "seasonal": 0.36629240991006895,
-        "frequency": 0.3924502578715282
+        "trend": -0.056494475912911575,
+        "seasonal": -0.316847730127358,
+        "freq": -0.46631252758518094
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.09475865906827562,
+        "seasonal": -0.531451359633437,
+        "frequency": -0.37378998129828744
+      },
+      "resid_corr": {
+        "trend": -0.056494475912911575,
+        "seasonal": -0.316847730127358,
+        "freq": -0.2228510755911866
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_H": {
-      "trend": 0.3412291167177031,
-      "seasonal": 0.34803865550690494,
-      "frequency": 0.310732227775392,
+      "trend": -0.5838565826468712,
+      "seasonal": -0.012090614276729852,
+      "frequency": 0.40405280307639885,
       "corr": {
-        "trend": 0.2865880931866614,
-        "seasonal": 0.30634749764019376,
-        "frequency": 0.19296548235650715
+        "trend": -0.33216785760307704,
+        "seasonal": -0.006878595807209665,
+        "freq": 0.22987383879095602
       },
-      "n_rows": 120,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.7531250649321095,
+        "seasonal": -0.01559585852565202,
+        "frequency": 0.23127907654223845
+      },
+      "resid_corr": {
+        "trend": -0.33216785760307704,
+        "seasonal": -0.006878595807209665,
+        "freq": 0.10200626554685001
+      },
+      "n_rows": 5,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "electricity": {
-      "trend": 0.31588218093225273,
-      "seasonal": 0.344505965047525,
-      "frequency": 0.3396118540202222,
+      "trend": 0.6060081453460145,
+      "seasonal": 0.18762885696390916,
+      "frequency": 0.20636299769007618,
       "corr": {
-        "trend": 0.0001741121400813683,
-        "seasonal": -0.0869162186192676,
-        "frequency": -0.07260817288734424
+        "trend": 0.38549006126431884,
+        "seasonal": 0.1193532795251019,
+        "freq": 0.13127032240930442
       },
-      "n_rows": 1440,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.6309984782373365,
+        "seasonal": 0.19536622424445793,
+        "frequency": 0.1736352975182057
+      },
+      "resid_corr": {
+        "trend": 0.38549006126431884,
+        "seasonal": 0.1193532795251019,
+        "freq": 0.10607740555083447
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "exchange_rate": {
-      "trend": 0.33844168378341016,
-      "seasonal": 0.33708701036261407,
-      "frequency": 0.3244713058539758,
+      "trend": 0.0350885692410679,
+      "seasonal": 0.5525377155698328,
+      "frequency": -0.41237371518909927,
       "corr": {
-        "trend": 0.17537650456569773,
-        "seasonal": 0.17136579340434366,
-        "frequency": 0.13322181190527052
+        "trend": 0.020531402634187415,
+        "seasonal": 0.32330683622348527,
+        "freq": -0.24129256237651733
       },
-      "n_rows": 1128,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.033706297688830725,
+        "seasonal": 0.5307711636046307,
+        "frequency": -0.43552253870653856
+      },
+      "resid_corr": {
+        "trend": 0.020531402634187415,
+        "seasonal": 0.32330683622348527,
+        "freq": -0.26528836483309454
+      },
+      "n_rows": 11,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "national_illness": {
-      "trend": 0.38633321124727793,
-      "seasonal": 0.2610970881558445,
-      "frequency": 0.35256970059687764,
+      "trend": 0.666800916407928,
+      "seasonal": 0.33319908359207195,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.7831428104848824,
         "seasonal": 0.39133489525027293,
         "frequency": 0.6916909067211273
       },
       "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "traffic": {
-      "trend": 0.32427007939721353,
-      "seasonal": 0.3370773501287165,
-      "frequency": 0.33865257047407,
+      "trend": -0.020739545074511173,
+      "seasonal": -0.4264125001467789,
+      "frequency": -0.5528479547787098,
       "corr": {
-        "trend": 0.058285279855565794,
-        "seasonal": -0.09702096253017728,
-        "frequency": -0.10168324889842457
+        "trend": -0.00656365451920704,
+        "seasonal": -0.1349510957728057,
+        "freq": -0.17496540853624176
       },
-      "n_rows": 1320,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.023671099143942016,
+        "seasonal": -0.48668630536142554,
+        "frequency": -0.48964259549463257
+      },
+      "resid_corr": {
+        "trend": -0.00656365451920704,
+        "seasonal": -0.1349510957728057,
+        "freq": -0.13577083240501348
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "weather": {
-      "trend": 0.3193777563976686,
-      "seasonal": 0.34240417312802124,
-      "frequency": 0.33821807047431013,
+      "trend": -0.24675047468129657,
+      "seasonal": -0.45234534475091914,
+      "frequency": -0.3009041805677843,
       "corr": {
-        "trend": -0.017151259465335626,
-        "seasonal": -0.08676850001246578,
-        "frequency": -0.07446753430791112
+        "trend": -0.23266467724971915,
+        "seasonal": -0.42652312534685055,
+        "freq": -0.2837270086119166
       },
-      "n_rows": 1440,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3473235602249765,
+        "seasonal": -0.6367168930191826,
+        "frequency": 0.015959546755840822
+      },
+      "resid_corr": {
+        "trend": -0.23266467724971915,
+        "seasonal": -0.42652312534685055,
+        "freq": 0.01069096145563604
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     }
   },
   "timesfm2p0": {
     "Australia_Solar_H": {
-      "trend": 0.35041610503693316,
-      "seasonal": 0.323178774057154,
-      "frequency": 0.3264051209059129,
+      "trend": -0.45601170357739457,
+      "seasonal": -0.13388928027239766,
+      "frequency": -0.4100990161502078,
       "corr": {
-        "trend": 0.16780301740428055,
-        "seasonal": 0.08688734769703917,
-        "frequency": 0.09682100955172294
+        "trend": -0.20664259901434442,
+        "seasonal": -0.060672190293801415,
+        "freq": -0.18583717454111737
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.7532350323192228,
+        "seasonal": -0.22115681584926822,
+        "frequency": -0.025608151831508982
+      },
+      "resid_corr": {
+        "trend": -0.20664259901434442,
+        "seasonal": -0.060672190293801415,
+        "freq": -0.007025343781639607
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_15T": {
-      "trend": 0.34341243446009145,
-      "seasonal": 0.3277028454515002,
-      "frequency": 0.32888472008840847,
+      "trend": -0.2948586053952756,
+      "seasonal": 0.5000172294392156,
+      "frequency": -0.20512416516550883,
       "corr": {
-        "trend": -0.08482632175400766,
-        "seasonal": -0.038001402869120335,
-        "frequency": -0.04160145859786458
+        "trend": -0.23274597531669108,
+        "seasonal": 0.3946874726107098,
+        "freq": -0.16191429725602755
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.2996195624000367,
+        "seasonal": 0.5080907958450818,
+        "frequency": -0.1922896417548815
+      },
+      "resid_corr": {
+        "trend": -0.23274597531669108,
+        "seasonal": 0.3946874726107098,
+        "freq": -0.14937155589922035
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_20T": {
-      "trend": 0.3492262899501587,
-      "seasonal": 0.3910168395356578,
-      "frequency": 0.25975687051418356,
+      "trend": 0.5413926253219206,
+      "seasonal": 0.43860940810524646,
+      "frequency": 0.01999796657283299,
       "corr": {
-        "trend": 0.5176223596928696,
-        "seasonal": 0.6306528792592796,
-        "frequency": 0.22164833245241733
+        "trend": 0.3254876501027042,
+        "seasonal": 0.2636939235591289,
+        "freq": 0.012022866293668905
       },
-      "n_rows": 168,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3997897002285579,
+        "seasonal": 0.3238897531704554,
+        "frequency": 0.27632054660098676
+      },
+      "resid_corr": {
+        "trend": 0.3254876501027042,
+        "seasonal": 0.2636939235591289,
+        "freq": 0.2249655890004977
+      },
+      "n_rows": 7,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_5T": {
-      "trend": 0.3549584912308812,
-      "seasonal": 0.32090205706617664,
-      "frequency": 0.32413945170294206,
+      "trend": 0.16389069449476854,
+      "seasonal": 0.8174156930671159,
+      "frequency": 0.018693612438115494,
       "corr": {
-        "trend": 0.6144437390861344,
-        "seasonal": 0.5135788409553935,
-        "frequency": 0.5236167122418898
+        "trend": 0.02432017402540927,
+        "seasonal": 0.12129847864625014,
+        "freq": 0.0027739946374626904
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.10286926062775448,
+        "seasonal": 0.513067250282607,
+        "frequency": 0.3840634890896385
+      },
+      "resid_corr": {
+        "trend": 0.02432017402540927,
+        "seasonal": 0.12129847864625014,
+        "freq": 0.09079963085635114
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_H": {
-      "trend": 0.32443686217836887,
-      "seasonal": 0.3089513898140834,
-      "frequency": 0.36661174800754787,
+      "trend": -0.3255851972743503,
+      "seasonal": 0.3469418047705619,
+      "frequency": -0.3274729979550878,
       "corr": {
-        "trend": -0.04934797250328417,
-        "seasonal": -0.00044097485342591393,
-        "frequency": 0.17156040558768698
+        "trend": -0.4199472505408729,
+        "seasonal": 0.44749349242777703,
+        "freq": -0.4223821791312439
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.31945745039330564,
+        "seasonal": 0.3404121112221928,
+        "frequency": 0.3401304383845016
+      },
+      "resid_corr": {
+        "trend": -0.4199472505408729,
+        "seasonal": 0.44749349242777703,
+        "freq": 0.4471232154672778
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh1": {
-      "trend": 0.33592992615778483,
-      "seasonal": 0.3308191368764952,
-      "frequency": 0.33325093696571995,
+      "trend": 0.45646013849453093,
+      "seasonal": -0.21828084751811608,
+      "frequency": 0.325259013987353,
       "corr": {
-        "trend": 0.044021941623869416,
-        "seasonal": 0.028691168280693485,
-        "frequency": -0.036015127167643685
+        "trend": 0.5559666258961942,
+        "seasonal": -0.2658652006123919,
+        "freq": 0.39616418017416505
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.659108002591811,
+        "seasonal": -0.3151877705821556,
+        "frequency": -0.02570422682603341
+      },
+      "resid_corr": {
+        "trend": 0.5559666258961942,
+        "seasonal": -0.2658652006123919,
+        "freq": -0.021681867316957055
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh2": {
-      "trend": 0.3452161079374106,
-      "seasonal": 0.3256596868768346,
-      "frequency": 0.3291242051857549,
+      "trend": 0.48052248041009155,
+      "seasonal": 0.41398869202325617,
+      "frequency": 0.10548882756665232,
       "corr": {
-        "trend": 0.08117154876710087,
-        "seasonal": 0.022853858855946017,
-        "frequency": -0.033436130905951704
+        "trend": 0.46060235667212696,
+        "seasonal": 0.39682673538767194,
+        "freq": 0.101115774101376
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.49512366238850203,
+        "seasonal": 0.42656817472316433,
+        "frequency": 0.07830816288833366
+      },
+      "resid_corr": {
+        "trend": 0.46060235667212696,
+        "seasonal": 0.39682673538767194,
+        "freq": 0.072848314699873
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "EWELD_Load_15T": {
-      "trend": 0.30612334065442937,
-      "seasonal": 0.35091027467771746,
-      "frequency": 0.3429663846678531,
+      "trend": 0.16253893375584055,
+      "seasonal": -0.11749342715600575,
+      "frequency": 0.7199676390881536,
       "corr": {
-        "trend": 0.3571663272428503,
-        "seasonal": 0.4937087955576285,
-        "frequency": 0.470810670948338
+        "trend": 0.06825050634513555,
+        "seasonal": -0.049335785035162644,
+        "freq": 0.3023162191631677
       },
-      "n_rows": 432,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.3109984464241105,
+        "seasonal": -0.2248093577717909,
+        "frequency": -0.46419219580409865
+      },
+      "resid_corr": {
+        "trend": 0.06825050634513555,
+        "seasonal": -0.049335785035162644,
+        "freq": -0.10186980922048074
+      },
+      "n_rows": 18,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Finland_Traffic_15T": {
-      "trend": 0.30123981046322873,
-      "seasonal": 0.35332641610040827,
-      "frequency": 0.3454337734363629,
+      "trend": -0.19470360573952855,
+      "seasonal": 0.2552861915162402,
+      "frequency": -0.5500102027442312,
       "corr": {
-        "trend": 0.31823648901273205,
-        "seasonal": 0.4777221501404238,
-        "frequency": 0.4551307705503065
+        "trend": -0.08241858178291503,
+        "seasonal": 0.10806336006780262,
+        "freq": -0.2328208597069141
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.11319460667600553,
+        "seasonal": 0.1484154334417115,
+        "frequency": 0.738389959882283
+      },
+      "resid_corr": {
+        "trend": -0.08241858178291503,
+        "seasonal": 0.10806336006780262,
+        "freq": 0.5376320929355858
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "NE_China_Wind_H": {
-      "trend": 0.34790962477577897,
-      "seasonal": 0.32099465752606066,
-      "frequency": 0.33109571769816043,
+      "trend": -0.2762730866845143,
+      "seasonal": -0.4605296210963912,
+      "frequency": -0.2631972922190945,
       "corr": {
-        "trend": -0.11442210222778135,
-        "seasonal": -0.03390383487160752,
-        "frequency": -0.06488686601027448
+        "trend": -0.4001004862585032,
+        "seasonal": -0.6669420012942521,
+        "freq": -0.3811640354206231
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3523893492045019,
+        "seasonal": -0.5874105777551643,
+        "frequency": 0.060200073040333854
+      },
+      "resid_corr": {
+        "trend": -0.4001004862585032,
+        "seasonal": -0.6669420012942521,
+        "freq": 0.06835075620363636
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "OpenElectricity_NEM_5T": {
-      "trend": 0.3106732861132762,
-      "seasonal": 0.3462531489919805,
-      "frequency": 0.3430735648947432,
+      "trend": -0.42507915025148246,
+      "seasonal": 0.3030382346233527,
+      "frequency": 0.2718826151251649,
       "corr": {
-        "trend": 0.2720234472921258,
-        "seasonal": 0.3804517662919338,
-        "frequency": 0.37122651335133616
+        "trend": -0.3191786615785386,
+        "seasonal": 0.2275419485453052,
+        "freq": 0.20414816664327895
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.30545289309812323,
+        "seasonal": 0.21775687052702758,
+        "frequency": -0.47679023637484913
+      },
+      "resid_corr": {
+        "trend": -0.3191786615785386,
+        "seasonal": 0.2275419485453052,
+        "freq": -0.4982151845291342
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Port_Activity_D": {
-      "trend": 0.3548793084685906,
-      "seasonal": 0.33088183970660096,
-      "frequency": 0.31423885182480854,
+      "trend": -0.3371366024210108,
+      "seasonal": -0.3220769709179983,
+      "frequency": -0.3407864266609909,
       "corr": {
-        "trend": 0.14910754172611043,
-        "seasonal": 0.0790911181067638,
-        "frequency": 0.027483157543762852
+        "trend": -0.9877209302677868,
+        "seasonal": -0.9436001995882083,
+        "freq": -0.9984139483730272
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.34322871285217643,
+        "seasonal": -0.3278969514839693,
+        "frequency": -0.3288743356638543
+      },
+      "resid_corr": {
+        "trend": -0.9877209302677868,
+        "seasonal": -0.9436001995882083,
+        "freq": -0.946412851255264
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Customer_D": {
-      "trend": 0.31485058829853735,
-      "seasonal": 0.351497023734611,
-      "frequency": 0.33365238796685154,
+      "trend": 0.07766510086211334,
+      "seasonal": -0.6160807609461735,
+      "frequency": 0.30625413819171327,
       "corr": {
-        "trend": -0.0069006363236475245,
-        "seasonal": -0.11700367677449128,
-        "frequency": -0.06490212931178523
+        "trend": 0.06030176646611319,
+        "seasonal": -0.4783455858352509,
+        "freq": 0.2377858950225913
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.04083289107978552,
+        "seasonal": -0.32390814315337196,
+        "frequency": -0.6352589657668425
+      },
+      "resid_corr": {
+        "trend": 0.06030176646611319,
+        "seasonal": -0.4783455858352509,
+        "freq": -0.9381465966817343
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Location_D": {
-      "trend": 0.329775815238975,
-      "seasonal": 0.33071981804200346,
-      "frequency": 0.3395043667190217,
+      "trend": -0.1033096542581534,
+      "seasonal": 0.4813190754163163,
+      "frequency": -0.41537127032553023,
       "corr": {
-        "trend": 0.0232161537278035,
-        "seasonal": 0.02607462363505956,
-        "frequency": -0.052289887011494895
+        "trend": -0.19321753974494013,
+        "seasonal": 0.9001993884507676,
+        "freq": -0.7768588086886891
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.11571746826379845,
+        "seasonal": 0.5391270083536522,
+        "frequency": 0.3451555233825493
+      },
+      "resid_corr": {
+        "trend": -0.19321753974494013,
+        "seasonal": 0.9001993884507676,
+        "freq": 0.5763183558883387
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Water_Quality_Darwin_15T": {
-      "trend": 0.339754110170076,
-      "seasonal": 0.3051094344496556,
-      "frequency": 0.3551364553802684,
+      "trend": 0.35558722381567714,
+      "seasonal": 0.3782372739739282,
+      "frequency": 0.2661755022103947,
       "corr": {
-        "trend": 0.14262100704074154,
-        "seasonal": -0.035069370179666215,
-        "frequency": 0.18690095342452737
+        "trend": 0.38247636722096867,
+        "seasonal": 0.4068391910843795,
+        "freq": 0.2863034223676747
       },
-      "n_rows": 384,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.4203781663280043,
+        "seasonal": 0.44715524355420555,
+        "frequency": 0.1324665901177902
+      },
+      "resid_corr": {
+        "trend": 0.38247636722096867,
+        "seasonal": 0.4068391910843795,
+        "freq": 0.12052324365216752
+      },
+      "n_rows": 16,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "azure2019_U_5T": {
-      "trend": 0.3324699123823828,
-      "seasonal": 0.3834181590939167,
-      "frequency": 0.28411192852370043,
+      "trend": -0.3713385871359579,
+      "seasonal": -0.628661412864042,
+      "frequency": 0.0,
       "corr": {
         "trend": -0.20575041071228348,
         "seasonal": -0.3483272365884863,
         "frequency": 0.048569318824848114
       },
       "n_rows": 48,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "current_velocity_15T": {
-      "trend": 0.2983325557923036,
-      "seasonal": 0.3753600035204249,
-      "frequency": 0.32630744068727147,
+      "trend": -0.434789074740134,
+      "seasonal": 0.14899829505071968,
+      "frequency": -0.4162126302091463,
       "corr": {
-        "trend": 0.2714807662536223,
-        "seasonal": 0.5011575177769609,
-        "frequency": 0.3611119494818755
+        "trend": -0.24278282571419715,
+        "seasonal": 0.08319948499311332,
+        "freq": -0.2324098840811724
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5292579470361934,
+        "seasonal": 0.18137192568044475,
+        "frequency": -0.2893701272833618
+      },
+      "resid_corr": {
+        "trend": -0.24278282571419715,
+        "seasonal": 0.08319948499311332,
+        "freq": -0.13274075065390967
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_20T": {
-      "trend": 0.3538623995723748,
-      "seasonal": 0.3187864182699004,
-      "frequency": 0.3273511821577248,
+      "trend": -0.38048752150739906,
+      "seasonal": -0.012872028252268493,
+      "frequency": 0.6066404502403325,
       "corr": {
-        "trend": 0.14426729739249566,
-        "seasonal": 0.03988050493776952,
-        "frequency": 0.0663927077723057
+        "trend": -0.11622133321416764,
+        "seasonal": -0.003931809060970702,
+        "freq": 0.1853005891737328
       },
-      "n_rows": 336,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.2840669965140395,
+        "seasonal": -0.009610087579691274,
+        "frequency": -0.7063229159062692
+      },
+      "resid_corr": {
+        "trend": -0.11622133321416764,
+        "seasonal": -0.003931809060970702,
+        "freq": -0.28898038833697415
+      },
+      "n_rows": 14,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_5T": {
-      "trend": 0.32624470934364985,
-      "seasonal": 0.34228427343866036,
-      "frequency": 0.3314710172176897,
+      "trend": 0.19283150096257626,
+      "seasonal": 0.4878372902891685,
+      "frequency": 0.3193312087482553,
       "corr": {
-        "trend": 0.5865625738989867,
-        "seasonal": 0.6345564326495439,
-        "frequency": 0.6024552085609504
+        "trend": 0.17479818422726137,
+        "seasonal": 0.4422154685060685,
+        "freq": 0.2894678264581084
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.2026012589220096,
+        "seasonal": 0.5125534400153274,
+        "frequency": 0.284845301062663
+      },
+      "resid_corr": {
+        "trend": 0.17479818422726137,
+        "seasonal": 0.4422154685060685,
+        "freq": 0.24575583427439454
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_H": {
-      "trend": 0.34742854751862123,
-      "seasonal": 0.32945854722098283,
-      "frequency": 0.323112905260396,
+      "trend": -0.732475455459184,
+      "seasonal": -0.05412001232550729,
+      "frequency": -0.21340453221530864,
       "corr": {
-        "trend": 0.08136248179098209,
-        "seasonal": -0.028253997512783752,
-        "frequency": -0.008805270613396822
+        "trend": -0.21458979700511305,
+        "seasonal": -0.015855278661268363,
+        "freq": -0.0625200952560874
       },
-      "n_rows": 120,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5957711681385743,
+        "seasonal": -0.04401941760987541,
+        "frequency": -0.3602094142515503
+      },
+      "resid_corr": {
+        "trend": -0.21458979700511305,
+        "seasonal": -0.015855278661268363,
+        "freq": -0.12974321218846188
+      },
+      "n_rows": 5,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "electricity": {
-      "trend": 0.34852732600313946,
-      "seasonal": 0.32740929843911865,
-      "frequency": 0.32406337555774195,
+      "trend": 0.06596985593300275,
+      "seasonal": -0.8831482106657691,
+      "frequency": -0.050881933401228215,
       "corr": {
-        "trend": 0.3379928456314268,
-        "seasonal": 0.275487273552053,
-        "frequency": 0.26521530840350643
+        "trend": 0.00908900689668522,
+        "seasonal": -0.12167587853592307,
+        "freq": -0.00701026608380212
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.02739049822630111,
+        "seasonal": -0.366680647633494,
+        "frequency": 0.6059288541402048
+      },
+      "resid_corr": {
+        "trend": 0.00908900689668522,
+        "seasonal": -0.12167587853592307,
+        "freq": 0.20106576699260773
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "exchange_rate": {
-      "trend": 0.34411688518954214,
-      "seasonal": 0.3125678844163405,
-      "frequency": 0.3433152303941175,
+      "trend": -0.019753450380320663,
+      "seasonal": 0.4555363839293137,
+      "frequency": -0.5247101656903657,
       "corr": {
-        "trend": 0.1769801399534165,
-        "seasonal": 0.08082043348298651,
-        "frequency": 0.1746478219233191
+        "trend": -0.014614354255730084,
+        "seasonal": 0.33702315104148345,
+        "freq": -0.38820054701032697
       },
-      "n_rows": 264,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.0265196980327592,
+        "seasonal": 0.6115735282771572,
+        "frequency": -0.3619067736900836
+      },
+      "resid_corr": {
+        "trend": -0.014614354255730084,
+        "seasonal": 0.33702315104148345,
+        "freq": -0.19943793446372546
+      },
+      "n_rows": 11,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "traffic": {
-      "trend": 0.31240511768237506,
-      "seasonal": 0.34405481349856254,
-      "frequency": 0.34354006881906235,
+      "trend": -0.3501015225483966,
+      "seasonal": -0.3027937865390271,
+      "frequency": -0.3471046909125763,
       "corr": {
-        "trend": 0.3786249460663107,
-        "seasonal": 0.47512513265464434,
-        "frequency": 0.4736278999413233
+        "trend": -0.3813991671227091,
+        "seasonal": -0.329862312952244,
+        "freq": -0.3781344309924889
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.5261529140602378,
+        "seasonal": -0.4550560991199904,
+        "frequency": -0.018790986819771892
+      },
+      "resid_corr": {
+        "trend": -0.3813991671227091,
+        "seasonal": -0.329862312952244,
+        "freq": -0.013621262053210428
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "weather": {
-      "trend": 0.34456023992224405,
-      "seasonal": 0.3279755785194954,
-      "frequency": 0.32746418155826057,
+      "trend": 0.017190683934761235,
+      "seasonal": -0.26535947597120085,
+      "frequency": 0.717449840094038,
       "corr": {
-        "trend": 0.08208882888238274,
-        "seasonal": 0.0327590417008541,
-        "frequency": 0.031198571628217795
+        "trend": 0.004796306382525072,
+        "seasonal": -0.07403692331813304,
+        "freq": 0.20017291110950908
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.010547326608490056,
+        "seasonal": -0.16281103604415134,
+        "frequency": 0.8266416373473586
+      },
+      "resid_corr": {
+        "trend": 0.004796306382525072,
+        "seasonal": -0.07403692331813304,
+        "freq": 0.37590820010054776
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     }
   },
   "timesfm2p5": {
     "Australia_Solar_H": {
-      "trend": 0.33418868622633185,
-      "seasonal": 0.3301571077324358,
-      "frequency": 0.3356542060412325,
+      "trend": 0.10707053005286411,
+      "seasonal": -0.0411242509062917,
+      "frequency": 0.8518052190408443,
       "corr": {
-        "trend": 0.20866120581718411,
-        "seasonal": 0.19652406873750602,
-        "frequency": 0.21303692487061088
+        "trend": 0.03225105583322481,
+        "seasonal": -0.012387166771505876,
+        "freq": 0.25657496665753826
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.2466209207047852,
+        "seasonal": -0.09472354920440555,
+        "frequency": -0.6586555300908093
+      },
+      "resid_corr": {
+        "trend": 0.03225105583322481,
+        "seasonal": -0.012387166771505876,
+        "freq": -0.08613355353274703
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_15T": {
-      "trend": 0.3257397567087114,
-      "seasonal": 0.33635443109695,
-      "frequency": 0.3379058121943387,
+      "trend": 0.4222557095974884,
+      "seasonal": 0.4202217279599059,
+      "frequency": 0.15752256244260568,
       "corr": {
-        "trend": -0.018515342537565434,
-        "seasonal": 0.05058203073079761,
-        "frequency": 0.05518376678298469
+        "trend": 0.42607789494195475,
+        "seasonal": 0.4240255020558577,
+        "freq": 0.15894842931878087
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.47980245226494034,
+        "seasonal": 0.4774912712544947,
+        "frequency": 0.04270627648056492
+      },
+      "resid_corr": {
+        "trend": 0.42607789494195475,
+        "seasonal": 0.4240255020558577,
+        "freq": 0.037924358864261334
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_20T": {
-      "trend": 0.3379355943095868,
-      "seasonal": 0.3476871664576485,
-      "frequency": 0.31437723923276467,
+      "trend": 0.25413956969695106,
+      "seasonal": -0.206463140640789,
+      "frequency": 0.53939728966226,
       "corr": {
-        "trend": 0.3377906242611773,
-        "seasonal": 0.3662384248334826,
-        "frequency": 0.2655289599515545
+        "trend": 0.3080344398017241,
+        "seasonal": -0.25024736581881846,
+        "freq": 0.6537861937431144
       },
-      "n_rows": 168,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.34776165283245986,
+        "seasonal": -0.28252177779257015,
+        "frequency": 0.36971656937497005
+      },
+      "resid_corr": {
+        "trend": 0.3080344398017241,
+        "seasonal": -0.25024736581881846,
+        "freq": 0.3274812947467225
+      },
+      "n_rows": 7,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_5T": {
-      "trend": 0.36905202518665925,
-      "seasonal": 0.31575565819855017,
-      "frequency": 0.31519231661479064,
+      "trend": -0.542974176583741,
+      "seasonal": -0.056175118265723675,
+      "frequency": 0.40085070515053534,
       "corr": {
-        "trend": 0.5172701449648234,
-        "seasonal": 0.361301202135429,
-        "frequency": 0.35951550266116994
+        "trend": -0.09407725095086619,
+        "seasonal": -0.009733060845599932,
+        "freq": 0.06945253385629944
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.7271409265994955,
+        "seasonal": -0.07522867441795333,
+        "frequency": 0.19763039898255122
+      },
+      "resid_corr": {
+        "trend": -0.09407725095086619,
+        "seasonal": -0.009733060845599932,
+        "freq": 0.02556935521089425
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_H": {
-      "trend": 0.32859869593912866,
-      "seasonal": 0.3388914281755677,
-      "frequency": 0.3325098758853036,
+      "trend": 0.12462501053482285,
+      "seasonal": -0.4549062390644535,
+      "frequency": 0.4204687504007236,
       "corr": {
-        "trend": -0.07549707172999301,
-        "seasonal": 0.1063396198847735,
-        "frequency": 0.08732939623602598
+        "trend": 0.06705962317744746,
+        "seasonal": -0.2447810503029655,
+        "freq": 0.2262505402307352
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.09649678542454894,
+        "seasonal": -0.3522325859866257,
+        "frequency": -0.5512706285888253
+      },
+      "resid_corr": {
+        "trend": 0.06705962317744746,
+        "seasonal": -0.2447810503029655,
+        "freq": -0.3831008510730814
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh1": {
-      "trend": 0.3094452332117493,
-      "seasonal": 0.3331545765858439,
-      "frequency": 0.35740019020240665,
+      "trend": -0.18679991831538356,
+      "seasonal": -0.2256147381949958,
+      "frequency": 0.5875853434896207,
       "corr": {
-        "trend": -0.007579554347932292,
-        "seasonal": 0.08140500657453688,
-        "frequency": 0.15165456525604534
+        "trend": -0.07341158781477843,
+        "seasonal": -0.08866564993538428,
+        "freq": 0.23091858621392491
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.12597634752222353,
+        "seasonal": -0.1521527467533567,
+        "frequency": 0.7218709057244198
+      },
+      "resid_corr": {
+        "trend": -0.07341158781477843,
+        "seasonal": -0.08866564993538428,
+        "freq": 0.42066380260130376
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh2": {
-      "trend": 0.3062613624783248,
-      "seasonal": 0.377048162303734,
-      "frequency": 0.3166904752179411,
+      "trend": 0.1661541886378614,
+      "seasonal": 0.602588640930295,
+      "frequency": 0.23125717043184368,
       "corr": {
-        "trend": -0.008039991131715012,
-        "seasonal": 0.21597405874827627,
-        "frequency": 0.04152600598999423
+        "trend": 0.09537353856524117,
+        "seasonal": 0.345889630925897,
+        "freq": 0.1327430553721482
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.1376968212228447,
+        "seasonal": 0.499382778377869,
+        "frequency": -0.3629204003992863
+      },
+      "resid_corr": {
+        "trend": 0.09537353856524117,
+        "seasonal": 0.345889630925897,
+        "freq": -0.2513711100678016
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "EWELD_Load_15T": {
-      "trend": 0.3138525027406454,
-      "seasonal": 0.34896846386119124,
-      "frequency": 0.3371790333981633,
+      "trend": 0.09873693640023817,
+      "seasonal": -0.5357190543195813,
+      "frequency": -0.36554400928018044,
       "corr": {
-        "trend": 0.3769242359516902,
-        "seasonal": 0.48298265358928133,
-        "frequency": 0.448615142558971
+        "trend": 0.04240830475258246,
+        "seasonal": -0.2300956232352301,
+        "freq": -0.15700407883019277
       },
-      "n_rows": 432,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.07115443850717688,
+        "seasonal": -0.38606412045425437,
+        "frequency": -0.5427814410385687
+      },
+      "resid_corr": {
+        "trend": 0.04240830475258246,
+        "seasonal": -0.2300956232352301,
+        "freq": -0.32349971763585444
+      },
+      "n_rows": 18,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Finland_Traffic_15T": {
-      "trend": 0.29509575450781644,
-      "seasonal": 0.3538606079389904,
-      "frequency": 0.35104363755319307,
+      "trend": 0.8563310809998935,
+      "seasonal": -0.04787409761228255,
+      "frequency": -0.09579482138782386,
       "corr": {
-        "trend": 0.5394478916805027,
-        "seasonal": 0.7210510691618087,
-        "frequency": 0.7130585357089125
+        "trend": 0.10560249898831846,
+        "seasonal": -0.005903819745471034,
+        "freq": -0.011813389415787273
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.45679920538421337,
+        "seasonal": -0.0255378442205342,
+        "frequency": -0.5176629503952523
+      },
+      "resid_corr": {
+        "trend": 0.10560249898831846,
+        "seasonal": -0.005903819745471034,
+        "freq": -0.11967293408364106
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "NE_China_Wind_H": {
-      "trend": 0.3478815733361628,
-      "seasonal": 0.3073803988613103,
-      "frequency": 0.34473802780252694,
+      "trend": 0.33451171958872583,
+      "seasonal": 0.26696948671452403,
+      "frequency": 0.3985187936967501,
       "corr": {
-        "trend": 0.18602907077562217,
-        "seasonal": 0.06225302021848902,
-        "frequency": 0.1769517443079457
+        "trend": 0.56919002350762,
+        "seasonal": 0.4542632126781206,
+        "freq": 0.6781015679551294
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.49297952791800215,
+        "seasonal": 0.3934405996024575,
+        "frequency": 0.11357987247954021
+      },
+      "resid_corr": {
+        "trend": 0.56919002350762,
+        "seasonal": 0.4542632126781206,
+        "freq": 0.13113836706293217
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "OpenElectricity_NEM_5T": {
-      "trend": 0.31517050615179504,
-      "seasonal": 0.3493469966145751,
-      "frequency": 0.3354824972336299,
+      "trend": -0.19962017010370656,
+      "seasonal": 0.3094543863212552,
+      "frequency": 0.4909254435750382,
       "corr": {
-        "trend": 0.31538900959527255,
-        "seasonal": 0.4183409157374182,
-        "frequency": 0.37784501369467133
+        "trend": -0.0701419286378674,
+        "seasonal": 0.10873514169807584,
+        "freq": 0.17249989022584422
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.27579462671267846,
+        "seasonal": 0.42754124954273276,
+        "frequency": -0.2966641237445888
+      },
+      "resid_corr": {
+        "trend": -0.0701419286378674,
+        "seasonal": 0.10873514169807584,
+        "freq": -0.07544959829397513
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Port_Activity_D": {
-      "trend": 0.34432415360172075,
-      "seasonal": 0.3124527386401195,
-      "frequency": 0.34322310775815973,
+      "trend": -0.33704519193562604,
+      "seasonal": -0.32260426811421056,
+      "frequency": -0.34035053995016346,
       "corr": {
-        "trend": -0.1496849153731627,
-        "seasonal": 0.05255461609800282,
-        "frequency": -0.1464820903554269
+        "trend": -0.9892221885636641,
+        "seasonal": -0.9468383106466925,
+        "freq": -0.9989233315413385
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3428096989208297,
+        "seasonal": -0.32812179099095296,
+        "frequency": -0.32906851008821736
+      },
+      "resid_corr": {
+        "trend": -0.9892221885636641,
+        "seasonal": -0.9468383106466925,
+        "freq": -0.949570192330026
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Customer_D": {
-      "trend": 0.3787183763792735,
-      "seasonal": 0.31098791601867465,
-      "frequency": 0.3102937076020518,
+      "trend": -0.40601206239273957,
+      "seasonal": -0.11842349229601147,
+      "frequency": -0.4755644453112489,
       "corr": {
-        "trend": 0.264582205397569,
-        "seasonal": 0.06754340294698648,
-        "frequency": 0.06530863958317343
+        "trend": -0.6902386790223198,
+        "seasonal": -0.20132523749636885,
+        "freq": -0.8084808431235629
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.37684042558800973,
+        "seasonal": -0.10991486059170193,
+        "frequency": 0.5132447138202884
+      },
+      "resid_corr": {
+        "trend": -0.6902386790223198,
+        "seasonal": -0.20132523749636885,
+        "freq": 0.9400832002822582
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Location_D": {
-      "trend": 0.3922912345246832,
-      "seasonal": 0.3027107311367232,
-      "frequency": 0.3049980343385937,
+      "trend": 0.19931050199917802,
+      "seasonal": 0.5939131907619207,
+      "frequency": -0.2067763072389012,
       "corr": {
-        "trend": 0.2677860857557814,
-        "seasonal": 0.00855924338896176,
-        "frequency": -0.016086908391617343
+        "trend": 0.3343821256938463,
+        "seasonal": 0.9964048718587087,
+        "freq": -0.346907465809066
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.2372292069914456,
+        "seasonal": 0.7069048236444192,
+        "frequency": 0.055865969364135216
+      },
+      "resid_corr": {
+        "trend": 0.3343821256938463,
+        "seasonal": 0.9964048718587087,
+        "freq": 0.07874486378315317
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Water_Quality_Darwin_15T": {
-      "trend": 0.3558939828223736,
-      "seasonal": 0.2890559093389771,
-      "frequency": 0.3550501078386493,
+      "trend": 0.46731725997973733,
+      "seasonal": 0.027683322164749207,
+      "frequency": 0.5049994178555135,
       "corr": {
-        "trend": 0.23204877790489448,
-        "seasonal": -0.02403601978735156,
-        "frequency": 0.2296748208212748
+        "trend": 0.12472321891748649,
+        "seasonal": 0.007388456079852542,
+        "freq": 0.13478028384641186
       },
-      "n_rows": 384,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.4808508654364658,
+        "seasonal": 0.028485036956806035,
+        "frequency": -0.49066409760672813
+      },
+      "resid_corr": {
+        "trend": 0.12472321891748649,
+        "seasonal": 0.007388456079852542,
+        "freq": -0.1272685775561754
+      },
+      "n_rows": 16,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "azure2019_U_5T": {
-      "trend": 0.3515665201167987,
-      "seasonal": 0.32262436724753085,
-      "frequency": 0.3258091126356705,
+      "trend": 0.9391107446772717,
+      "seasonal": 0.060889255322728354,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.09186661138452636,
         "seasonal": 0.0059563683920457935,
         "frequency": -0.01577933742464491
       },
       "n_rows": 48,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "current_velocity_15T": {
-      "trend": 0.3459761667339944,
-      "seasonal": 0.3322167822189043,
-      "frequency": 0.3218070510471014,
+      "trend": -0.44759918499275414,
+      "seasonal": -0.41413174868405045,
+      "frequency": -0.13826906632319527,
       "corr": {
-        "trend": 0.3703309378538256,
-        "seasonal": 0.32974876176280743,
-        "frequency": 0.29791319302981195
+        "trend": -0.23851612086787444,
+        "seasonal": -0.22068203324800115,
+        "freq": -0.07368065546402922
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.37135789440676836,
+        "seasonal": -0.34359109523577785,
+        "frequency": -0.28505101035745384
+      },
+      "resid_corr": {
+        "trend": -0.23851612086787444,
+        "seasonal": -0.22068203324800115,
+        "freq": -0.18308284882037779
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_20T": {
-      "trend": 0.33107573733636925,
-      "seasonal": 0.33654492837368727,
-      "frequency": 0.3323793342899435,
+      "trend": 0.3851509188139927,
+      "seasonal": 0.2690217613709384,
+      "frequency": 0.34582731981506876,
       "corr": {
-        "trend": 0.01986836597281433,
-        "seasonal": 0.03625285994908613,
-        "frequency": 0.02379809290359866
+        "trend": 0.46792371953360307,
+        "seasonal": 0.32683723981186963,
+        "freq": 0.42014908416291397
       },
-      "n_rows": 336,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.5020476839600841,
+        "seasonal": 0.35067228360000263,
+        "frequency": 0.14728003243991322
+      },
+      "resid_corr": {
+        "trend": 0.46792371953360307,
+        "seasonal": 0.32683723981186963,
+        "freq": 0.13726947219179514
+      },
+      "n_rows": 14,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_5T": {
-      "trend": 0.3190522178787118,
-      "seasonal": 0.33770214977113727,
-      "frequency": 0.3432456323501509,
+      "trend": -0.44663750715674994,
+      "seasonal": 0.3087135946469451,
+      "frequency": 0.244648898196305,
       "corr": {
-        "trend": 0.46458650561091336,
-        "seasonal": 0.5213960171035759,
-        "frequency": 0.5376780439808928
+        "trend": -0.2145190712114049,
+        "seasonal": 0.14827450120698166,
+        "freq": 0.11750435996309218
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.4995944585240116,
+        "seasonal": 0.3453171726182711,
+        "frequency": 0.15508836885771737
+      },
+      "resid_corr": {
+        "trend": -0.2145190712114049,
+        "seasonal": 0.14827450120698166,
+        "freq": 0.06659283800172557
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_H": {
-      "trend": 0.3547080848929245,
-      "seasonal": 0.32209244531212033,
-      "frequency": 0.3231994697949553,
+      "trend": 0.9468293925823993,
+      "seasonal": 0.05037217635238302,
+      "frequency": -0.0027984310652178056,
       "corr": {
-        "trend": -0.1013394139664141,
-        "seasonal": 0.004882860420628827,
-        "frequency": 0.008313944997826905
+        "trend": 0.21207842739231572,
+        "seasonal": 0.011282763324451923,
+        "freq": -0.0006268149934155598
       },
-      "n_rows": 120,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.7068614619330644,
+        "seasonal": 0.037605666338771715,
+        "frequency": 0.2555328717281639
+      },
+      "resid_corr": {
+        "trend": 0.21207842739231572,
+        "seasonal": 0.011282763324451923,
+        "freq": 0.07666708754350382
+      },
+      "n_rows": 5,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "electricity": {
-      "trend": 0.32862803067538704,
-      "seasonal": 0.3376849430220628,
-      "frequency": 0.33368702630255015,
+      "trend": 0.07458212721459213,
+      "seasonal": 0.41662480186017387,
+      "frequency": 0.5087930709252341,
       "corr": {
-        "trend": 0.2283354765426586,
-        "seasonal": 0.2555223107954885,
-        "frequency": 0.2436124779194727
+        "trend": 0.02777220130348164,
+        "seasonal": 0.1551388824294635,
+        "freq": 0.18945964824649825
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.09898299114863705,
+        "seasonal": 0.5529309851430438,
+        "frequency": 0.34808602370831904
+      },
+      "resid_corr": {
+        "trend": 0.02777220130348164,
+        "seasonal": 0.1551388824294635,
+        "freq": 0.09766440687612046
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "exchange_rate": {
-      "trend": 0.32891890080244063,
-      "seasonal": 0.34274261221369645,
-      "frequency": 0.32833848698386303,
+      "trend": 0.22863815107231245,
+      "seasonal": 0.5762615572499207,
+      "frequency": -0.19510029167776688,
       "corr": {
-        "trend": -0.08496302973857582,
-        "seasonal": -0.1261315752443936,
-        "frequency": -0.08319686025843087
+        "trend": 0.13834963451173923,
+        "seasonal": 0.34869760560422414,
+        "freq": -0.11805577468222206
       },
-      "n_rows": 264,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.1588479737577201,
+        "seasonal": 0.40036179567716673,
+        "frequency": -0.4407902305651132
+      },
+      "resid_corr": {
+        "trend": 0.13834963451173923,
+        "seasonal": 0.34869760560422414,
+        "freq": -0.3839090033848471
+      },
+      "n_rows": 11,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "traffic": {
-      "trend": 0.28532450437682727,
-      "seasonal": 0.35664115796005386,
-      "frequency": 0.3580343376631189,
+      "trend": -0.3193892618872086,
+      "seasonal": -0.33629668739029733,
+      "frequency": -0.3443140507224941,
       "corr": {
-        "trend": 0.3879900004594653,
-        "seasonal": 0.6110929725611595,
-        "frequency": 0.6149917531303769
+        "trend": -0.58092628984923,
+        "seasonal": -0.6116786323368124,
+        "freq": -0.6262611424294376
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.36327552555593123,
+        "seasonal": -0.38250614667681715,
+        "frequency": -0.2542183277672517
+      },
+      "resid_corr": {
+        "trend": -0.58092628984923,
+        "seasonal": -0.6116786323368124,
+        "freq": -0.4065292032418169
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "weather": {
-      "trend": 0.3615103308970782,
-      "seasonal": 0.31827733946180875,
-      "frequency": 0.320212329641113,
+      "trend": -0.2787686053785865,
+      "seasonal": -0.4310870095530996,
+      "frequency": 0.29014438506831386,
       "corr": {
-        "trend": 0.13313453075252432,
-        "seasonal": 0.005767051062461796,
-        "frequency": 0.011828217583604661
+        "trend": -0.29206425317691204,
+        "seasonal": -0.45164736297477537,
+        "freq": 0.3039825916672638
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.2713062506934723,
+        "seasonal": -0.4195472446607738,
+        "frequency": 0.3091465046457538
+      },
+      "resid_corr": {
+        "trend": -0.29206425317691204,
+        "seasonal": -0.45164736297477537,
+        "freq": 0.3327997153431867
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     }
   },
   "visiontspp": {
     "Australia_Solar_H": {
-      "trend": 0.3567019999630646,
-      "seasonal": 0.32282642407776013,
-      "frequency": 0.32047157595917525,
+      "trend": 0.3043782679014499,
+      "seasonal": 0.19664633586937727,
+      "frequency": 0.4989753962291728,
       "corr": {
-        "trend": 0.12337694822826108,
-        "seasonal": -0.023591041052542405,
-        "frequency": -0.01626983490306397
+        "trend": 0.1117383536770039,
+        "seasonal": 0.07218957509073434,
+        "freq": 0.18317565733053728
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.23939614062591721,
+        "seasonal": 0.15466404418399196,
+        "frequency": 0.6059398151900909
+      },
+      "resid_corr": {
+        "trend": 0.1117383536770039,
+        "seasonal": 0.07218957509073434,
+        "freq": 0.2828229277199917
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_15T": {
-      "trend": 0.3407961996007241,
-      "seasonal": 0.31775254159528366,
-      "frequency": 0.34145125880399224,
+      "trend": 0.28872314981884944,
+      "seasonal": 0.5212899661338035,
+      "frequency": 0.18998688404734693,
       "corr": {
-        "trend": -0.08802991171950685,
-        "seasonal": 0.018018176996729172,
-        "frequency": -0.08995021027539035
+        "trend": 0.37228658626156985,
+        "seasonal": 0.6721638429967459,
+        "freq": 0.2449736660909823
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.2970752158540244,
+        "seasonal": 0.5363696305921448,
+        "frequency": 0.1665551535538306
+      },
+      "resid_corr": {
+        "trend": 0.37228658626156985,
+        "seasonal": 0.6721638429967459,
+        "freq": 0.20872239160905143
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_20T": {
-      "trend": 0.33861142292791746,
-      "seasonal": 0.2850764427232106,
-      "frequency": 0.37631213434887206,
+      "trend": -0.8874267917116627,
+      "seasonal": -0.04885656934007015,
+      "frequency": -0.06371663894826708,
       "corr": {
-        "trend": -0.2055983638765566,
-        "seasonal": -0.03350252337331172,
-        "frequency": -0.31116410254315663
+        "trend": -0.2320303562422243,
+        "seasonal": -0.012774244923216944,
+        "freq": -0.01665962147165733
       },
-      "n_rows": 168,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.6425912623872265,
+        "seasonal": -0.03537734589643238,
+        "frequency": -0.32203139171634104
+      },
+      "resid_corr": {
+        "trend": -0.2320303562422243,
+        "seasonal": -0.012774244923216944,
+        "freq": -0.11628085054180967
+      },
+      "n_rows": 7,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_5T": {
-      "trend": 0.3611280321151106,
-      "seasonal": 0.32733824724411975,
-      "frequency": 0.31153372064076973,
+      "trend": -0.4976289960406627,
+      "seasonal": -0.3855059611792045,
+      "frequency": -0.11686504278013278,
       "corr": {
-        "trend": 0.5436662060551906,
-        "seasonal": 0.4454276825216054,
-        "frequency": 0.39594123582747787
+        "trend": -0.11170503307308433,
+        "seasonal": -0.08653626795468206,
+        "freq": -0.026233225098835345
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.284481877394079,
+        "seasonal": -0.22038398175235677,
+        "frequency": -0.49513414085356416
+      },
+      "resid_corr": {
+        "trend": -0.11170503307308433,
+        "seasonal": -0.08653626795468206,
+        "freq": -0.19442003155457152
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Coastal_T_S_H": {
-      "trend": 0.34116955995805326,
-      "seasonal": 0.333132325347042,
-      "frequency": 0.3256981146949048,
+      "trend": -0.3117727272906871,
+      "seasonal": -0.39689398200043613,
+      "frequency": 0.2913332907088768,
       "corr": {
-        "trend": 0.058337419272633737,
-        "seasonal": 0.03449760675791995,
-        "frequency": 0.011928746088998111
+        "trend": -0.40103145337930163,
+        "seasonal": -0.5105224303045949,
+        "freq": 0.37474032448586586
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.27712108935588603,
+        "seasonal": -0.352781635541223,
+        "frequency": -0.3700972751028909
+      },
+      "resid_corr": {
+        "trend": -0.40103145337930163,
+        "seasonal": -0.5105224303045949,
+        "freq": -0.535580487472846
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh1": {
-      "trend": 0.3288279504627721,
-      "seasonal": 0.30800221050309223,
-      "frequency": 0.36316983903413563,
+      "trend": 0.09263278634767157,
+      "seasonal": -0.518059468789799,
+      "frequency": 0.38930774486252945,
       "corr": {
-        "trend": -0.15384623504922318,
-        "seasonal": -0.0884185278958593,
-        "frequency": -0.2531821689619871
+        "trend": 0.01386275793177356,
+        "seasonal": -0.07752906172056115,
+        "freq": 0.05826100283476537
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.03643016111447827,
+        "seasonal": -0.20373984912921492,
+        "frequency": 0.7598299897563068
+      },
+      "resid_corr": {
+        "trend": 0.01386275793177356,
+        "seasonal": -0.07752906172056115,
+        "freq": 0.28913787079320513
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "ETTh2": {
-      "trend": 0.32569158136568455,
-      "seasonal": 0.301185256557145,
-      "frequency": 0.37312316207717044,
+      "trend": 0.1647084343042203,
+      "seasonal": -0.2650733974364238,
+      "frequency": -0.5702181682593559,
       "corr": {
-        "trend": -0.08607918090230919,
-        "seasonal": -0.007853862486393807,
-        "frequency": -0.22203687515056778
+        "trend": 0.1733128616140703,
+        "seasonal": -0.2789209261901972,
+        "freq": -0.6000065685939813
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.18775880738572978,
+        "seasonal": -0.3021694983780879,
+        "frequency": 0.5100716942361824
+      },
+      "resid_corr": {
+        "trend": 0.1733128616140703,
+        "seasonal": -0.2789209261901972,
+        "freq": 0.4708273672339521
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "EWELD_Load_15T": {
-      "trend": 0.30495701355965515,
-      "seasonal": 0.34421764220616047,
-      "frequency": 0.3508253442341844,
+      "trend": 0.23186088843317315,
+      "seasonal": 0.29087227170343877,
+      "frequency": 0.477266839863388,
       "corr": {
-        "trend": -0.11892934858868467,
-        "seasonal": -0.24003265920991992,
-        "frequency": -0.25904702591289874
+        "trend": 0.08979070086219043,
+        "seasonal": 0.11264351359180123,
+        "freq": 0.18482687761272776
       },
-      "n_rows": 432,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.24829228308857254,
+        "seasonal": 0.31148565381790133,
+        "frequency": 0.440222063093526
+      },
+      "resid_corr": {
+        "trend": 0.08979070086219043,
+        "seasonal": 0.11264351359180123,
+        "freq": 0.15919885663972275
+      },
+      "n_rows": 18,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Finland_Traffic_15T": {
-      "trend": 0.29606589225252955,
-      "seasonal": 0.3495774402793336,
-      "frequency": 0.35435666746813693,
+      "trend": -0.20708259833776038,
+      "seasonal": -0.2967008230319068,
+      "frequency": 0.49621657863033286,
       "corr": {
-        "trend": -0.22895161252583415,
-        "seasonal": -0.39509468562000855,
-        "frequency": -0.4086735151457815
+        "trend": -0.10481346784636676,
+        "seasonal": -0.1501731310330711,
+        "freq": 0.25115669219232867
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3131122120735026,
+        "seasonal": -0.4486164060585348,
+        "frequency": -0.2382713818679626
+      },
+      "resid_corr": {
+        "trend": -0.10481346784636676,
+        "seasonal": -0.1501731310330711,
+        "freq": -0.07976070194369951
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "NE_China_Wind_H": {
-      "trend": 0.37396819707030426,
-      "seasonal": 0.25674974653218346,
-      "frequency": 0.3692820563975123,
+      "trend": -0.6021595719128973,
+      "seasonal": -0.2537414263181672,
+      "frequency": -0.1440990017689355,
       "corr": {
-        "trend": -0.47805692233870867,
-        "seasonal": -0.10198802470295745,
-        "frequency": -0.46544689564281505
+        "trend": -0.4209217788146292,
+        "seasonal": -0.17737041393448705,
+        "freq": -0.10072813084629738
       },
-      "n_rows": 192,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.6864991278664967,
+        "seasonal": -0.2892809082444011,
+        "frequency": -0.024219963889102292
+      },
+      "resid_corr": {
+        "trend": -0.4209217788146292,
+        "seasonal": -0.17737041393448705,
+        "freq": -0.014850288761050816
+      },
+      "n_rows": 8,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "OpenElectricity_NEM_5T": {
-      "trend": 0.32258688178074896,
-      "seasonal": 0.3459279245883451,
-      "frequency": 0.3314851936309059,
+      "trend": -0.28206178241507235,
+      "seasonal": -0.26003518957081145,
+      "frequency": -0.45790302801411614,
       "corr": {
-        "trend": -0.08711724880108583,
-        "seasonal": -0.1569751908964,
-        "frequency": -0.11432789184155322
+        "trend": -0.08612707675402737,
+        "seasonal": -0.07940129477717067,
+        "freq": -0.13981989655598911
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.34206960587071034,
+        "seasonal": -0.31535691949257766,
+        "frequency": -0.34257347463671206
+      },
+      "resid_corr": {
+        "trend": -0.08612707675402737,
+        "seasonal": -0.07940129477717067,
+        "freq": -0.0862539419976462
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Port_Activity_D": {
-      "trend": 0.41450416515312827,
-      "seasonal": 0.3060723471801664,
-      "frequency": 0.2794234876667054,
+      "trend": -0.33770300303671125,
+      "seasonal": -0.31880971492067356,
+      "frequency": -0.34348728204261525,
       "corr": {
-        "trend": 0.39537405575365964,
-        "seasonal": -0.09211253530933944,
-        "frequency": 0.0010195405605993785
+        "trend": -0.9764473378534523,
+        "seasonal": -0.9218185642911463,
+        "freq": -0.9931722226958374
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3458428906974238,
+        "seasonal": -0.3264942046683587,
+        "frequency": -0.32766290463421754
+      },
+      "resid_corr": {
+        "trend": -0.9764473378534523,
+        "seasonal": -0.9218185642911463,
+        "freq": -0.9251182532571708
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Customer_D": {
-      "trend": 0.2664196377203867,
-      "seasonal": 0.3684421240058693,
-      "frequency": 0.3651382382737441,
+      "trend": -0.41006090493768094,
+      "seasonal": -0.104562267955485,
+      "frequency": -0.48537682710683405,
       "corr": {
-        "trend": 0.08978257307714879,
-        "seasonal": -0.4139935629268551,
-        "frequency": -0.4049859388381828
+        "trend": -0.666855779640713,
+        "seasonal": -0.17004291771987629,
+        "freq": -0.7893372388402989
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.3730957085485995,
+        "seasonal": -0.09513643700373976,
+        "frequency": 0.5317678544476607
+      },
+      "resid_corr": {
+        "trend": -0.666855779640713,
+        "seasonal": -0.17004291771987629,
+        "freq": 0.9504597856272905
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Supply_Chain_Location_D": {
-      "trend": 0.27282699113309267,
-      "seasonal": 0.3808382649003083,
-      "frequency": 0.346334743966599,
+      "trend": -0.46453974077048477,
+      "seasonal": -0.29838815971507704,
+      "frequency": -0.23707209951443822,
       "corr": {
-        "trend": 0.116185754039691,
-        "seasonal": -0.4497226752874271,
-        "frequency": -0.35475366733465813
+        "trend": -0.9277997997247174,
+        "seasonal": -0.5959543404504031,
+        "freq": -0.4734911292734532
       },
-      "n_rows": 72,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.41812517370239843,
+        "seasonal": -0.26857465607715914,
+        "frequency": 0.3133001702204424
+      },
+      "resid_corr": {
+        "trend": -0.9277997997247174,
+        "seasonal": -0.5959543404504031,
+        "freq": 0.6951981211997973
+      },
+      "n_rows": 3,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "Water_Quality_Darwin_15T": {
-      "trend": 0.3689414289132032,
-      "seasonal": 0.28243323457152963,
-      "frequency": 0.34862533651526706,
+      "trend": 0.4763197831660499,
+      "seasonal": 0.48202850866802766,
+      "frequency": 0.04165170816592241,
       "corr": {
-        "trend": -0.39131298200848164,
-        "seasonal": -0.12411726465370573,
-        "frequency": -0.3346728910107724
+        "trend": 0.3173045224860286,
+        "seasonal": 0.32110743910512984,
+        "freq": 0.0277466438250122
       },
-      "n_rows": 384,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.2761485330557611,
+        "seasonal": 0.2794581922987819,
+        "frequency": -0.44439327464545697
+      },
+      "resid_corr": {
+        "trend": 0.3173045224860286,
+        "seasonal": 0.32110743910512984,
+        "freq": -0.5106237366066556
+      },
+      "n_rows": 16,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "azure2019_U_5T": {
-      "trend": 0.3254964928078446,
-      "seasonal": 0.36171467265595353,
-      "frequency": 0.312788834536202,
+      "trend": 0.45492481794657774,
+      "seasonal": 0.5450751820534223,
+      "frequency": 0.0,
       "corr": {
         "trend": 0.5324037930189368,
         "seasonal": 0.6379078101643776,
         "frequency": 0.4925804190295699
       },
       "n_rows": 48,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "source": "l1_abs_pearson_hist_delta_smape"
     },
     "current_velocity_15T": {
-      "trend": 0.3245285316616739,
-      "seasonal": 0.33918072445506914,
-      "frequency": 0.3362907438832568,
+      "trend": -0.20657068265824508,
+      "seasonal": -0.3057432747056745,
+      "frequency": -0.48768604263608034,
       "corr": {
-        "trend": -0.012326575307296106,
-        "seasonal": -0.05648619384534193,
-        "frequency": -0.04792921300628121
+        "trend": -0.1534735012943519,
+        "seasonal": -0.2271546487742016,
+        "freq": -0.36233062471683897
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.22118546699431524,
+        "seasonal": -0.32737447601907604,
+        "frequency": -0.45144005698660883
+      },
+      "resid_corr": {
+        "trend": -0.1534735012943519,
+        "seasonal": -0.2271546487742016,
+        "freq": -0.3132397761559863
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_20T": {
-      "trend": 0.3159951580988186,
-      "seasonal": 0.32607283196165665,
-      "frequency": 0.35793200993952473,
+      "trend": 0.4446522438769533,
+      "seasonal": 0.24869621491400382,
+      "frequency": 0.306651541209043,
       "corr": {
-        "trend": 0.056620296339170796,
-        "seasonal": -0.08801417268127255,
-        "frequency": -0.1812364573360023
+        "trend": 0.1449522536820571,
+        "seasonal": 0.08107251752440899,
+        "freq": 0.0999653832976662
       },
-      "n_rows": 336,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.18903516546699553,
+        "seasonal": 0.10572830967270169,
+        "frequency": 0.7052365248603027
+      },
+      "resid_corr": {
+        "trend": 0.1449522536820571,
+        "seasonal": 0.08107251752440899,
+        "freq": 0.5407756985577955
+      },
+      "n_rows": 14,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_5T": {
-      "trend": 0.33494913931135234,
-      "seasonal": 0.32018715789396607,
-      "frequency": 0.3448637027946816,
+      "trend": -0.23126423418356767,
+      "seasonal": 0.17984488102264212,
+      "frequency": 0.5888908847937901,
       "corr": {
-        "trend": -0.11519516713740459,
-        "seasonal": -0.07012216303333825,
-        "frequency": -0.14436574439942917
+        "trend": -0.10769597588662425,
+        "seasonal": 0.08375082311505777,
+        "freq": 0.27423686482477794
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.399527092856833,
+        "seasonal": 0.3106961296190982,
+        "frequency": -0.2897767775240688
+      },
+      "resid_corr": {
+        "trend": -0.10769597588662425,
+        "seasonal": 0.08375082311505777,
+        "freq": -0.07811183121921303
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "current_velocity_H": {
-      "trend": 0.34271246383565673,
-      "seasonal": 0.33404137806931566,
-      "frequency": 0.3232461580950275,
+      "trend": -0.49049982476041826,
+      "seasonal": -0.026283729841113733,
+      "frequency": -0.483216445398468,
       "corr": {
-        "trend": 0.06542921916726187,
-        "seasonal": -0.03980229316317664,
-        "frequency": 0.006951553762492375
+        "trend": -0.30375098963901004,
+        "seasonal": -0.016276680536108798,
+        "freq": -0.29924062372768817
       },
-      "n_rows": 120,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.42736652031937633,
+        "seasonal": -0.022900693529702924,
+        "frequency": -0.5497327861509207
+      },
+      "resid_corr": {
+        "trend": -0.30375098963901004,
+        "seasonal": -0.016276680536108798,
+        "freq": -0.39072288045765685
+      },
+      "n_rows": 5,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "electricity": {
-      "trend": 0.3334963759173953,
-      "seasonal": 0.34032754608610155,
-      "frequency": 0.3261760779965032,
+      "trend": -0.6536186797827098,
+      "seasonal": 0.22723627674077698,
+      "frequency": -0.11914504347651324,
       "corr": {
-        "trend": 0.11226301969563024,
-        "seasonal": 0.1325395459212105,
-        "frequency": 0.0900683733233565
+        "trend": -0.14653036792635762,
+        "seasonal": 0.050942569830028414,
+        "freq": -0.026710324532063942
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.42339350433893197,
+        "seasonal": 0.14719647173210113,
+        "frequency": -0.42941002392896704
+      },
+      "resid_corr": {
+        "trend": -0.14653036792635762,
+        "seasonal": 0.050942569830028414,
+        "freq": -0.14861259833407367
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "exchange_rate": {
-      "trend": 0.34860374313446363,
-      "seasonal": 0.31330818500861296,
-      "frequency": 0.33808807185692336,
+      "trend": -0.14068062555094626,
+      "seasonal": -0.4828440027804825,
+      "frequency": -0.3764753716685712,
       "corr": {
-        "trend": -0.49294585591014745,
-        "seasonal": -0.3861973080255721,
-        "frequency": -0.4623164144267021
+        "trend": -0.07612905809435105,
+        "seasonal": -0.26129013141807933,
+        "freq": -0.20372894510957257
       },
-      "n_rows": 264,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.17995175199610905,
+        "seasonal": -0.6176303517338002,
+        "frequency": 0.20241789627009074
+      },
+      "resid_corr": {
+        "trend": -0.07612905809435105,
+        "seasonal": -0.26129013141807933,
+        "freq": 0.08563341903342658
+      },
+      "n_rows": 11,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "traffic": {
-      "trend": 0.3376285287776427,
-      "seasonal": 0.3360583596536119,
-      "frequency": 0.3263131115687454,
+      "trend": -0.3792763064655239,
+      "seasonal": -0.2699971465634256,
+      "frequency": -0.35072654697105043,
       "corr": {
-        "trend": 0.11271331756996972,
-        "seasonal": -0.10805188807158668,
-        "frequency": -0.07862443909556618
+        "trend": -0.10414367204116494,
+        "seasonal": -0.07413722872854359,
+        "freq": -0.09630432974911789
       },
-      "n_rows": 360,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": -0.19772169985958746,
+        "seasonal": -0.1407530443260402,
+        "frequency": -0.6615252558143724
+      },
+      "resid_corr": {
+        "trend": -0.10414367204116494,
+        "seasonal": -0.07413722872854359,
+        "freq": -0.3484375733033083
+      },
+      "n_rows": 15,
+      "source": "l1_stl_pearson_hist_delta_smape"
     },
     "weather": {
-      "trend": 0.3245563738298602,
-      "seasonal": 0.34570535217969367,
-      "frequency": 0.3297382739904461,
+      "trend": 0.039787318228908415,
+      "seasonal": 0.23967974195047606,
+      "frequency": -0.7205329398206155,
       "corr": {
-        "trend": -0.006989993940571639,
-        "seasonal": 0.07011757663632247,
-        "frequency": -0.022829978340556122
+        "trend": 0.03007436113721403,
+        "seasonal": 0.18116865970261814,
+        "freq": -0.5446350447334035
       },
-      "n_rows": 480,
-      "source": "softmax_abs_pearson_hist_delta_smape"
+      "resid_weights": {
+        "trend": 0.0663621402738808,
+        "seasonal": 0.3997670957518421,
+        "frequency": -0.5338707639742771
+      },
+      "resid_corr": {
+        "trend": 0.03007436113721403,
+        "seasonal": 0.18116865970261814,
+        "freq": -0.24194250049952215
+      },
+      "n_rows": 20,
+      "source": "l1_stl_pearson_hist_delta_smape"
     }
   }
 }
