@@ -29,13 +29,15 @@ dist/
 logs/
 *.log
 /文档资料
-/.claude
 
-# Generated experiment data (local-only)
+# Local caches and tool state
 /.cache/
-results/
-data/Intermediate_Predictions/
-data/datasets/BM/
-data/datasets/Imputed/
+/.conda/
+/.claude/
+/.kilo/
+/.vscode/
+
+# Generated local-only artifacts
+results_pic/
 all_evals.*
 *.out
