@@ -167,7 +167,7 @@ def collect_result_files_new_format(
     Args:
         dataset: 数据集名称
         method: 注空模式 (MCAR)
-        imputation_method: 插值方法 (none, zero, mean, etc.)
+        imputation_method: 插值方法 (none, mean, linear, etc.)
         results_dir: 结果目录
         
     Returns:
@@ -894,7 +894,7 @@ Examples:
   python Eval/visualize_results.py --dataset ETTh1 --method MCAR --format_mode new --imputation_method linear
   
   # Comparison mode - compare multiple imputation methods
-  python Eval/visualize_results.py --dataset ETTh1 --method MCAR --mode comparison --imputation_methods none zero mean linear
+  python Eval/visualize_results.py --dataset ETTh1 --method MCAR --mode comparison --imputation_methods none mean linear knn mice
   
   # Custom metrics
   python Eval/visualize_results.py --dataset ETTh1 --method MCAR \\
@@ -974,14 +974,30 @@ Examples:
         "--imputation_method",
         type=str,
         default="none",
-        help="Imputation method (only for single mode, e.g., none, zero, mean, linear)"
+        help="Imputation method (only for single mode, e.g., none, mean, linear)"
     )
     
     parser.add_argument(
         "--imputation_methods",
         type=str,
         nargs='+',
-        default=["none", "zero", "mean", "forward", "backward", "linear", "nearest", "polynomial"],
+        default=[
+            "none",
+            "mean",
+            "forward",
+            "backward",
+            "linear",
+            "knn",
+            "mice",
+            "pchip",
+            "poly2",
+            "poly3",
+            "spline3",
+            "kalman_struct",
+            "kalman_arima",
+            "gp_rbf",
+            "saits",
+        ],
         help="Imputation methods to compare (only for comparison mode)"
     )
     

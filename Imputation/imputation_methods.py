@@ -9,7 +9,7 @@ from __future__ import annotations
 import os
 import random
 from pathlib import Path
-from typing import Callable, Dict, Literal, Optional, Sequence
+from typing import Callable, Dict, Optional, Sequence
 
 import numpy as np
 import pandas as pd
@@ -48,46 +48,6 @@ def _finish_column(values: np.ndarray, original: pd.Series) -> pd.Series:
             fallback = fallback.fillna(0.0 if not np.isfinite(median) else median)
         out = out.fillna(fallback)
     return out
-
-
-def _infer_period_from_index(index: pd.Index, n: int) -> Optional[int]:
-    """Infer a common seasonal period from a DateTimeIndex when possible."""
-
-    if n < 4:
-        return None
-
-    freq = None
-    if isinstance(index, pd.DatetimeIndex):
-        freq = pd.infer_freq(index)
-        if freq is None and index.freq is not None:
-            freq = index.freqstr
-
-    if not freq:
-        return None
-
-    try:
-        offset = pd.tseries.frequencies.to_offset(freq)
-        seconds = pd.Timedelta(offset).total_seconds()
-    except Exception:
-        seconds = None
-
-    if seconds and seconds > 0:
-        day = int(round(24 * 3600 / seconds))
-        week = int(round(7 * 24 * 3600 / seconds))
-        for period in (day, week):
-            if 2 <= period <= max(2, n // 2):
-                return period
-
-    freq_upper = str(freq).upper()
-    if "M" == freq_upper or freq_upper.endswith("ME"):
-        return 12 if n >= 24 else None
-    if freq_upper.startswith("W"):
-        return 52 if n >= 104 else None
-    if freq_upper.startswith("D"):
-        return 7 if n >= 14 else None
-    if freq_upper.startswith("H"):
-        return 24 if n >= 48 else None
-    return None
 
 
 def _set_random_seed(random_seed: int = DEFAULT_RANDOM_SEED) -> np.random.Generator:
@@ -131,13 +91,6 @@ def _prepare_pypots_home() -> None:
     os.environ.setdefault("HOME", str(fallback_home))
 
 
-def zero_imputation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
-    """零值填补"""
-    df_imputed = df.copy()
-    df_imputed[data_cols] = df_imputed[data_cols].fillna(0)
-    return df_imputed
-
-
 def mean_imputation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
     """均值填补"""
     df_imputed = df.copy()
@@ -166,68 +119,120 @@ def linear_interpolation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
     return df_imputed
 
 
-def nearest_interpolation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
-    """最近邻插值填补"""
-    df_imputed = df.copy()
-    df_imputed[data_cols] = df_imputed[data_cols].interpolate(method='nearest')
-    return df_imputed
-
-
-def polynomial_interpolation(df: pd.DataFrame, data_cols: list, order: int = 2) -> pd.DataFrame:
-    """多项式插值填补
-    
-    Args:
-        df: 包含缺失值的数据框
-        data_cols: 需要填补的列名列表
-        order: 多项式阶数，默认为2（二次多项式）
-    
-    Returns:
-        填补后的数据框
-    """
-    df_imputed = df.copy()
-    df_imputed[data_cols] = df_imputed[data_cols].interpolate(method='polynomial', order=order)
-    return df_imputed
-
-
-def spline_interpolation(df: pd.DataFrame, data_cols: list, order: int = 3) -> pd.DataFrame:
-    """样条插值填补"""
-    df_imputed = df.copy()
-    df_imputed[data_cols] = df_imputed[data_cols].interpolate(method='spline', order=order)
-    return df_imputed
-
-
-def seasonal_decomposition_imputation(
-    df: pd.DataFrame, 
-    data_cols: list, 
-    freq: str,
-    model: Literal['additive', 'multiplicative'] = 'additive'
+def _positional_interpolation(
+    df: pd.DataFrame,
+    data_cols: list,
+    method: str,
+    order: Optional[int] = None,
 ) -> pd.DataFrame:
-    """基于季节分解的填补"""
-    from statsmodels.tsa.seasonal import seasonal_decompose
-    
+    """Interpolate each column on positions to avoid duplicate timestamp failures."""
+
     df_imputed = df.copy()
-    
     for col in data_cols:
-        series = df_imputed[col]
-        missing_mask = series.isna()
-        
-        if not missing_mask.any():
+        series = pd.to_numeric(df_imputed[col], errors="coerce")
+        if not series.isna().any():
             continue
-        
-        series_filled = series.interpolate(method='linear')
-        
+
+        values = series.to_numpy(dtype="float64")
+        positional = pd.Series(values, index=pd.RangeIndex(len(values)), dtype="float64")
+        kwargs = {"method": method, "limit_direction": "both"}
+        if order is not None:
+            kwargs["order"] = order
+
         try:
-            decomposition = seasonal_decompose(
-                series_filled, 
-                model=model, 
-                freq=freq,
-                period=None
-            )
-            reconstructed = decomposition.trend + decomposition.seasonal + decomposition.resid
-            df_imputed.loc[missing_mask, col] = reconstructed.loc[missing_mask]
+            filled = positional.interpolate(**kwargs)
         except Exception:
-            df_imputed[col] = series.interpolate(method='linear')
-    
+            filled = positional.interpolate(method="linear", limit_direction="both")
+
+        df_imputed[col] = _finish_column(filled.to_numpy(dtype="float64"), series)
+
+    return df_imputed
+
+
+def pchip_interpolation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
+    """Piecewise cubic Hermite interpolation."""
+
+    return _positional_interpolation(df, data_cols, method="pchip")
+
+
+def poly2_interpolation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
+    """Second-order polynomial interpolation."""
+
+    return _positional_interpolation(df, data_cols, method="polynomial", order=2)
+
+
+def poly3_interpolation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
+    """Third-order polynomial interpolation."""
+
+    return _positional_interpolation(df, data_cols, method="polynomial", order=3)
+
+
+def spline3_interpolation(df: pd.DataFrame, data_cols: list) -> pd.DataFrame:
+    """Third-order spline interpolation."""
+
+    return _positional_interpolation(df, data_cols, method="spline", order=3)
+
+
+def knn_imputation(df: pd.DataFrame, data_cols: list, n_neighbors: int = 5) -> pd.DataFrame:
+    """KNN imputation across data columns."""
+
+    try:
+        from sklearn.impute import KNNImputer
+    except ImportError as exc:
+        raise ImportError(
+            "KNN imputation requires scikit-learn. Install scikit-learn before using method `knn`."
+        ) from exc
+
+    df_imputed = df.copy()
+    numeric = df_imputed[data_cols].apply(pd.to_numeric, errors="coerce")
+    usable_cols = [col for col in data_cols if numeric[col].notna().any()]
+
+    if usable_cols:
+        imputer = KNNImputer(n_neighbors=max(1, min(n_neighbors, len(numeric))))
+        transformed = imputer.fit_transform(numeric[usable_cols])
+        df_imputed[usable_cols] = pd.DataFrame(transformed, index=df.index, columns=usable_cols)
+
+    for col in data_cols:
+        series = pd.to_numeric(df_imputed[col], errors="coerce")
+        df_imputed[col] = _finish_column(series.to_numpy(dtype="float64"), series)
+
+    return df_imputed
+
+
+def mice_imputation(
+    df: pd.DataFrame,
+    data_cols: list,
+    random_seed: int = DEFAULT_RANDOM_SEED,
+    max_iter: int = 10,
+) -> pd.DataFrame:
+    """MICE-style iterative imputation across data columns."""
+
+    try:
+        from sklearn.experimental import enable_iterative_imputer  # noqa: F401
+        from sklearn.impute import IterativeImputer
+    except ImportError as exc:
+        raise ImportError(
+            "MICE imputation requires scikit-learn. Install scikit-learn before using method `mice`."
+        ) from exc
+
+    df_imputed = df.copy()
+    numeric = df_imputed[data_cols].apply(pd.to_numeric, errors="coerce")
+    usable_cols = [col for col in data_cols if numeric[col].notna().any()]
+
+    if usable_cols:
+        imputer = IterativeImputer(
+            max_iter=max_iter,
+            random_state=random_seed,
+            initial_strategy="median",
+            sample_posterior=False,
+        )
+        transformed = imputer.fit_transform(numeric[usable_cols])
+        df_imputed[usable_cols] = pd.DataFrame(transformed, index=df.index, columns=usable_cols)
+
+    for col in data_cols:
+        series = pd.to_numeric(df_imputed[col], errors="coerce")
+        df_imputed[col] = _finish_column(series.to_numpy(dtype="float64"), series)
+
     return df_imputed
 
 
@@ -480,72 +485,6 @@ def kalman_arima_imputation(
     return df_imputed
 
 
-def _decompose_with_stl_or_profile(
-    filled: np.ndarray,
-    index: pd.Index,
-    period: Optional[int],
-) -> tuple[np.ndarray, np.ndarray]:
-    n = len(filled)
-    if period is None or period < 2 or n < period * 2:
-        return np.zeros(n, dtype="float64"), filled.copy()
-
-    try:
-        from statsmodels.tsa.seasonal import STL
-
-        result = STL(filled, period=period, robust=True).fit()
-        return np.asarray(result.seasonal), np.asarray(result.trend)
-    except Exception:
-        pass
-
-    trend = (
-        pd.Series(filled, index=index)
-        .rolling(window=period, center=True, min_periods=max(2, period // 3))
-        .mean()
-        .interpolate(method="linear", limit_direction="both")
-        .to_numpy(dtype="float64")
-    )
-    detrended = filled - trend
-    seasonal_profile = np.zeros(period, dtype="float64")
-    for i in range(period):
-        vals = detrended[np.arange(i, n, period)]
-        seasonal_profile[i] = np.nanmean(vals) if len(vals) else 0.0
-    seasonal_profile = seasonal_profile - np.nanmean(seasonal_profile)
-    seasonal = np.asarray([seasonal_profile[i % period] for i in range(n)])
-    return seasonal, trend
-
-
-def stl_kalman_imputation(
-    df: pd.DataFrame,
-    data_cols: list,
-    period: Optional[int] = None,
-) -> pd.DataFrame:
-    """STL/seasonal-profile + Kalman residual 填补.
-
-    先估计季节和趋势，再用结构 Kalman smoother 填补残差，最后重构序列。
-    """
-
-    df_imputed = df.copy()
-    for col in data_cols:
-        series = pd.to_numeric(df_imputed[col], errors="coerce")
-        missing_mask = series.isna().to_numpy()
-        if not missing_mask.any():
-            continue
-
-        values = series.to_numpy(dtype="float64")
-        filled = _initial_fill_array(values)
-        col_period = period or _infer_period_from_index(series.index, len(series))
-        seasonal, trend = _decompose_with_stl_or_profile(filled, series.index, col_period)
-        baseline = seasonal + trend
-
-        residual = values - baseline
-        residual_imputed = _kalman_local_linear_smooth(residual)
-        reconstructed = baseline + residual_imputed
-        out = filled.copy()
-        out[missing_mask] = reconstructed[missing_mask]
-        df_imputed[col] = _finish_column(out, series)
-    return df_imputed
-
-
 def _rbf_kernel(x1: np.ndarray, x2: np.ndarray, length_scale: float, variance: float) -> np.ndarray:
     sqdist = (x1[:, None] - x2[None, :]) ** 2
     return variance * np.exp(-0.5 * sqdist / max(length_scale, 1e-8) ** 2)
@@ -778,18 +717,18 @@ def saits_imputation(
 
 
 IMPUTATION_METHODS: Dict[str, Callable] = {
-    'zero': zero_imputation,
     'mean': mean_imputation,
     'forward': forward_fill,
     'backward': backward_fill,
     'linear': linear_interpolation,
-    'nearest': nearest_interpolation,
-    'polynomial': polynomial_interpolation,
-    'spline': spline_interpolation,
-    'seasonal': seasonal_decomposition_imputation,
+    'knn': knn_imputation,
+    'mice': mice_imputation,
+    'pchip': pchip_interpolation,
+    'poly2': poly2_interpolation,
+    'poly3': poly3_interpolation,
+    'spline3': spline3_interpolation,
     'kalman_struct': kalman_struct_imputation,
     'kalman_arima': kalman_arima_imputation,
-    'stl_kalman': stl_kalman_imputation,
     'gp_rbf': gp_rbf_imputation,
     'saits': saits_imputation,
     'none': none_imputation,

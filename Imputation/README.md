@@ -27,15 +27,16 @@ data/datasets/Imputed/{method}/{method}_{ratio}/{dataset}_{method}_{ratio}_{term
 ### 基础方法
 
 - `none`：不填补，保留 NaN。
-- `zero`：用 0 填补。
 - `mean`：用列均值填补。
 - `forward`：前向填补。
 - `backward`：后向填补。
 - `linear`：线性插值。
-- `nearest`：最近邻插值。
-- `polynomial`：二阶多项式插值。
-- `spline`：三阶样条插值。
-- `seasonal`：基于季节分解的填补，失败时回退到线性插值。
+- `knn`：基于 KNNImputer 的跨列近邻填补。
+- `mice`：基于 IterativeImputer 的 MICE 风格迭代填补。
+- `pchip`：分段三次 Hermite 插值。
+- `poly2`：二阶多项式插值。
+- `poly3`：三阶多项式插值。
+- `spline3`：三阶样条插值。
 
 ### 新增强单序列方法
 
@@ -50,12 +51,6 @@ data/datasets/Imputed/{method}/{method}_{ratio}/{dataset}_{method}_{ratio}_{term
   先从初始插值序列估计稳定 AR(p) 系数，再用 AR 状态空间 Kalman
   smoother 填补缺失值。默认 `max_lag=3`，用于近似 ARIMA 动态。该实现只
   依赖 NumPy/Pandas。
-
-- `stl_kalman`
-
-  先估计趋势和季节项，再对残差使用 `kalman_struct` 填补，最后重构序列。
-  如果安装了 `statsmodels`，会优先使用 `STL`；否则使用季节 profile 和滚动
-  趋势作为轻量回退。适合检验“结构保持型填补”对下游 TSFM 的影响。
 
 - `gp_rbf`
 
@@ -106,17 +101,17 @@ python Eval/run_batch_eval.py \
   --method BM \
   --terms short \
   --missing_ratios 0.10 \
-  --imputation_methods kalman_struct,kalman_arima,stl_kalman,gp_rbf \
+  --imputation_methods mean,forward,backward,linear,knn,mice,pchip,poly2,poly3,spline3,kalman_struct,kalman_arima,gp_rbf,saits \
   --random_seed 42
 ```
 
 ## 依赖说明
 
 - 必需：`numpy`、`pandas`。
-- 推荐：`statsmodels`，用于 `stl_kalman` 的 STL 分解。
+- `knn` / `mice`：需要 `scikit-learn`。
+- `pchip` / `poly2` / `poly3` / `spline3`：依赖 Pandas 的 SciPy 插值能力，失败时会回退到线性插值。
 - SAITS：需要 `pypots`，通常也会依赖 `torch`。
 
-当前实现对缺失依赖采用显式处理：`saits` 在缺少 PyPOTS 时会抛出安装提示；
-`stl_kalman` 在缺少 statsmodels 时会使用内置轻量季节分解回退。若当前系统
-用户目录不可写，`saits` 会把 PyPOTS 的生态配置目录临时指向当前工作目录下
-的 `.pypots_home`。
+当前实现对缺失依赖采用显式处理：`knn` / `mice` 在缺少 scikit-learn 时会抛出安装提示；
+`saits` 在缺少 PyPOTS 时会抛出安装提示。若当前系统用户目录不可写，`saits`
+会把 PyPOTS 的生态配置目录临时指向当前工作目录下的 `.pypots_home`。

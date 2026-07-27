@@ -38,6 +38,7 @@ logs/
 /.vscode/
 
 # Generated local-only artifacts
+/artifacts/
 results_pic/
 all_evals.*
 *.out

@@ -22,7 +22,7 @@ from impute_dataset import generate_imputed_dataset_path, impute_dataset
 from model_registry import build_model_adapter
 
 
-ALLOWED_MISSING_METHODS = {"BM"}
+ALLOWED_MISSING_METHODS = {"BM", "MCAR", "TM", "TVMR", "PERIODIC", "PEAK", "CHANGE"}
 DEFAULT_MODEL_PROPERTIES_PATH = "Eval/model_properties.json"
 
 
@@ -160,6 +160,7 @@ def generate_eval_dataset_paths(
     base_data_dir: str = "data/datasets",
     block_length: Optional[int] = None,
     properties_path: str = "data/datasets/dataset_properties.json",
+    variant: Optional[str] = None,
 ) -> List[Tuple[str, str]]:
     if missing_ratios is None:
         missing_ratios = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30]
@@ -175,26 +176,41 @@ def generate_eval_dataset_paths(
         ratio_dir = root / f"{method_key}_{ratio_str}"
 
         for term in allowed_terms:
-            eval_path = None
-            if method_key == "BM":
+            candidates: List[Path] = []
+            if variant:
                 if block_length is not None:
-                    eval_filename = f"{dataset_name}_{method_key}_length{block_length}_{ratio_str}_{term}.csv"
-                    eval_path = ratio_dir / eval_filename
-                else:
-                    pattern = (
-                        f"{dataset_name}_{method_key}_length*_{ratio_str}_{term}.csv"
+                    candidates.append(
+                        ratio_dir / f"{dataset_name}_{method_key}_{variant}_length{block_length}_{ratio_str}_{term}.csv"
                     )
-                    matches = (
-                        sorted(ratio_dir.glob(pattern)) if ratio_dir.exists() else []
-                    )
-                    if matches:
-                        eval_path = matches[0]
+                candidates.append(
+                    ratio_dir / f"{dataset_name}_{method_key}_{variant}_{ratio_str}_{term}.csv"
+                )
+                if ratio_dir.exists():
+                    candidates.extend(sorted(ratio_dir.glob(f"{dataset_name}_{method_key}_{variant}*_{ratio_str}_{term}.csv")))
+            elif method_key == "BM":
+                if block_length is not None:
+                    candidates.append(ratio_dir / f"{dataset_name}_{method_key}_length{block_length}_{ratio_str}_{term}.csv")
+                elif ratio_dir.exists():
+                    candidates.extend(sorted(ratio_dir.glob(f"{dataset_name}_{method_key}_length*_{ratio_str}_{term}.csv")))
+            else:
+                candidates.append(ratio_dir / f"{dataset_name}_{method_key}_{ratio_str}_{term}.csv")
+                if ratio_dir.exists():
+                    candidates.extend(sorted(ratio_dir.glob(f"{dataset_name}_{method_key}_*_{ratio_str}_{term}.csv")))
 
-            if eval_path is None:
-                eval_filename = f"{dataset_name}_{method_key}_{ratio_str}_{term}.csv"
-                eval_path = ratio_dir / eval_filename
+            if not candidates:
+                candidates.append(ratio_dir / f"{dataset_name}_{method_key}_{ratio_str}_{term}.csv")
 
-            eval_paths.append((str(eval_path), term))
+            seen = set()
+            for eval_path in candidates:
+                key = str(eval_path)
+                if key in seen:
+                    continue
+                seen.add(key)
+                if eval_path.exists():
+                    eval_paths.append((str(eval_path), term))
+                    break
+            else:
+                eval_paths.append((str(candidates[0]), term))
 
     return eval_paths
 
@@ -405,21 +421,24 @@ def batch_evaluate(
     torch_dtype: Optional[str] = None,
     model_properties_path: str = DEFAULT_MODEL_PROPERTIES_PATH,
     random_seed: int = 42,
+    variant: Optional[str] = None,
 ) -> List[Tuple[str, str, str, Dict[str, Any]]]:
     if imputation_methods is None:
         imputation_methods = [
-            "zero",
             "mean",
             "forward",
             "backward",
             "linear",
-            "nearest",
-            "spline",
-            "seasonal",
+            "knn",
+            "mice",
+            "pchip",
+            "poly2",
+            "poly3",
+            "spline3",
             "kalman_struct",
             "kalman_arima",
-            "stl_kalman",
             "gp_rbf",
+            "saits",
         ]
     imputation_methods = [m.lower() for m in imputation_methods if m.lower() != "none"]
     if not imputation_methods:
@@ -432,6 +451,7 @@ def batch_evaluate(
         base_data_dir=base_data_dir,
         block_length=block_length,
         properties_path=properties_path,
+        variant=variant,
     )
     clean_path = find_clean_dataset_path(dataset_name, base_data_dir)
     freq = get_frequency_from_properties(dataset_name, properties_path)
@@ -629,10 +649,11 @@ def _build_parser() -> argparse.ArgumentParser:
 
     batch = subparsers.add_parser("batch", help="Batch evaluate missing datasets")
     batch.add_argument("--dataset", type=str, required=True)
-    batch.add_argument("--method", type=str, required=True, choices=["BM"])
+    batch.add_argument("--method", type=str, required=True, choices=["BM", "MCAR", "TM", "TVMR", "PERIODIC", "PEAK", "CHANGE"])
     batch.add_argument("--missing_ratios", type=str, default=None)
     batch.add_argument("--imputation_methods", type=str, default=None)
     batch.add_argument("--block_length", type=int, default=None)
+    batch.add_argument("--variant", type=str, default=None)
     batch.add_argument("--imputed_data_dir", type=str, default="data/datasets/Imputed")
     add_common_args(batch)
 
@@ -709,6 +730,7 @@ def main():
                 torch_dtype=args.torch_dtype,
                 model_properties_path=args.model_properties_path,
                 random_seed=args.random_seed,
+                variant=args.variant,
             )
         elif args.mode == "clean":
             evaluate_clean(

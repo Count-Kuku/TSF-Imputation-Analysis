@@ -141,8 +141,9 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Dataset name. If omitted, use all datasets under base_data_dir/ori",
     )
-    parser.add_argument("--method", type=str, default="BM", choices=["BM"])
+    parser.add_argument("--method", type=str, default="BM", choices=["BM", "MCAR", "TM", "TVMR", "PERIODIC", "PEAK", "CHANGE"])
     parser.add_argument("--block_length", type=int, default=None)
+    parser.add_argument("--variant", type=str, default=None, help="Missing pattern variant, e.g. point/front/fixed")
 
     parser.add_argument(
         "--terms",
@@ -153,7 +154,22 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--imputation_methods",
         nargs="+",
-        default=["linear", "mean", "forward"],
+        default=[
+            "mean",
+            "forward",
+            "backward",
+            "linear",
+            "knn",
+            "mice",
+            "pchip",
+            "poly2",
+            "poly3",
+            "spline3",
+            "kalman_struct",
+            "kalman_arima",
+            "gp_rbf",
+            "saits",
+        ],
         help="One or more imputation methods",
     )
     parser.add_argument(
@@ -327,6 +343,7 @@ def main() -> None:
             base_data_dir=args.base_data_dir,
             block_length=args.block_length,
             properties_path=args.properties_path,
+            variant=args.variant,
         )
         eval_paths_with_terms = [
             (eval_path, term)

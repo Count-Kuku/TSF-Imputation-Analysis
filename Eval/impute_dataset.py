@@ -13,7 +13,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from Imputation.imputation_methods import IMPUTATION_METHODS
 
-ALLOWED_METHODS = {"BM", "MCAR", "TM", "TVMR"}
+ALLOWED_METHODS = {"BM", "MCAR", "TM", "TVMR", "PERIODIC", "PEAK", "CHANGE"}
 
 
 def get_imputation_method(method_name: str):
@@ -106,9 +106,9 @@ def generate_imputed_dataset_path(
     """统一生成填补结果输出路径，确保目录结构一致。"""
 
     eval_path = Path(eval_data_path)
-    dataset_name, method, ratio, term = _infer_metadata_from_eval_path(eval_path)
+    _dataset_name, method, ratio, _term = _infer_metadata_from_eval_path(eval_path)
 
-    output_filename = f"{dataset_name}_{method}_{ratio}_{term}_{imputation_method}.csv"
+    output_filename = f"{eval_path.stem}_{imputation_method}.csv"
     output_dir = Path(base_output_dir) / method / f"{method}_{ratio}"
     output_dir.mkdir(parents=True, exist_ok=True)
     return str(output_dir / output_filename)

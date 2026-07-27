@@ -14,14 +14,31 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 try:
     from .inject_range_utils import get_injection_range
-    from .BM import get_available_terms, inject_bm, parse_int_list
+    from .BM import build_missing_filename, get_available_terms, inject_missing, parse_int_list
 except ImportError:
     from inject_range_utils import get_injection_range  # type: ignore  # noqa: E402
-    from BM import get_available_terms, inject_bm, parse_int_list  # type: ignore  # noqa: E402
+    from BM import build_missing_filename, get_available_terms, inject_missing, parse_int_list  # type: ignore  # noqa: E402
+
+
+def default_variant(pattern: str) -> str:
+    pattern_key = pattern.upper()
+    if pattern_key == "BM":
+        return "fixed"
+    if pattern_key == "TM":
+        return "front_matched"
+    if pattern_key == "MCAR":
+        return "point"
+    if pattern_key == "PERIODIC":
+        return "fixedphase"
+    if pattern_key == "PEAK":
+        return "highvalue"
+    if pattern_key == "CHANGE":
+        return "highslope"
+    return "fixed"
 
 
 def parse_missing_ratios(ratio_str: str) -> List[float]:
@@ -65,10 +82,19 @@ def build_output_path(
     missing_ratio: float,
     term: str,
     block_length: int,
+    variant: Optional[str] = None,
 ) -> Path:
+    pattern_key = pattern.upper()
     ratio_str = f"{int(missing_ratio * 100):03d}"
-    output_dir = output_base_dir / pattern / f"{pattern}_{ratio_str}"
-    filename = f"{dataset_name}_{pattern}_length{block_length}_{ratio_str}_{term}.csv"
+    output_dir = output_base_dir / pattern_key / f"{pattern_key}_{ratio_str}"
+    filename = build_missing_filename(
+        dataset_name=dataset_name,
+        pattern=pattern_key,
+        missing_ratio=missing_ratio,
+        term=term,
+        variant=variant,
+        block_length=block_length,
+    )
     return output_dir / filename
 
 
@@ -97,6 +123,31 @@ def main() -> None:
         type=int,
         default=50,
         help="BM 缺失块大小（默认：50）",
+    )
+    parser.add_argument(
+        "--pattern",
+        type=str,
+        default="BM",
+        choices=["BM", "MCAR", "TM", "TVMR", "PERIODIC", "PEAK", "CHANGE"],
+        help="missing pattern, default BM",
+    )
+    parser.add_argument(
+        "--variant",
+        type=str,
+        default=None,
+        help="missing variant, e.g. BM=fixed, MCAR=point, TM=front",
+    )
+    parser.add_argument(
+        "--datasets",
+        type=str,
+        default=None,
+        help="optional comma-separated dataset whitelist",
+    )
+    parser.add_argument(
+        "--terms",
+        type=str,
+        default=None,
+        help="optional comma-separated term whitelist, e.g. short,medium",
     )
     parser.add_argument(
         "--seed",
@@ -151,19 +202,30 @@ def main() -> None:
     ratio_tolerance = args.ratio_tolerance
     repair_steps = args.repair_steps
     seed = args.seed
+    pattern = args.pattern.upper()
+    variant = args.variant or default_variant(pattern)
+    dataset_filter = {x.strip() for x in args.datasets.split(",") if x.strip()} if args.datasets else None
+    term_filter = {x.strip() for x in args.terms.split(",") if x.strip()} if args.terms else None
 
     print("========================================")
-    print("批量 BM 缺失值注入-开始")
-    print(f"数据目录: {data_path}")
-    print(f"输出目录: {output_dir / 'BM'}")
-    print(f"缺失比例: {missing_ratios}")
-    print(f"块长度: {block_length}")
+    print("Batch missing injection start")
+    print(f"Data dir: {data_path}")
+    print(f"Output dir: {output_dir / pattern}")
+    print(f"Pattern: {pattern}")
+    print(f"Variant: {variant}")
+    print(f"Missing ratios: {missing_ratios}")
+    if pattern in {"BM", "TM"}:
+        print(f"Block length: {block_length}")
     print(f"max_context: {max_context}")
     print(f"mode: {mode}")
     print("========================================")
 
     dataset_props = load_dataset_properties(data_path)
     dataset_names = load_dataset_list(data_path)
+    if dataset_filter is not None:
+        dataset_names = [d for d in dataset_names if d in dataset_filter]
+        if not dataset_names:
+            raise ValueError(f"No datasets matched --datasets={args.datasets}")
 
     total_generated = 0
     skipped = 0
@@ -174,6 +236,11 @@ def main() -> None:
 
         try:
             terms = get_available_terms(dataset_name, str(data_path))
+            if term_filter is not None:
+                terms = [t for t in terms if t in term_filter]
+                if not terms:
+                    print(f"[Warning] {dataset_name} has no matched term, skip")
+                    continue
         except Exception as exc:  # pragma: no cover - logging purpose
             print(f"[Warning] 无法获取 {dataset_name} 的 term：{exc}")
             continue
@@ -193,10 +260,11 @@ def main() -> None:
                 output_path = build_output_path(
                     output_base_dir=output_dir,
                     dataset_name=dataset_name,
-                    pattern="BM",
+                    pattern=pattern,
                     missing_ratio=ratio,
                     term=term,
                     block_length=block_length,
+                    variant=variant,
                 )
 
                 if output_path.exists():
@@ -205,11 +273,13 @@ def main() -> None:
                     continue
 
                 output_path.parent.mkdir(parents=True, exist_ok=True)
-                df_injected, info = inject_bm(
+                df_injected, info = inject_missing(
                     dataset_name=dataset_name,
                     injection_range=injection_range,
                     missing_ratio=ratio,
                     term=term,
+                    pattern=pattern,
+                    variant=variant,
                     block_length=block_length,
                     seed=seed,
                     mode=mode,
@@ -227,7 +297,7 @@ def main() -> None:
                 )
 
     print("\n========================================")
-    print("批量 BM 缺失值注入-完成")
+    print("批量缺失值注入-完成")
     print(f"新生成文件数: {total_generated}")
     print(f"跳过已有文件: {skipped}")
     print("========================================")
