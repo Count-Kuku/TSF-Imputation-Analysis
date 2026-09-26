@@ -8,7 +8,6 @@ import csv
 import json
 import logging
 import math
-from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -29,57 +28,16 @@ from gluonts.ev.metrics import (
     MeanWeightedSumQuantileLoss,
 )
 from gluonts.model import evaluate_model
-from gluonts.time_feature import get_seasonality, norm_freq_str
-from pandas.tseries.frequencies import to_offset
+from gluonts.time_feature import get_seasonality
+
+if __package__:
+    from .forecast_protocol import Term, PRED_LENGTH_MAP, maybe_reconvert_freq, compute_prediction_length
+else:
+    from forecast_protocol import Term, PRED_LENGTH_MAP, maybe_reconvert_freq, compute_prediction_length
 
 
 TEST_SPLIT = 0.6
 MAX_WINDOW = 20
-
-
-class Term(Enum):
-    SHORT = "short"
-    MEDIUM = "medium"
-    LONG = "long"
-
-    @property
-    def multiplier(self) -> int:
-        if self == Term.SHORT:
-            return 1
-        if self == Term.MEDIUM:
-            return 10
-        return 15
-
-
-PRED_LENGTH_MAP = {
-    "M": 12,
-    "W": 8,
-    "D": 30,
-    "H": 48,
-    "T": 48,
-    "S": 60,
-}
-
-
-def maybe_reconvert_freq(freq: str) -> str:
-    deprecated_map = {
-        "Y": "A",
-        "YE": "A",
-        "QE": "Q",
-        "ME": "M",
-        "h": "H",
-        "min": "T",
-        "s": "S",
-        "us": "U",
-    }
-    return deprecated_map.get(freq, freq)
-
-
-def compute_prediction_length(freq: str, term: Term = Term.SHORT) -> int:
-    freq_normalized = norm_freq_str(to_offset(freq).name)
-    freq_normalized = maybe_reconvert_freq(freq_normalized)
-    base_pred_len = PRED_LENGTH_MAP.get(freq_normalized, 48)
-    return term.multiplier * base_pred_len
 
 
 def build_metrics():
