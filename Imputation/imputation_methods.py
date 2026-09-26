@@ -140,8 +140,9 @@ def _positional_interpolation(
             kwargs["order"] = order
 
         filled = positional.interpolate(**kwargs)
-
-        df_imputed[col] = _finish_column(filled.to_numpy(dtype="float64"), series)
+        if filled.isna().any():
+            raise ValueError(f"{method} interpolation left missing values in column {col!r}")
+        df_imputed[col] = pd.Series(filled.to_numpy(dtype="float64"), index=series.index)
 
     return df_imputed
 

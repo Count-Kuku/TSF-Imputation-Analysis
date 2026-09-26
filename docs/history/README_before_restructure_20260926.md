@@ -1,5 +1,7 @@
 # TSF-Imputation-Analysis
 
+> 历史快照：本文件记录重构前的路径和操作。旧的 `run_new_imputers_driver.py`、`append_new_imputers_to_csv.py`、`backfill_stl_columns.py` 依赖当前已不存在的旧 BM 输入或人工汇总 CSV，已在 2026-09-26 清理。现有数值请从共享统一库和 `artifacts/legacy_eval/` 查找；不要以新掩码重跑旧结果并覆盖原场景。
+
 ## 当前入口（2026-09-26）
 
 本仓库保留原始数据、模型适配和基础填补实现；研究流水线、当前结论与统一库读取代码在 TFC。正式研究结果位于本仓库 `artifacts/`，TFC 各工作树通过 junction 共用同一物理目录。日常数值查询使用 `artifacts/unified/library.sqlite3`，通过 TFC 的 `research_pipeline.unified_library.Library` 或 `scripts/tfc_data.py` 读取。
