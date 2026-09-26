@@ -24,3 +24,9 @@
 新研究的代码、测试和结论文档按研究主题放在 TFC；只在确实需要新增基础模型适配或基础填补实现时修改本项目。论文固定方法已可从 `artifacts/imputation_optimization_paper/method_exports/` 独立导出，不依赖本项目的预测器或旧输出目录。
 
 早期 BM 注入、旧评估和可视化操作说明保存在[历史 README](docs/history/README_before_restructure_20260926.md)。其中提到的 `data/datasets/BM`、`data/datasets/Imputed`、`results_analysis` 在当前工作树已不存在，不能据此认定统一库缺结果。
+
+## GitHub 仓库
+
+日常开发和推送使用个人 fork 的 [`Count-Kuku/TSF-Imputation-Analysis`](https://github.com/Count-Kuku/TSF-Imputation-Analysis) 的 `main`。本地 `origin` 指向该 fork；`upstream` 指向[原仓库](https://github.com/Decadentvc/TSF-Imputation-Analysis)，仅用于查看和按需同步，不直接向其推送。当前 fork 的 `main` 采用原 `zyh_pic` 的研究状态，与原仓库 `main` 已分叉；以后引入上游改动时应先检查差异并测试。
+
+GitHub 只保存 Git 跟踪的文件。`artifacts/unified/library.sqlite3` 等被忽略的共享研究数据仍保存在本机目录，不随 fork 的 `main` 推送。
