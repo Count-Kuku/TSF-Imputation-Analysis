@@ -47,8 +47,8 @@ python draw/visualized_results_by_dataset.py --model chronos2 \
 两个脚本默认输出到不同目录：
 
 - `by_mode`
-  - 图片：`draw/outputs_by_model/<model>/<prediction_mode>_window_gap_scatter.png`
-  - 点数据：`draw/outputs_by_model/<model>/<prediction_mode>_window_gap_scatter.csv`
+  - 图片：`artifacts/legacy_eval/figures_by_model/<model>/<prediction_mode>_window_gap_scatter.png`
+  - 点数据：`artifacts/legacy_eval/figures_by_model/<model>/<prediction_mode>_window_gap_scatter.csv`
 - `by_dataset`
-  - 图片：`draw/outputs_by_dataset/<model>/<dataset>_window_gap_scatter_by_imputation.png`
-  - 点数据：`draw/outputs_by_dataset/<model>/<dataset>_window_gap_scatter_by_imputation.csv`
+  - 图片：`artifacts/legacy_eval/figures_by_dataset/<model>/<dataset>_window_gap_scatter_by_imputation.png`
+  - 点数据：`artifacts/legacy_eval/figures_by_dataset/<model>/<dataset>_window_gap_scatter_by_imputation.csv`

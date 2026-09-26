@@ -1,6 +1,6 @@
 # Visualize 使用说明
 
-本目录提供 `results_analysis` 结果的统一出图入口。
+本目录提供 `artifacts/legacy_eval/analysis` 结果的统一出图入口。
 
 ## 1. 功能概览
 
@@ -54,8 +54,8 @@ python Visualize/cli.py --plot-type method --model timesfm2p5 --dataset ETTh1 --
 
 输出目录示例：
 
-- `results_pic/method/timesfm2p5/ETTh1/long/BM_010/history/*.png`
-- `results_pic/method/timesfm2p5/ETTh1/long/BM_010/prediction/*.png`
+- `artifacts/legacy_eval/figures/method/timesfm2p5/ETTh1/long/BM_010/history/*.png`
+- `artifacts/legacy_eval/figures/method/timesfm2p5/ETTh1/long/BM_010/prediction/*.png`
 
 ### 3.2 指定部分填补方法
 
@@ -71,7 +71,7 @@ python Visualize/cli.py --plot-type clean --dataset ETTh1 --term long
 
 输出目录示例：
 
-- `results_pic/clean/ETTh1/long/*.png`
+- `artifacts/legacy_eval/figures/clean/ETTh1/long/*.png`
 
 clean 模式同样支持 `--layout single|panel|both`。
 
@@ -106,28 +106,28 @@ python Visualize/batch_plot.py --models timesfm2p5 --datasets ETTh1 --terms long
 核心参数：
 
 - `--plot-type`：`method` / `clean`
-- `--model`：模型目录名（`results_analysis/{model}`，仅 `plot-type=method` 需要）
+- `--model`：模型目录名（`artifacts/legacy_eval/analysis/{model}`，仅 `plot-type=method` 需要）
 - `--dataset`：数据集名
 - `--term`：`short` / `medium` / `long`
 - `--missing-ratio`：仅 `plot-type=method` 需要
 - `--methods`：可选，逗号分隔
 - `--layout`：`single` / `panel` / `both`（默认）
-- `--results-analysis-dir`：默认 `results_analysis`
-- `--results-pic-dir`：默认 `results_pic`
+- `--results-analysis-dir`：默认 `artifacts/legacy_eval/analysis`
+- `--results-pic-dir`：默认 `artifacts/legacy_eval/figures`
 
 ## 5. 想添加“填补方法”时怎么做
 
 ### 5.1 常规新增（推荐）
 
-只要 `results_analysis` 里有符合现有命名规范的 CSV，脚本会自动识别，无需改代码：
+只要 `artifacts/legacy_eval/analysis` 里有符合现有命名规范的 CSV，脚本会自动识别，无需改代码：
 
 - 历史窗口：`{dataset}_BM_{ratio}_{term}_{method}_history.csv`
 - 预测窗口：`{dataset}_BM_{ratio}_{term}_{method}_prediction.csv`
 
 例如新增 `spline` 方法，只需确保文件名中 `{method}` 为 `spline`，并放在：
 
-- `results_analysis/{model}/history/`
-- `results_analysis/{model}/prediction/`
+- `artifacts/legacy_eval/analysis/{model}/history/`
+- `artifacts/legacy_eval/analysis/{model}/prediction/`
 
 然后直接运行 `--plot-type method` 即可自动纳入对比。
 

@@ -146,8 +146,8 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optional comma-separated dataset filter. Default: include all matched datasets.",
     )
-    parser.add_argument("--results_analysis_dir", type=str, default="results_analysis")
-    parser.add_argument("--intermediate_dir", type=str, default="data/Intermediate_Predictions")
+    parser.add_argument("--results_analysis_dir", type=str, default="artifacts/legacy_eval/analysis")
+    parser.add_argument("--intermediate_dir", type=str, default="artifacts/legacy_eval/intermediate_predictions")
     parser.add_argument("--data_dir", type=str, default="data/datasets")
     parser.add_argument("--max_points", type=int, default=1200, help="Optional subsample size per dataset figure")
     parser.add_argument("--random_seed", type=int, default=42)
@@ -155,7 +155,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--output_dir",
         type=str,
         default=None,
-        help="Output directory. Default: draw/outputs_by_dataset/{model}",
+        help="Output directory. Default: artifacts/legacy_eval/figures_by_dataset/{model}",
     )
     return parser
 
@@ -171,7 +171,7 @@ def main() -> None:
     results_analysis_root = Path(args.results_analysis_dir)
     intermediate_root = Path(args.intermediate_dir)
     data_root = Path(args.data_dir)
-    output_root = Path(args.output_dir) if args.output_dir else Path("draw/outputs_by_dataset") / model
+    output_root = Path(args.output_dir) if args.output_dir else Path("artifacts/legacy_eval/figures_by_dataset") / model
 
     combined = build_combined_dataframe(
         model=model,

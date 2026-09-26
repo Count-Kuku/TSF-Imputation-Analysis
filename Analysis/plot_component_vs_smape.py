@@ -79,10 +79,10 @@ KNOWN_METHODS = sorted([
     "gp_rbf", "kalman_arima", "kalman_struct", "saits",
 ], key=len, reverse=True)
 
-INTERMEDIATE_DIR = ROOT_DIR / "data" / "Intermediate_Predictions"
+INTERMEDIATE_DIR = ROOT_DIR / "artifacts" / "legacy_eval" / "intermediate_predictions"
 DATA_DIR = ROOT_DIR / "data" / "datasets"
-RESULTS_DIR = ROOT_DIR / "results"
-BIAS_BY_MODEL_DIR = ROOT_DIR / "results_analysis" / "bias_analysis" / "by_model"
+RESULTS_DIR = ROOT_DIR / "artifacts" / "legacy_eval" / "results"
+BIAS_BY_MODEL_DIR = ROOT_DIR / "artifacts" / "legacy_eval" / "analysis" / "bias_analysis" / "by_model"
 MODEL_PROPERTIES_PATH = ROOT_DIR / "Eval" / "model_properties.json"
 
 # ======================================================
@@ -765,7 +765,7 @@ def main() -> None:
     parser.add_argument("--dataset", type=str, default=None,
                         help="只处理指定数据集 (逗号分隔)")
     parser.add_argument("--output_dir", type=str,
-                        default="results_analysis/component_vs_smape")
+                        default="artifacts/legacy_eval/analysis/component_vs_smape")
     parser.add_argument("--compute_window_smape", action="store_true", default=True,
                         help="计算窗口级 SMAPE (默认启用)")
     parser.add_argument("--n_jobs", type=int, default=1,

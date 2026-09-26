@@ -451,8 +451,8 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
         help="Prediction mode: clean/zero/mean/forward/backward/linear/nearest/spline/seasonal",
     )
-    parser.add_argument("--results_analysis_dir", type=str, default="results_analysis")
-    parser.add_argument("--intermediate_dir", type=str, default="data/Intermediate_Predictions")
+    parser.add_argument("--results_analysis_dir", type=str, default="artifacts/legacy_eval/analysis")
+    parser.add_argument("--intermediate_dir", type=str, default="artifacts/legacy_eval/intermediate_predictions")
     parser.add_argument("--data_dir", type=str, default="data/datasets")
     parser.add_argument("--max_points", type=int, default=1200, help="Optional subsample size for plotting")
     parser.add_argument("--random_seed", type=int, default=42)
@@ -460,7 +460,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--output",
         type=str,
         default=None,
-        help="Output image path. Default: draw/outputs_by_model/{model}/{prediction_mode}_window_gap_scatter.png",
+        help="Output image path. Default: artifacts/legacy_eval/figures_by_model/{model}/{prediction_mode}_window_gap_scatter.png",
     )
     return parser
 
@@ -479,7 +479,7 @@ def main() -> None:
     results_analysis_root = Path(args.results_analysis_dir)
     intermediate_root = Path(args.intermediate_dir)
     data_root = Path(args.data_dir)
-    default_out = Path("draw/outputs_by_model") / model / f"{prediction_mode}_window_gap_scatter.png"
+    default_out = Path("artifacts/legacy_eval/figures_by_model") / model / f"{prediction_mode}_window_gap_scatter.png"
     output_path = Path(args.output) if args.output else default_out
 
     df = build_plot_dataframe(

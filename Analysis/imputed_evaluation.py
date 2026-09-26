@@ -314,7 +314,7 @@ def get_all_imputed_files(
 
 
 def run_batch_evaluation(
-    output_dir: str = "results_analysis/imputed_evaluation",
+    output_dir: str = "artifacts/legacy_eval/analysis/imputed_evaluation",
     datasets: Optional[List[str]] = None,
     terms: Optional[List[str]] = None,
     impute_methods: Optional[List[str]] = None,
@@ -440,7 +440,7 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(description="填补数据评估工具")
-    parser.add_argument("--output_dir", type=str, default="results_analysis/imputed_evaluation",
+    parser.add_argument("--output_dir", type=str, default="artifacts/legacy_eval/analysis/imputed_evaluation",
                        help="输出目录")
     parser.add_argument("--datasets", type=str, default=None,
                        help="指定数据集，逗号分隔")

@@ -151,8 +151,8 @@ def parse_args() -> argparse.Namespace:
         choices=["single", "panel", "both"],
         help="Output layout: single, panel, or both",
     )
-    p.add_argument("--results-analysis-dir", default="results_analysis")
-    p.add_argument("--results-pic-dir", default="results_pic")
+    p.add_argument("--results-analysis-dir", default="artifacts/legacy_eval/analysis")
+    p.add_argument("--results-pic-dir", default="artifacts/legacy_eval/figures")
     return p.parse_args()
 
 

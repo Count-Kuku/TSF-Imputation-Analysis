@@ -1,5 +1,5 @@
 """
-向 results_analysis/块状缺失对长序列预测影响-实验结果统计-0501.csv 追加
+向 artifacts/legacy_eval/analysis/块状缺失对长序列预测影响-实验结果统计-0501.csv 追加
 4 个新填补方法（kalman_struct / kalman_arima / gp_rbf / saits）的实验结果。
 
 策略：
@@ -12,9 +12,9 @@
     col 1 (基础模型)、col 2 (数据集)、col 3 (缺失率) 均留空（沿用现有重复列省略风格）
     col 4 (填补方法) = imputer 名（保持英文原名以与 results 文件名一致）
     col 5 (填补误差 MSE) = 空
-    col 6 (预测误差 MSE[0.5]) = 从 results/<model>/impute/<imp>_<eval>_<term>_results.csv 读取
+    col 6 (预测误差 MSE[0.5]) = 从 artifacts/legacy_eval/results/<model>/impute/<imp>_<eval>_<term>_results.csv 读取
     col 7 (预测误差 sMAPE[0.5]) = 同上
-    col 8..13 (STL 6 项) = 从 results_analysis/<model>/history/<...>_history_summary.json
+    col 8..13 (STL 6 项) = 从 artifacts/legacy_eval/analysis/<model>/history/<...>_history_summary.json
                              里 summary.mean.* 取值；若 summary 文件尚未生成（Analysis 仍在跑）则留空
     col 14 = 空（保持 trailing comma 风格）
 
@@ -32,7 +32,7 @@ from typing import List, Optional, Tuple
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CSV_PATH = (
     REPO_ROOT
-    / "results_analysis"
+    / "artifacts" / "legacy_eval" / "analysis"
     / "块状缺失对长序列预测影响-实验结果统计-0501.csv"
 )
 
@@ -137,7 +137,7 @@ def build_new_row(
     eval_name = f"{dataset}_BM_length{block_length}_{ratio_3d}_{term}"
     result_path = (
         repo_root
-        / "results"
+        / "artifacts" / "legacy_eval" / "results"
         / model
         / "impute"
         / f"{imputer}_{eval_name}_results.csv"
@@ -148,7 +148,7 @@ def build_new_row(
 
     history_path = (
         repo_root
-        / "results_analysis"
+        / "artifacts" / "legacy_eval" / "analysis"
         / model
         / "history"
         / f"{dataset}_BM_{ratio_3d}_{term}_{imputer}_history_summary.json"

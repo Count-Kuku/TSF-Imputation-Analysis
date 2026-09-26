@@ -87,7 +87,7 @@ def _dedupe_lower(values: Iterable[str]) -> List[str]:
 
 
 def _default_impute_result_dir(model: str) -> Path:
-    return Path("results") / model.lower() / "impute"
+    return Path("artifacts/legacy_eval/results") / model.lower() / "impute"
 
 
 def _cleanup_runtime(device: str) -> None:
@@ -192,9 +192,9 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Output directory for clean evaluation results",
     )
-    parser.add_argument("--imputed_data_dir", type=str, default="data/datasets/Imputed")
+    parser.add_argument("--imputed_data_dir", type=str, default="artifacts/legacy_eval/imputed_datasets")
     parser.add_argument(
-        "--intermediate_dir", type=str, default="data/Intermediate_Predictions"
+        "--intermediate_dir", type=str, default="artifacts/legacy_eval/intermediate_predictions"
     )
 
     parser.add_argument("--prediction_length", type=int, default=None)
@@ -291,7 +291,7 @@ def main() -> None:
     clean_output_dir = (
         Path(args.clean_output_dir)
         if args.clean_output_dir
-        else Path("results") / args.model.lower() / "clean"
+        else Path("artifacts/legacy_eval/results") / args.model.lower() / "clean"
     )
 
     if run_impute:

@@ -40,7 +40,7 @@ from statsmodels.tsa.seasonal import STL  # noqa: E402
 
 DEFAULT_DATA_PATH = "data/datasets"
 DEFAULT_PROPERTIES_PATH = "data/datasets/dataset_properties.json"
-DEFAULT_OUTPUT_DIR = "results_analysis/clean_prediction_windows"
+DEFAULT_OUTPUT_DIR = "artifacts/legacy_eval/analysis/clean_prediction_windows"
 # max_context 仅影响 injection 起点，不影响预测窗口切分，固定任意值即可
 DEFAULT_PLACEHOLDER_MAX_CONTEXT = 2880
 TIME_COLS = {"date", "time", "timestamp", "datetime", "index"}

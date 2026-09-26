@@ -47,8 +47,8 @@ TERMS = ["short", "medium", "long"]
 DEFAULT_METRICS = ["MSE[mean]", "MAE[0.5]", "MASE[0.5]"]
 
 # 结果目录
-RESULTS_DIR = "results"
-OUTPUT_DIR = "results/sundial/visualization"
+RESULTS_DIR = "artifacts/legacy_eval/results"
+OUTPUT_DIR = "artifacts/legacy_eval/results/sundial/visualization"
 
 
 # ============================================================================
@@ -157,12 +157,12 @@ def collect_result_files_new_format(
     dataset: str,
     method: str,
     imputation_method: str = "none",
-    results_dir: str = "results"
+    results_dir: str = RESULTS_DIR
 ) -> Dict[str, Dict[str, Dict[str, str]]]:
     """
     收集新格式的结果文件
     
-    新格式目录结构: results/{dataset}/{term}/MCAR/{ratio}/{imputation_method}/forecast_results.csv
+    新格式目录结构: artifacts/legacy_eval/results/{dataset}/{term}/MCAR/{ratio}/{imputation_method}/forecast_results.csv
     
     Args:
         dataset: 数据集名称
@@ -820,8 +820,8 @@ def visualize_comparison(
     method: str,
     imputation_methods: List[str],
     metrics: List[str] = DEFAULT_METRICS,
-    results_dir: str = "results",
-    output_dir: str = "results/window_injection_visualization"
+    results_dir: str = RESULTS_DIR,
+    output_dir: str = "artifacts/legacy_eval/results/window_injection_visualization"
 ):
     """
     可视化不同插值方法的对比结果
@@ -944,14 +944,14 @@ Examples:
         "--results_dir",
         type=str,
         default=RESULTS_DIR,
-        help="Results directory (default: results/sundial/sundial_Missing)"
+        help="Results directory (default: artifacts/legacy_eval/results/sundial/sundial_Missing)"
     )
     
     parser.add_argument(
         "--output_dir",
         type=str,
         default=OUTPUT_DIR,
-        help="Output directory (default: results/sundial/visualization)"
+        help="Output directory (default: artifacts/legacy_eval/results/sundial/visualization)"
     )
     
     parser.add_argument(

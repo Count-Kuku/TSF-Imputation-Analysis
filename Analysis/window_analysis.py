@@ -2,7 +2,7 @@
 窗口特征分析模块
 
 用于分析：
-1. Intermediate_Predictions 下的预测窗口特征
+1. intermediate_predictions 下的预测窗口特征
 2. 原始数据中历史窗口（注入区间）的特征
 """
 
@@ -113,7 +113,7 @@ def get_imputation_method_from_path(path: Path) -> Optional[str]:
     从路径中提取填补方法名称
     
     新目录结构:
-    datasets/Intermediate_Predictions/{eval_data_name}_prediction/{imputation_method}/
+    artifacts/legacy_eval/intermediate_predictions/{model}/{eval_data_name}_prediction/{imputation_method}/
     """
     if path.name.lower() in ['zero', 'mean', 'forward', 'backward', 'linear', 'nearest', 'spline', 'seasonal']:
         return path.name.lower()
@@ -226,8 +226,8 @@ def analyze_prediction_windows(
     分析预测目录下所有窗口的特征指标
     
     支持两种目录结构：
-    1. 干净数据: datasets/Intermediate_Predictions/{dataset}_clean_{term}_prediction/
-    2. 填补数据: datasets/Intermediate_Predictions/{eval_data_name}_prediction/{imputation_method}/
+    1. 干净数据: datasets/intermediate_predictions/{dataset}_clean_{term}_prediction/
+    2. 填补数据: datasets/intermediate_predictions/{eval_data_name}_prediction/{imputation_method}/
     
     Args:
         prediction_dir: 预测窗口目录路径
@@ -271,10 +271,10 @@ def analyze_prediction_windows(
     
     resolved_model = model
     if resolved_model is None:
-        if pred_path.parent.name and pred_path.parent.name != "Intermediate_Predictions":
-            if pred_path.parent.parent.name == "Intermediate_Predictions":
+        if pred_path.parent.name and pred_path.parent.name != "intermediate_predictions":
+            if pred_path.parent.parent.name == "intermediate_predictions":
                 resolved_model = pred_path.parent.name
-            elif pred_path.parent.parent.parent.name == "Intermediate_Predictions":
+            elif pred_path.parent.parent.parent.name == "intermediate_predictions":
                 resolved_model = pred_path.parent.parent.name
 
     period = get_period(dir_info['dataset'], properties_path) if dir_info['dataset'] else None
@@ -760,7 +760,7 @@ def save_results(results: Dict[str, Any], output_path: str):
 def build_default_output_path(
     mode: str,
     model: str,
-    output_root: str = "results_analysis",
+    output_root: str = "artifacts/legacy_eval/analysis",
     dataset: Optional[str] = None,
     term: Optional[str] = None,
     prediction_dir: Optional[str] = None,
@@ -810,8 +810,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output_root",
         type=str,
-        default="results_analysis",
-        help="结果输出根目录（默认: results_analysis）",
+        default="artifacts/legacy_eval/analysis",
+        help="结果输出根目录（默认: artifacts/legacy_eval/analysis）",
     )
 
     subparsers = parser.add_subparsers(dest="mode", help="分析模式")

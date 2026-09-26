@@ -53,12 +53,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--results-analysis-dir",
-        default="results_analysis",
+        default="artifacts/legacy_eval/analysis",
         help="分析结果根目录",
     )
     parser.add_argument(
         "--results-pic-dir",
-        default="results_pic",
+        default="artifacts/legacy_eval/figures",
         help="图片输出目录",
     )
     return parser.parse_args()

@@ -55,7 +55,7 @@ def discover_targets(
 ) -> List[Tuple[str, str, int, str, int]]:
     """返回 [(dataset, term, ratio_int, eval_path, block_length), ...]."""
 
-    impute_dir = repo_root / "results" / model / "impute"
+    impute_dir = repo_root / "artifacts" / "legacy_eval" / "results" / model / "impute"
     if not impute_dir.exists():
         print(f"  [WARN] {impute_dir} 不存在，跳过 {model}")
         return []
@@ -112,7 +112,7 @@ def run_for_model(
         print(f"  [WARN] {model}: 无可跑目标")
         return (0, 0, 0, 0)
 
-    impute_dir = repo_root / "results" / model / "impute"
+    impute_dir = repo_root / "artifacts" / "legacy_eval" / "results" / model / "impute"
     total = len(targets) * len(imputers)
     succeeded = skipped = failed = 0
     print(
@@ -154,7 +154,7 @@ def run_for_model(
                     device=device,
                     imputation_method=imputer,
                     imputed_data_dir=str(repo_root / "data" / "datasets" / "Imputed"),
-                    intermediate_dir=str(repo_root / "data" / "Intermediate_Predictions"),
+                    intermediate_dir=str(repo_root / "artifacts" / "legacy_eval" / "intermediate_predictions"),
                     predict_batches_jointly=False,
                     torch_dtype=torch_dtype if torch_dtype else None,
                     model_properties_path=str(

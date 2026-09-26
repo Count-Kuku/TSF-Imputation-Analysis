@@ -24,7 +24,7 @@ for ds in datasets:
     for r in ratios:
         scores = {}
         for m in methods:
-            fp = Path(f'results/{model_name}/impute/{m}_{ds}_BM_length50_{r}_short_results.csv')
+            fp = Path(f'artifacts/legacy_eval/results/{model_name}/impute/{m}_{ds}_BM_length50_{r}_short_results.csv')
             v = get_smape(fp)
             if v is not None:
                 scores[m] = v

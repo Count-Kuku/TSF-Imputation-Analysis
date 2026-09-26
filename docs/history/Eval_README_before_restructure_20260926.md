@@ -1,0 +1,204 @@
+# 通用模型评估说明（run_eval）
+
+本文件对应新入口 `Eval/run_eval.py`，用于统一评估不同时序模型。旧版 `Eval/run_sundial.py` / `Eval/eval_sundial.py` 仍保留。
+
+## 快速运行指令（放在最前）
+
+```bash
+python Eval/run_eval.py clean --model sundial --dataset ETTh1 --term short
+python Eval/run_eval.py clean --model chronos2 --dataset ETTh1 --term short
+python Eval/run_eval.py clean --model timesfm2p5 --dataset ETTh1 --term short
+python Eval/run_eval.py single --model chronos2 --eval_data_path "data/datasets/Block_Missing/BM_010/ETTh1_BM_length50_010_short.csv" --imputation_method linear
+python Eval/run_eval.py batch --model sundial --dataset ETTh1 --method BM --missing_ratios "0.10,0.20,0.30" --imputation_methods "linear,mean,forward"
+python Eval/run_eval.py batch --model timesfm2p5 --dataset ETTh1 --method BM --imputation_methods "linear,mean"
+python Eval/run_batch_eval.py --model sundial --dataset ETTh1 --method BM --terms short,medium --missing_ratios 0.10,0.20 --imputation_methods linear,mean,forward
+python Eval/run_batch_eval.py --model chronos2 --method BM --terms short --imputation_methods linear --include_clean
+python Eval/run_batch_eval.py --model timesfm2p5 --dataset ETTh1 --clean_only
+```
+
+### 指令说明
+
+- `clean`：使用干净数据评估，`eval_data_path == clean_data_path`
+- `single`：评估单个缺失数据文件，必须传 `--imputation_method`（不允许 `none`）
+- `batch`：按缺失率、term、填补方法批量评估
+- `run_batch_eval.py`：批处理入口，支持任务级进度条与“结果已存在自动跳过”
+- 若未传 `--prediction_length`，会按 `frequency + term` 自动计算
+
+## 批处理入口（run_batch_eval.py）
+
+`Eval/run_batch_eval.py` 基于 `run_eval.py` 封装，适合长任务批量跑实验。
+
+核心能力：
+- 已存在结果自动跳过（默认开启）
+- 支持 `--force` 强制重跑
+- 支持 `--include_clean` 同时跑 clean 结果
+- 支持 `--clean_only` 仅跑 clean
+- 支持不传 `--dataset` 自动扫描 `data/datasets/ori/*.csv` 全量数据集
+
+常用指令：
+
+```bash
+# 单数据集，缺失评估（默认跳过已有结果）
+python Eval/run_batch_eval.py --model sundial --dataset ETTh1 --method BM --terms short,medium,long --missing_ratios 0.10,0.20,0.30 --imputation_methods linear,mean,forward
+
+# 全数据集（不传 --dataset），同时跑 clean + impute
+python Eval/run_batch_eval.py --model chronos2 --method BM --terms short --imputation_methods linear --include_clean
+
+# 仅 clean 评估
+python Eval/run_batch_eval.py --model timesfm2p0 --dataset ETTh1 --clean_only
+
+# 强制重跑（忽略已有结果）
+python Eval/run_batch_eval.py --model visiontspp --dataset ETTh1 --method BM --terms short --imputation_methods linear --force
+```
+
+说明：
+- `--terms` / `--imputation_methods` / `--missing_ratios` 支持空格和逗号混输（如 `short,medium` 或 `short medium`）
+- `--missing_ratios` 支持 `0.1` / `10` / `010` 三种写法（后两者按百分比解析）
+- `run_batch_eval.py` 内部会调用 `run_single_evaluation(...)` 与 `evaluate_clean(...)`，输出目录与命名规则与 `run_eval.py` 保持一致
+
+## 可用模型与切换方式（放在指令说明后）
+
+当前 `--model` 可选：
+- `sundial`
+- `chronos2`
+- `timesfm2p5`
+- `kairos23m`
+- `kairos50m`
+- `timesfm2p0`
+- `visiontspp`
+
+### 使用不同模型时需要改什么
+
+- 只改命令行中的 `--model`，其余流程（数据加载、窗口生成、指标评估、结果保存）不需要改
+- 如需指定不同权重，使用 `--model_name`
+- 模型特有参数：
+  - `sundial`：主要使用 `--num_samples`
+  - `chronos2`：可用 `--predict_batches_jointly`、`--torch_dtype`
+  - `timesfm2p5`：通常只需 `--batch_size`、`--device`（`--model_name` 可覆盖默认 checkpoint）
+  - `kairos23m`：主要使用通用参数，默认 `--model_name mldi-lab/Kairos_23m`，通过远程仓库加载模型，不依赖本地 forecastor。
+  - `kairos50m`：主要使用通用参数，默认 `--model_name mldi-lab/Kairos_50m`，通过远程仓库加载模型，不依赖本地 forecastor。
+  - `timesfm2p0`：主要使用通用参数，默认 `--model_name google/timesfm-2.0-500m-pytorch`，已支持按 `prediction_length` 动态扩展 horizon（支持 long term）。
+  - `visiontspp`：主要使用通用参数，默认 `--model_name Lefei/VisionTSpp`，通过 Hugging Face 下载模型，不依赖本地 forecastor。
+
+### 如何添加新模型
+
+按以下固定步骤扩展：
+
+1. 在 `Eval/model_adapters.py` 新增 Adapter（实现统一接口 `predict(test_data_input)`，返回 `SampleForecast` 或 `QuantileForecast`）
+2. 在 `Eval/model_registry.py` 的 `build_model_adapter(...)` 注册模型字符串到 Adapter 的映射
+3. 在 `Eval/run_eval.py` 的 `--model` 参数 `choices` 中加入新模型名
+4. （可选）在本 README 的“快速运行指令”和“参数说明”补充该模型示例
+
+说明：`Eval/eval_pipeline.py` 是模型无关评估管线，正常情况下不需要改。
+
+## 目标
+
+- 使用同一套 CLI 评估不同模型
+- 抽离模型无关流程（数据加载、窗口构造、指标计算、结果保存）
+- 模型相关逻辑集中在适配层，便于持续扩展
+
+## 文件结构
+
+- `Eval/run_eval.py`：CLI 入口（`single` / `batch` / `clean`）
+- `Eval/run_batch_eval.py`：批处理入口（支持自动跳过已有结果）
+- `Eval/eval_pipeline.py`：通用评估管线
+- `Eval/model_registry.py`：模型注册与构建
+- `Eval/model_adapters.py`：模型适配器实现
+
+## 目录约定
+
+### 数据目录（模型共享）
+
+- `data/datasets/ori/`
+- `data/datasets/Block_Missing/`
+- `artifacts/legacy_eval/imputed_datasets/`
+- `data/datasets/dataset_properties.json`
+
+说明：数据目录不按模型拆分，所有模型共用。
+
+### 中间预测（按模型区分）
+
+- `artifacts/legacy_eval/intermediate_predictions/<model>/...`
+
+例如：
+- `artifacts/legacy_eval/intermediate_predictions/sundial/...`
+- `artifacts/legacy_eval/intermediate_predictions/chronos2/...`
+- `artifacts/legacy_eval/intermediate_predictions/timesfm2p5/...`
+
+### 最终评测结果（按模型区分）
+
+- `artifacts/legacy_eval/results/<model>/clean/...`
+- `artifacts/legacy_eval/results/<model>/impute/...`
+
+说明：
+- `clean`：干净数据评估
+- `impute`：缺失数据先填补再评估
+- 当前逻辑不保留 missing 场景的 `none`（不填补）分支
+
+## 运行模式
+
+`run_eval.py` 支持 3 种模式：
+
+- `single`：单个缺失文件评估（必须指定填补方法）
+- `batch`：按数据集、缺失率、term、填补方法批量评估
+- `clean`：干净数据评估
+
+## 参数说明
+
+### 通用参数
+
+- `--model`：模型类型（`sundial` / `chronos2` / `timesfm2p5`）
+- `--model_name`：模型权重名称（可选）
+- `--base_data_dir`：数据根目录（默认 `data/datasets`）
+- `--properties_path`：属性文件（默认 `data/datasets/dataset_properties.json`）
+- `--model_properties_path`：模型属性文件（默认 `Eval/model_properties.json`，用于统一读取各模型 `max_context`）
+- `--output_dir`：结果输出目录（可选；默认按模型自动分流）
+- `--prediction_length`：预测长度（可选；不传则自动计算）
+- `--batch_size`：推理批次大小
+- `--device`：运行设备（如 `cpu`、`cuda:0`）
+- `--num_samples`：采样数（主要用于 `sundial`）
+- `--intermediate_dir`：中间结果根目录（默认 `artifacts/legacy_eval/intermediate_predictions`）
+
+### Chronos-2 相关参数
+
+- `--predict_batches_jointly`：是否 joint 预测批次
+- `--torch_dtype`：`bfloat16` / `float16` / `float32`
+
+说明：
+- 不同模型参数由适配器处理
+- 某模型不使用的参数会被忽略，不影响运行
+
+## 输出文件命名
+
+### clean
+
+- `artifacts/legacy_eval/results/<model>/clean/{dataset}_clean_{term}_results.csv`
+
+### impute
+
+- `artifacts/legacy_eval/results/<model>/impute/{impute_method}_{eval_name}_{term}_results.csv`
+
+### 中间预测
+
+- clean（无填补）：`artifacts/legacy_eval/intermediate_predictions/<model>/{eval_name}_prediction/{eval_name}_prediction_{window_idx}.csv`
+- impute（有填补）：`artifacts/legacy_eval/intermediate_predictions/<model>/{eval_name}_prediction/{imputation_method}/{eval_name}_prediction_{window_idx}.csv`
+
+## 依赖
+
+按模型场景安装依赖：
+
+- 通用：`numpy`, `pandas`, `torch`, `gluonts`, `transformers`, `tqdm`
+- `chronos2`：`chronos-forecasting>=2.1`
+- `timesfm2p5`：`timesfm`（需包含 `timesfm_2p5_torch`）
+- `kairos23m` / `kairos50m`：需要可用 `tsfm`（包含 `tsfm.model.kairos`）。
+- `timesfm2p0`：需要支持 TimesFM 的 `transformers` 版本（包含 `TimesFmModelForPrediction`）。
+- `visiontspp`：需要 `visionts` 与 `huggingface_hub`。
+
+如报 `ModuleNotFoundError`，请先在当前环境补齐依赖。
+
+## 常见注意事项
+
+- `single` 模式缺失数据评估必须提供 `--imputation_method`，且不能是 `none`
+- `batch` 模式默认不包含 `none` 填补方法
+- `term` 必须与数据任务匹配：`short` / `medium` / `long`
+- `dataset_properties.json` 必须包含对应数据集的 `frequency` 与 `term` 信息

@@ -97,7 +97,7 @@ def find_clean_dataset_path(
 def check_and_impute_dataset(
     eval_data_path: str,
     imputation_method: str,
-    imputed_data_dir: str = "data/datasets/Imputed",
+    imputed_data_dir: str = "artifacts/legacy_eval/imputed_datasets",
     random_seed: int = 42,
 ) -> str:
     imputed_path = generate_imputed_dataset_path(
@@ -124,7 +124,7 @@ def check_and_impute_dataset(
 def batch_check_and_impute(
     eval_data_paths: List[str],
     imputation_methods: List[str],
-    imputed_data_dir: str = "data/datasets/Imputed",
+    imputed_data_dir: str = "artifacts/legacy_eval/imputed_datasets",
     random_seed: int = 42,
 ) -> Dict[Tuple[str, str], str]:
     imputed_paths_map: Dict[Tuple[str, str], str] = {}
@@ -239,7 +239,7 @@ def save_intermediate_predictions(
     model: str,
     dataset_name: str,
     eval_data_name: str,
-    intermediate_dir: str = "data/Intermediate_Predictions",
+    intermediate_dir: str = "artifacts/legacy_eval/intermediate_predictions",
     imputation_method: Optional[str] = None,
 ):
     import numpy as np
@@ -279,7 +279,7 @@ def save_intermediate_predictions(
 def _default_result_subdir(model: str, mode: str) -> str:
     # 用户定义：仅 clean / impute 两类
     return str(
-        Path("results") / model.lower() / ("clean" if mode == "clean" else "impute")
+        Path("artifacts/legacy_eval/results") / model.lower() / ("clean" if mode == "clean" else "impute")
     )
 
 
@@ -304,8 +304,8 @@ def run_single_evaluation(
     batch_size: int = 32,
     device: str = "cpu",
     imputation_method: Optional[str] = None,
-    imputed_data_dir: str = "data/datasets/Imputed",
-    intermediate_dir: str = "data/Intermediate_Predictions",
+    imputed_data_dir: str = "artifacts/legacy_eval/imputed_datasets",
+    intermediate_dir: str = "artifacts/legacy_eval/intermediate_predictions",
     predict_batches_jointly: bool = False,
     torch_dtype: Optional[str] = None,
     model_properties_path: str = DEFAULT_MODEL_PROPERTIES_PATH,
@@ -415,8 +415,8 @@ def batch_evaluate(
     device: str = "cpu",
     imputation_methods: Optional[List[str]] = None,
     block_length: Optional[int] = None,
-    imputed_data_dir: str = "data/datasets/Imputed",
-    intermediate_dir: str = "data/Intermediate_Predictions",
+    imputed_data_dir: str = "artifacts/legacy_eval/imputed_datasets",
+    intermediate_dir: str = "artifacts/legacy_eval/intermediate_predictions",
     predict_batches_jointly: bool = False,
     torch_dtype: Optional[str] = None,
     model_properties_path: str = DEFAULT_MODEL_PROPERTIES_PATH,
@@ -534,7 +534,7 @@ def evaluate_clean(
     num_samples: int = 100,
     batch_size: int = 32,
     device: str = "cpu",
-    intermediate_dir: str = "data/Intermediate_Predictions",
+    intermediate_dir: str = "artifacts/legacy_eval/intermediate_predictions",
     predict_batches_jointly: bool = False,
     torch_dtype: Optional[str] = None,
     model_properties_path: str = DEFAULT_MODEL_PROPERTIES_PATH,
@@ -621,7 +621,7 @@ def _build_parser() -> argparse.ArgumentParser:
         p.add_argument("--batch_size", type=int, default=32)
         p.add_argument("--device", type=str, default="cpu")
         p.add_argument(
-            "--intermediate_dir", type=str, default="data/Intermediate_Predictions"
+            "--intermediate_dir", type=str, default="artifacts/legacy_eval/intermediate_predictions"
         )
         p.add_argument("--predict_batches_jointly", action="store_true")
         p.add_argument("--torch_dtype", type=str, default=None)
@@ -644,7 +644,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--term", type=str, choices=["short", "medium", "long"], default=None
     )
     single.add_argument("--imputation_method", type=str, required=True)
-    single.add_argument("--imputed_data_dir", type=str, default="data/datasets/Imputed")
+    single.add_argument("--imputed_data_dir", type=str, default="artifacts/legacy_eval/imputed_datasets")
     add_common_args(single)
 
     batch = subparsers.add_parser("batch", help="Batch evaluate missing datasets")
@@ -654,7 +654,7 @@ def _build_parser() -> argparse.ArgumentParser:
     batch.add_argument("--imputation_methods", type=str, default=None)
     batch.add_argument("--block_length", type=int, default=None)
     batch.add_argument("--variant", type=str, default=None)
-    batch.add_argument("--imputed_data_dir", type=str, default="data/datasets/Imputed")
+    batch.add_argument("--imputed_data_dir", type=str, default="artifacts/legacy_eval/imputed_datasets")
     add_common_args(batch)
 
     clean = subparsers.add_parser("clean", help="Evaluate clean dataset")

@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-CSV_PATH = REPO_ROOT / "results_analysis" / "块状缺失对长序列预测影响-实验结果统计-0501.csv"
+CSV_PATH = REPO_ROOT / "artifacts" / "legacy_eval" / "analysis" / "块状缺失对长序列预测影响-实验结果统计-0501.csv"
 
 TARGET_MODELS = {
     "sundial", "chronos2", "timesfm2p5",
@@ -103,7 +103,7 @@ def main():
             else:
                 ratio_3d = RATIO_FLOAT_TO_3D[cur_ratio]
                 summary_path = (
-                    REPO_ROOT / "results_analysis" / cur_model / "history"
+                    REPO_ROOT / "artifacts" / "legacy_eval" / "analysis" / cur_model / "history"
                     / f"{cur_dataset}_BM_{ratio_3d}_long_{fields[3]}_history_summary.json"
                 )
                 stl_values = parse_stl_summary(summary_path)

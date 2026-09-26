@@ -37,8 +37,10 @@ logs/
 /.kilo/
 /.vscode/
 
-# Generated local-only artifacts
-/artifacts/
+# Generated local-only artifacts; the migrated legacy CSVs/figures stay versioned.
+/artifacts/*
+!/artifacts/README.md
+!/artifacts/legacy_eval/
 results_pic/
 all_evals.*
 *.out

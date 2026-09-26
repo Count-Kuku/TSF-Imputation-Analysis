@@ -38,8 +38,8 @@ from statsmodels.tsa.seasonal import STL
 DEFAULT_DATA_PATH = "data/datasets"
 DEFAULT_PROPERTIES_PATH = "data/datasets/dataset_properties.json"
 DEFAULT_MODEL_PROPERTIES_PATH = "Eval/model_properties.json"
-DEFAULT_INTERMEDIATE_DIR = "data/Intermediate_Predictions"
-DEFAULT_OUTPUT_DIR = "results_analysis"
+DEFAULT_INTERMEDIATE_DIR = "artifacts/legacy_eval/intermediate_predictions"
+DEFAULT_OUTPUT_DIR = "artifacts/legacy_eval/analysis"
 
 
 def load_dataset_properties(properties_path: str = DEFAULT_PROPERTIES_PATH) -> Dict[str, Any]:
