@@ -11,7 +11,7 @@
 | 修改预测模型适配 | [Eval/README.md](Eval/README.md)、`Eval/model_adapters.py` |
 | 修改基础填补实现 | [Imputation/README.md](Imputation/README.md)、`Imputation/imputation_methods.py` |
 | 查看原始与旧中间数据 | [data/README.md](data/README.md)、[旧输出迁移索引](artifacts/legacy_eval/README.md) |
-| 追溯旧结果、分析及出图流程 | [旧输出迁移索引](artifacts/legacy_eval/README.md)、[Analysis/README.md](Analysis/README.md)、[Visualize/README.md](Visualize/README.md)、[draw/README.md](draw/README.md) |
+| 追溯旧结果、分析及出图流程 | [旧输出迁移索引](artifacts/legacy_eval/README.md)、[Analysis/README.md](Analysis/README.md)、[Visualize/README.md](Visualize/README.md)、[窗口差异散点图](Visualize/gap_scatter/README.md) |
 
 ## 目录职责
 

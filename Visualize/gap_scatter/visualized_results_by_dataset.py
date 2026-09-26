@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 
 try:
-    from draw.visualized_results_by_mode import SUPPORTED_MODES, build_plot_dataframe
+    from Visualize.gap_scatter.visualized_results_by_mode import SUPPORTED_MODES, build_plot_dataframe
 except ModuleNotFoundError:
     from visualized_results_by_mode import SUPPORTED_MODES, build_plot_dataframe
 

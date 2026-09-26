@@ -1,12 +1,14 @@
-# `draw` 可视化脚本说明
+# 窗口差异散点图
+
+此目录保存旧 `draw/` 的两份散点图脚本。它们按预测模式或数据集组织图，与上层 `Visualize/cli.py` 的方法/干净窗口对比图用途不同；旧文件的 CSV 和图片仍在 `artifacts/legacy_eval/figures_by_model/`、`figures_by_dataset/`。
 
 ## 脚本划分
 
-- `draw/visualized_results_by_mode.py`
+- `Visualize/gap_scatter/visualized_results_by_mode.py`
   - 一次选择一种 `prediction_mode`
   - 一张图里包含该模式下的所有数据集
   - 点颜色表示数据集
-- `draw/visualized_results_by_dataset.py`
+- `Visualize/gap_scatter/visualized_results_by_dataset.py`
   - 一次可包含多种 `prediction_mode`（填补方法）
   - 每个数据集单独一张图
   - 点颜色表示填补方法，且同一填补方法在所有图中颜色一致
@@ -25,19 +27,19 @@
 按填补方法分图（旧逻辑，已改名）：
 
 ```bash
-python draw/visualized_results_by_mode.py --model chronos2 --prediction_mode backward
+python -m Visualize.gap_scatter.visualized_results_by_mode --model chronos2 --prediction_mode backward
 ```
 
 按数据集分图（新逻辑）：
 
 ```bash
-python draw/visualized_results_by_dataset.py --model chronos2
+python -m Visualize.gap_scatter.visualized_results_by_dataset --model chronos2
 ```
 
 可选参数示例：
 
 ```bash
-python draw/visualized_results_by_dataset.py --model chronos2 \
+python -m Visualize.gap_scatter.visualized_results_by_dataset --model chronos2 \
   --modes zero,mean,forward,backward,linear \
   --datasets ETTh1,ETTh2
 ```

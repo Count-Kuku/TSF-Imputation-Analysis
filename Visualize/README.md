@@ -18,6 +18,8 @@
 
 批量入口脚本：`Visualize/batch_plot.py`
 
+旧 `draw/` 中按预测模式或数据集绘制窗口差异散点图的两份脚本已归入 [`gap_scatter/`](gap_scatter/README.md)；它们的输入与本目录的 `cli.py` 不同，原有结果文件仍在 `artifacts/legacy_eval/`。
+
 ## 2. 依赖安装
 
 至少需要：
