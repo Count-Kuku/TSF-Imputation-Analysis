@@ -4,7 +4,7 @@
 包含：
 - metrics: 6 个时间序列特征指标计算
 - window_analysis: 窗口特征分析（预测窗口 + 历史窗口）
-- batch_window_analysis: 批量窗口特征分析
+- run_batch_analysis: 批量窗口特征分析
 """
 
 from Analysis.metrics import (
@@ -44,7 +44,4 @@ __all__ = [
     "analyze_single_window",
     "get_available_impute_methods",
     "save_results",
-    "run_batch_analysis",
-    "get_all_prediction_dirs",
-    "get_datasets_with_predictions",
 ]
