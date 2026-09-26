@@ -5,6 +5,7 @@
 旧的 `Imputation/impute.py` 只读取仓库中已不存在的 `window_###.csv + meta.json` 目录且没有外部调用，已移除。需要处理单个旧 Eval CSV 时使用 `Eval/impute_dataset.py`；按窗口严格区分历史与未来的研究应使用 TFC 对应研究入口。
 
 TFC 旧 BM 脚本和 Work1 还有各自的填补实现。同名 knn、mice 或插值方法可能使用不同时间特征、列选择、参数和边界处理；向共享结果库登记时应按实际实现区分方法身份，不能仅凭名称复用。
+TFC 的 `research_pipeline.shared_imputation.run_table` 为本目录十四种实际填补方法提供版本化方法键和参数合同。新表格研究可在同一统一库中按完整表格输入、方法合同复用填补和绑定预测；旧 Eval CSV 不会自动成为这种新场景。
 
 ## 接口约定
 
