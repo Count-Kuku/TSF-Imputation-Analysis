@@ -26,6 +26,8 @@ method(df: pd.DataFrame, data_cols: list, ...) -> pd.DataFrame
 artifacts/legacy_eval/imputed_datasets/{missing_method}/{missing_method}_{ratio}/{input_stem}_{imputation}.csv
 ```
 
+`input_stem` 保留输入文件的完整主文件名（包括 `length50` 等窗口标记），避免不同窗口文件覆盖同一输出。
+
 ## 当前方法
 
 ### 基础方法
@@ -110,8 +112,6 @@ python Eval/run_batch_eval.py \
   --imputation_methods mean,forward,backward,linear,knn,mice,pchip,poly2,poly3,spline3,kalman_struct,kalman_arima,gp_rbf,saits \
   --random_seed 42
 ```
-
-`input_stem` 保留输入文件的完整主文件名（包括 `length50` 等窗口标记），避免不同窗口文件覆盖同一输出。
 
 ## 依赖说明
 
