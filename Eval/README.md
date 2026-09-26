@@ -6,4 +6,6 @@
 
 当前 `data/datasets/ori/` 存在；旧文档中的 `data/datasets/BM/`、`data/datasets/Imputed/` 不存在。缺失评估需要明确提供有效输入，不能直接照抄旧命令。旧预测 CSV 与结果位于 `artifacts/legacy_eval/`；新研究的正式结果放对应研究的独立 run。
 
+BM 工具新生成的缺失 CSV 默认位于 `artifacts/legacy_eval/generated_masks/`，单项 Eval 使用 `--eval_data_path` 指向实际文件；批量 Eval 的 `--missing_data_dir` 指向该目录，原始干净 CSV 仍由 `--base_data_dir data/datasets` 读取。填补 CSV 默认进入 `artifacts/legacy_eval/imputed_datasets/`。这些目录在首次生成前可以不存在。
+
 当时的完整参数示例保留在 [历史说明](../docs/history/Eval_README_before_restructure_20260926.md)；旧输出路径见 [迁移索引](../artifacts/legacy_eval/README.md)。

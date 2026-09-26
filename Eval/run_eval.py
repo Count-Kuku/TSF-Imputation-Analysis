@@ -138,19 +138,18 @@ def batch_check_and_impute(
 
 
 def _resolve_method_root(base_data_dir: str, method: str) -> Path:
-    # 新目录优先：data/datasets/Block_Missing/BM_010/...
+    # 新生成的掩码与其它方法使用同一层级。
     if method.upper() == "BM":
-        bm_root = Path(base_data_dir) / "Block_Missing"
+        bm_root = Path(base_data_dir) / "BM"
         if bm_root.exists():
             return bm_root
 
-    # 兼容旧目录：data/datasets/BM/BM_010/...
-    legacy_root = Path(base_data_dir) / method.upper()
+    # 旧 BM 目录名仍可显式传入读取。
+    legacy_root = Path(base_data_dir) / ("Block_Missing" if method.upper() == "BM" else method.upper())
     if legacy_root.exists():
         return legacy_root
 
-    # 默认回到 Block_Missing（主要用于 BM）
-    return Path(base_data_dir) / "Block_Missing"
+    return Path(base_data_dir) / method.upper()
 
 
 def generate_eval_dataset_paths(
@@ -422,6 +421,7 @@ def batch_evaluate(
     model_properties_path: str = DEFAULT_MODEL_PROPERTIES_PATH,
     random_seed: int = 42,
     variant: Optional[str] = None,
+    missing_data_dir: str = "artifacts/legacy_eval/generated_masks",
 ) -> List[Tuple[str, str, str, Dict[str, Any]]]:
     if imputation_methods is None:
         imputation_methods = [
@@ -448,7 +448,7 @@ def batch_evaluate(
         dataset_name=dataset_name,
         method=method,
         missing_ratios=missing_ratios,
-        base_data_dir=base_data_dir,
+        base_data_dir=missing_data_dir,
         block_length=block_length,
         properties_path=properties_path,
         variant=variant,
@@ -655,6 +655,7 @@ def _build_parser() -> argparse.ArgumentParser:
     batch.add_argument("--block_length", type=int, default=None)
     batch.add_argument("--variant", type=str, default=None)
     batch.add_argument("--imputed_data_dir", type=str, default="artifacts/legacy_eval/imputed_datasets")
+    batch.add_argument("--missing_data_dir", type=str, default="artifacts/legacy_eval/generated_masks")
     add_common_args(batch)
 
     clean = subparsers.add_parser("clean", help="Evaluate clean dataset")
@@ -731,6 +732,7 @@ def main():
                 model_properties_path=args.model_properties_path,
                 random_seed=args.random_seed,
                 variant=args.variant,
+                missing_data_dir=args.missing_data_dir,
             )
         elif args.mode == "clean":
             evaluate_clean(

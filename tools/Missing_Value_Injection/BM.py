@@ -171,7 +171,8 @@ def _data_columns(df: pd.DataFrame) -> List[str]:
 
 
 def _build_seed(seed: int, dataset_name: str, term: str, missing_ratio: float, pattern: str, variant: str, mode: str) -> int:
-    seed_offset = hash(f"{dataset_name}_{term}_{missing_ratio}_{pattern}_{variant}_{mode}") % 10000
+    label = f"{dataset_name}_{term}_{missing_ratio}_{pattern}_{variant}_{mode}"
+    seed_offset = sum(index * ord(char) for index, char in enumerate(label, 1)) % 10000
     return seed + seed_offset
 
 
@@ -867,8 +868,7 @@ def inject_bm(
     total_target_blocks = max(0, total_target_missing // block_length)
     blocks_per_col = _allocate_integer(total_target_blocks, [1.0] * len(data_cols))
 
-    seed_offset = hash(f"{dataset_name}_{term}_{missing_ratio}_BM_{mode}") % 10000
-    rng = np.random.default_rng(seed + seed_offset)
+    rng = np.random.default_rng(_build_seed(seed, dataset_name, term, missing_ratio, "BM", "", mode))
 
     if mode == "stratified":
         ranges = _build_stratified_ranges(
@@ -944,7 +944,7 @@ def save_dataset(
     dataset_name: str,
     missing_ratio: float,
     term: str,
-    output_base_dir: str = "data/datasets",
+    output_base_dir: str = "artifacts/legacy_eval/generated_masks",
     block_length: int = 50,
     pattern: str = "BM",
     variant: str | None = None,
@@ -979,7 +979,7 @@ def run_bm_injection(
     missing_ratios: List[float],
     terms: List[str],
     data_path: str = "data/datasets",
-    output_base_dir: str = "data/datasets",
+    output_base_dir: str = "artifacts/legacy_eval/generated_masks",
     block_length: int = 50,
     max_context: int = 8192,
     seed: int = 42,
@@ -1057,7 +1057,7 @@ if __name__ == "__main__":
     parser.add_argument("--missing_ratio", type=str, required=True, help="缺失比例，支持单个值或逗号分隔列表")
     parser.add_argument("--term", type=str, default=None, choices=["short", "medium", "long"], help="预测 horizon 类型")
     parser.add_argument("--data_path", type=str, default="data/datasets", help="数据集目录")
-    parser.add_argument("--output_dir", type=str, default="data/datasets", help="输出目录")
+    parser.add_argument("--output_dir", type=str, default="artifacts/legacy_eval/generated_masks", help="输出目录")
     parser.add_argument("--block_length", type=int, default=50, help="块长度")
     parser.add_argument("--max_context", type=int, default=8192, help="最大回顾窗口长度")
     parser.add_argument("--seed", type=int, default=42, help="随机种子")

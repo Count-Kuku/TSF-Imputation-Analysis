@@ -4,7 +4,7 @@
 1. 自动遍历 datasets/ori 目录下的所有 CSV 数据集；
 2. 根据 dataset_properties.json 获取可用 term（short/medium/long）；
 3. 对每个 term 注入 10%、20%、30% 的 BM（块缺失）缺失值，块长度 50；
-4. 结果保存到 datasets/BM/BM_xxx/ 目录，若文件已存在则自动跳过。
+4. 结果保存到 artifacts/legacy_eval/generated_masks/BM/BM_xxx/，若文件已存在则自动跳过。
 
 可通过命令行参数自定义数据/输出目录、缺失率列表、块长度及随机种子。
 """
@@ -109,8 +109,8 @@ def main() -> None:
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="data/datasets",
-        help="输出根目录，结果会存到 <output_dir>/BM/BM_xxx 下（默认：data/datasets）",
+        default="artifacts/legacy_eval/generated_masks",
+        help="输出根目录，结果会存到 <output_dir>/BM/BM_xxx 下",
     )
     parser.add_argument(
         "--missing_ratios",

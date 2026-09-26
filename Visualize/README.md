@@ -1,6 +1,6 @@
 # Visualize 使用说明
 
-本目录提供 `artifacts/legacy_eval/analysis` 结果的统一出图入口。
+本目录提供 `artifacts/legacy_eval/analysis` 结果的统一出图入口。该分析目录目前尚未生成；需要时先用 `Analysis/` 对现存预测 CSV 生成指标，再运行出图命令。原有图可直接在 `artifacts/legacy_eval/figures_by_dataset/` 和 `figures_by_model/` 浏览。
 
 ## 1. 功能概览
 

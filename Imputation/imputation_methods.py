@@ -139,10 +139,7 @@ def _positional_interpolation(
         if order is not None:
             kwargs["order"] = order
 
-        try:
-            filled = positional.interpolate(**kwargs)
-        except Exception:
-            filled = positional.interpolate(method="linear", limit_direction="both")
+        filled = positional.interpolate(**kwargs)
 
         df_imputed[col] = _finish_column(filled.to_numpy(dtype="float64"), series)
 

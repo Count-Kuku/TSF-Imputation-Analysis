@@ -18,10 +18,10 @@ method(df: pd.DataFrame, data_cols: list, ...) -> pd.DataFrame
 - 返回值：填补后的 `DataFrame`，保留原 index 和列名。
 - 随机方法支持 `random_seed` 参数，默认 `42`。
 
-`Eval/impute_dataset.py` 会自动读取 CSV、识别时间列、调用算法并保存到：
+`Eval/impute_dataset.py` 会自动读取 CSV、识别时间列、调用算法；单独运行时默认保存到：
 
 ```text
-data/datasets/Imputed/{method}/{method}_{ratio}/{dataset}_{method}_{ratio}_{term}_{imputation}.csv
+artifacts/legacy_eval/imputed_datasets/{method}/{method}_{ratio}/{dataset}_{method}_{ratio}_{term}_{imputation}.csv
 ```
 
 ## 当前方法
@@ -76,20 +76,22 @@ data/datasets/Imputed/{method}/{method}_{ratio}/{dataset}_{method}_{ratio}_{term
 
 ## 使用示例
 
+以下示例以先运行 `tools/Missing_Value_Injection/BM.py` 生成对应缺失 CSV 为前提；目前该生成目录尚不存在，不会为了补齐实验矩阵自动生成。
+
 单文件填补：
 
 ```bash
 python Eval/impute_dataset.py \
-  --eval_data_path data/datasets/BM/BM_010/ETTh1_BM_length50_010_short.csv \
+  --eval_data_path artifacts/legacy_eval/generated_masks/BM/BM_010/ETTh1_BM_length50_010_short.csv \
   --imputation_method kalman_struct \
-  --base_output_dir data/datasets/Imputed
+  --base_output_dir artifacts/legacy_eval/imputed_datasets
 ```
 
 带随机种子：
 
 ```bash
 python Eval/impute_dataset.py \
-  --eval_data_path data/datasets/BM/BM_010/ETTh1_BM_length50_010_short.csv \
+  --eval_data_path artifacts/legacy_eval/generated_masks/BM/BM_010/ETTh1_BM_length50_010_short.csv \
   --imputation_method gp_rbf \
   --random_seed 42
 ```
@@ -111,7 +113,7 @@ python Eval/run_batch_eval.py \
 
 - 必需：`numpy`、`pandas`。
 - `knn` / `mice`：需要 `scikit-learn`。
-- `pchip` / `poly2` / `poly3` / `spline3`：依赖 Pandas 的 SciPy 插值能力，失败时会回退到线性插值。
+- `pchip` / `poly2` / `poly3` / `spline3`：插值失败时明确报错，不再把线性结果标为原方法；旧产物仍按当时实现解释。
 - SAITS：需要 `pypots`，通常也会依赖 `torch`。
 
 当前实现对缺失依赖采用显式处理：`knn` / `mice` 在缺少 scikit-learn 时会抛出安装提示；

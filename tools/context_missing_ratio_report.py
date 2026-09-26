@@ -24,6 +24,7 @@ def main() -> None:
     parser.add_argument("--ratio", type=str, default="010", help="缺失率目录标识，如 010")
     parser.add_argument("--block_length", type=int, default=50, help="块长度")
     parser.add_argument("--data_path", type=str, default="data/datasets", help="数据目录")
+    parser.add_argument("--missing_data_dir", type=str, default="artifacts/legacy_eval/generated_masks", help="缺失数据目录")
     parser.add_argument("--file_path", type=str, default=None, help="缺失文件路径（可选）")
     parser.add_argument("--contexts", type=str, default="512,2048,2880,4096,8192", help="max_context 列表")
     args = parser.parse_args()
@@ -33,7 +34,7 @@ def main() -> None:
         file_path = Path(args.file_path)
     else:
         filename = f"{args.dataset}_BM_length{args.block_length}_{args.ratio}_{args.term}.csv"
-        file_path = Path(args.data_path) / "BM" / f"BM_{args.ratio}" / filename
+        file_path = Path(args.missing_data_dir) / "BM" / f"BM_{args.ratio}" / filename
 
     if not file_path.exists():
         raise FileNotFoundError(f"Missing file not found: {file_path}")

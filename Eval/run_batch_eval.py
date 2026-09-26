@@ -180,6 +180,7 @@ def _build_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument("--base_data_dir", type=str, default="data/datasets")
+    parser.add_argument("--missing_data_dir", type=str, default="artifacts/legacy_eval/generated_masks")
     parser.add_argument(
         "--properties_path",
         type=str,
@@ -340,7 +341,7 @@ def main() -> None:
             dataset_name=dataset,
             method=args.method,
             missing_ratios=missing_ratios,
-            base_data_dir=args.base_data_dir,
+            base_data_dir=args.missing_data_dir,
             block_length=args.block_length,
             properties_path=args.properties_path,
             variant=args.variant,

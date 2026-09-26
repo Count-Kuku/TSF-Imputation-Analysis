@@ -101,7 +101,7 @@ def _infer_metadata_from_eval_path(eval_path: Path) -> Tuple[str, str, str, str]
 def generate_imputed_dataset_path(
     eval_data_path: str,
     imputation_method: str,
-    base_output_dir: str = "datasets/Imputed",
+    base_output_dir: str = "artifacts/legacy_eval/imputed_datasets",
 ) -> str:
     """统一生成填补结果输出路径，确保目录结构一致。"""
 
@@ -118,7 +118,7 @@ def impute_dataset(
     eval_data_path: str,
     imputation_method: str,
     output_path: Optional[str] = None,
-    base_output_dir: str = "datasets/Imputed",
+    base_output_dir: str = "artifacts/legacy_eval/imputed_datasets",
     save_result: bool = True,
     random_seed: int = 42,
 ) -> pd.DataFrame:
@@ -197,7 +197,7 @@ def impute_dataset(
 def batch_impute(
     eval_data_paths: List[str],
     imputation_methods: List[str],
-    base_output_dir: str = "datasets/Imputed",
+    base_output_dir: str = "artifacts/legacy_eval/imputed_datasets",
     random_seed: int = 42,
 ) -> List[str]:
     """
@@ -261,7 +261,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--base_output_dir",
         type=str,
-        default="datasets/Imputed",
+        default="artifacts/legacy_eval/imputed_datasets",
         help="Base output directory",
     )
     parser.add_argument(

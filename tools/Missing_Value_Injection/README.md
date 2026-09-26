@@ -17,18 +17,16 @@ tools/Missing_Value_Injection/
 
 ## 环境准备
 
-```bash
-source /home/decadent/miniconda3/etc/profile.d/conda.sh
-conda activate TSFIA
-cd /home/decadent/TSF-Imputation-Analysis
-```
+从本项目根目录运行，示例使用 `D:/anaconda3/envs/TSFIA/python.exe`。原始 CSV 在 `data/datasets/ori/`；新生成的缺失 CSV 默认放入 `artifacts/legacy_eval/generated_masks/`。研究正式运行可用 `--output_dir` 指定自己的独立 run。
+
+新生成的掩码使用显式整数种子和稳定的场景偏移；旧掩码与当时的种子记录保留原样。不要把新掩码当成旧场景的同一实现结果。
 
 ## BM.py（单数据集入口）
 
 查看帮助：
 
 ```bash
-python tools/Missing_Value_Injection/BM.py --help
+D:/anaconda3/envs/TSFIA/python.exe tools/Missing_Value_Injection/BM.py --help
 ```
 
 默认参数：
@@ -59,7 +57,7 @@ python tools/Missing_Value_Injection/BM.py --dataset Finland_Traffic_15T --missi
 输出路径：
 
 ```text
-data/datasets/BM/BM_{ratio}/{dataset}_BM_length{block_length}_{ratio}_{term}.csv
+artifacts/legacy_eval/generated_masks/BM/BM_{ratio}/{dataset}_BM_length{block_length}_{ratio}_{term}.csv
 ```
 
 ## batch_bm_injection.py（批量入口）
@@ -67,7 +65,7 @@ data/datasets/BM/BM_{ratio}/{dataset}_BM_length{block_length}_{ratio}_{term}.csv
 查看帮助：
 
 ```bash
-python tools/Missing_Value_Injection/batch_bm_injection.py --help
+D:/anaconda3/envs/TSFIA/python.exe tools/Missing_Value_Injection/batch_bm_injection.py --help
 ```
 
 示例（默认 stratified 批量）：
