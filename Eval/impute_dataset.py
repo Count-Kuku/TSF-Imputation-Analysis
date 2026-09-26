@@ -11,28 +11,9 @@ import re
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from Imputation.imputation_methods import IMPUTATION_METHODS
+from Imputation.imputation_methods import get_imputation_method
 
 ALLOWED_METHODS = {"BM", "MCAR", "TM", "TVMR", "PERIODIC", "PEAK", "CHANGE"}
-
-
-def get_imputation_method(method_name: str):
-    """
-    获取填补方法函数
-    
-    Args:
-        method_name: 填补方法名称
-    
-    Returns:
-        填补方法函数
-    """
-    normalized = method_name.lower()
-    if normalized not in IMPUTATION_METHODS:
-        raise ValueError(
-            f"Unknown imputation method: {method_name}. "
-            f"Available methods: {list(IMPUTATION_METHODS.keys())}"
-        )
-    return IMPUTATION_METHODS[normalized]
 
 
 def _call_imputer(imputation_func, df, data_cols, random_seed: int):
