@@ -6,7 +6,7 @@
 
 - `missing_imputation_forecast/`：旧 Stage 1/2 正式产物。
 - `work1_vnext/`：Work1 与候选扩充。
-- `forecast_feedback_imputation/`：预测反馈实验。
+- [`forecast_feedback_imputation/`](forecast_feedback_imputation/README.md)：预测反馈实验的 39 个历史 run、缓存与日志；Stage1 输入共享引用，当前开发入口见该目录说明。
 - `imputation_optimization_paper/`：论文实验、最新提交稿、独立方法包；当前维护入口见 [论文说明](imputation_optimization_paper/manuscript_iclr_20260920/README.md)。已清理旧修订稿与失效渲染脚本；旧稿指标表在 `derived/legacy_manuscript_review_20260923/`，独有过程素材保留在工作归档供追溯。
 - [`legacy_eval/`](legacy_eval/README.md)：旧 Eval 流程的原样 CSV 预测、结果表和图；包含旧路径对应表。
 - `document_update_20260731/`：7 月报告的 DOCX 修订稿、构建脚本、参考材料与版式说明；一次性 PDF/逐页 PNG 渲染预览已清理。多个修订稿时间不同，按实际稿件名选择。

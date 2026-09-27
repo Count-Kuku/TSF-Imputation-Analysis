@@ -40,6 +40,9 @@ logs/
 # Generated local-only artifacts; the migrated legacy CSVs/figures stay versioned.
 /artifacts/*
 !/artifacts/README.md
+!/artifacts/forecast_feedback_imputation/
+/artifacts/forecast_feedback_imputation/*
+!/artifacts/forecast_feedback_imputation/README.md
 !/artifacts/legacy_eval/
 results_pic/
 all_evals.*
