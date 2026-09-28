@@ -16,6 +16,8 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 
 已登记的 `series_*_work1_v1` 公共方法查询可省略填补合同文件，必要时用 `--period` 指定原周期；例如 `tfc_data.py reuse --scene <scene_id> --method series_linear_work1_v1`。
 
+预测反馈历史的 `linear`、`forward`、`backward`、`pchip` 也已逐值核实并接入相同公共方法键：新增 960 条填补来源、3,856 条绑定预测来源，数值数组数不变。`mean` 在 12/240 个场景与公共实现不同，未归并。细节见 TFC 的 `docs/FEEDBACK_SHARED_MIGRATION_20260928.md`。
+
 2026-09-28 已将逐值核实的 Work1 P2/P5 基础填补 3,240 条及绑定预测 33,504 条登记到六个 `series_*_work1_v1` 公共方法键。原记录与预测合同保留，`arrays` 数量未增加。哪些方法通过或未通过核对、来源如何追溯，见 TFC 的 `docs/WORK1_SHARED_MIGRATION_20260928.md`。
 
 论文参数实验的旧 `__generic` 方法键混合三种生成模型，已为 9,720 条填补及其绑定预测建立 `__generated_by_<model>` 专属键；原记录保留，数组数量仍未增加。旧键的多值组合由 `tfc_data.py library --scene ... --method ...` 的 `fill_ambiguous` 标出。细节见 TFC 的 `docs/PAPER_MODEL_METHOD_MIGRATION_20260928.md`。
