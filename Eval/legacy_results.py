@@ -59,8 +59,12 @@ def main() -> None:
     parser.add_argument("--dataset")
     parser.add_argument("--term", choices=("short", "medium", "long"))
     parser.add_argument("--window", type=int)
+    parser.add_argument("--include-values", action="store_true",
+                        help="Include the stored date/prediction rows for the selected window")
     parser.add_argument("--limit", type=int, default=20)
     args = parser.parse_args()
+    if args.include_values and args.window is None:
+        parser.error("--include-values requires --window")
     found = [row for row in cohorts() if
              (args.model is None or row["model"] == args.model) and
              (args.dataset is None or row["dataset"] == args.dataset) and
@@ -74,6 +78,8 @@ def main() -> None:
             values = list(csv.DictReader(handle))
         item = dict(item, prediction_file=str(path), point_count=len(values),
                     first_date=values[0]["date"], last_date=values[-1]["date"])
+        if args.include_values:
+            item["values"] = values
         print(json.dumps(item, ensure_ascii=False, indent=2))
     else:
         print(json.dumps({"matching_cohorts": len(found), "rows": found[:args.limit]},

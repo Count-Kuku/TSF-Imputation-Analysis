@@ -1,6 +1,6 @@
 # 旧 Eval 结果与路径迁移索引
 
-2026-09-28 逐目录清点：`intermediate_predictions/` 有 484 个 clean 预测批次、8,104 份逐窗口 CSV；458 个批次可找到汇总指标 CSV，26 个批次只有预测 CSV。已有指标表中的窗口数与相应 CSV 数一致。用 `D:/anaconda3/python.exe Eval/legacy_results.py --model <模型> --dataset <数据集> --term <short|medium|long> --window <序号>` 查询原文件与时间范围，不需加载预测模型。缺指标的批次保留原预测并明确显示 `metrics_file: null`。旧 Eval 的完整输入窗口及模型运行合同不足以核定跨研究精确复用，所以这些 CSV 仍按研究私有历史产物读取，不强行并入共享预测缓存。
+2026-09-28 逐目录清点：`intermediate_predictions/` 有 484 个 clean 预测批次、8,104 份逐窗口 CSV；458 个批次可找到汇总指标 CSV，26 个批次只有预测 CSV。已有指标表中的窗口数与相应 CSV 数一致。用 `D:/anaconda3/python.exe Eval/legacy_results.py --model <模型> --dataset <数据集> --term <short|medium|long> --window <序号>` 查询原文件与时间范围；追加 `--include-values` 可直接在 JSON 中读取该窗口的日期与预测值，不需加载预测模型。缺指标的批次保留原预测并明确显示 `metrics_file: null`。旧 Eval 的完整输入窗口及模型运行合同不足以核定跨研究精确复用，所以这些 CSV 仍按研究私有历史产物读取，不强行并入共享预测缓存。
 
 这些文件是旧评估流程生成的原样 CSV 和图像。2026-09-26 只移动目录并更新读取路径，没有重新计算预测、指标或文件哈希。数据仍按模型和原文件名浏览。
 
