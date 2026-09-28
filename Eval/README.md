@@ -1,6 +1,6 @@
 # Eval：基础模型评估
 
-历史 clean 预测可直接用无模型依赖的 `D:/anaconda3/python.exe Eval/legacy_results.py --model chronos2 --dataset Australia_Solar_H --term long --window 0` 定位具体 CSV、预测长度和结果表；不传 `--window` 时列出匹配批次。此入口只浏览原样文件，不把旧预测当成统一库的精确缓存。
+历史 clean 预测可直接用无模型依赖的 `D:/anaconda3/python.exe Eval/legacy_results.py --model chronos2 --dataset Australia_Solar_H --term long --window 0` 定位具体 CSV、预测长度和结果表；追加 `--include-values` 可直接读取该窗口的逐点预测，不传 `--window` 时列出匹配批次。此入口只浏览原样文件，不把旧预测当成统一库的精确缓存。
 
 维护中的入口是 `Eval/run_eval.py`（单项、批量、干净序列）和 `Eval/run_batch_eval.py`（批量调度）；模型适配在 `model_adapters.py`，注册在 `model_registry.py`。
 
