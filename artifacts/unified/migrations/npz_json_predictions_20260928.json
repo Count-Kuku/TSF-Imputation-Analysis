@@ -1,0 +1,84 @@
+{
+  "phase": "json_predictions",
+  "applied": true,
+  "root": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts",
+  "complete": true,
+  "processed_tasks": 3160782,
+  "counts": {
+    "already_compact": 44725,
+    "fields": 4067418,
+    "bytes_saved": 2541968062,
+    "compacted": 3109674,
+    "no_shared_values": 12
+  },
+  "elapsed_seconds": 10758.937000000005,
+  "issues": [
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_confirmation_b01_jobs_h480_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_confirmation_b01_jobs_h48_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_confirmation_b01_jobs_h720_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_development_b01_jobs_h480_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_development_b01_jobs_h48_v3\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_development_b01_jobs_h720_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_remaining18_b01_jobs_h480_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_remaining18_b01_jobs_h48_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_remaining18_b01_jobs_h720_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_validation_b01_jobs_h480_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_validation_b01_jobs_h48_v1\\slots.json",
+      "reason": "no_shared_values"
+    },
+    {
+      "path": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts\\work1_vnext\\p5\\panel_validation_b01_jobs_h720_v1\\slots.json",
+      "reason": "no_shared_values"
+    }
+  ],
+  "file_hashes_computed": 0,
+  "model_calls": 0,
+  "review": {
+    "date": "2026-09-29",
+    "reviewed_entries": 12,
+    "unresolved_entries": 0,
+    "classification": "metadata_only_job_plans",
+    "slots_checked": 38280,
+    "numeric_lists_checked": {
+      "context_interval": 38280,
+      "target_interval": 38280
+    },
+    "statuses": {
+      "planned_call": 34965,
+      "alias": 3075,
+      "imputation_failure": 240
+    },
+    "note": "这 12 份 slots.json 只记录 Work1 任务、预算和窗口坐标；数值列表均为两个端点的区间，没有填补或预测数组，原样保留。原始 no_shared_values 记录保留在 issues 中。"
+  }
+}

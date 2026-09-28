@@ -1,0 +1,17 @@
+{
+  "phase": "work1",
+  "applied": true,
+  "root": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts",
+  "complete": true,
+  "processed_tasks": 12,
+  "counts": {
+    "already_compact": 10,
+    "fields": 28,
+    "bytes_saved": 154,
+    "compacted": 2
+  },
+  "elapsed_seconds": 1.5779999999940628,
+  "issues": [],
+  "file_hashes_computed": 0,
+  "model_calls": 0
+}

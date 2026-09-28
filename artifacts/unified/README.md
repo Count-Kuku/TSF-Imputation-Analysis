@@ -37,3 +37,9 @@ Stage2 的 39 份 CSV 面板、V0.113 和 V0.123 替代种子场景，以及 12 
 TFC 的旧 NPZ/JSON 读取入口已同步接入 `research_pipeline.artifact_io.load`、`load_json` / `loads_json`。已转换的文件保持原路径和字段：公共数组由本库还原，文件只保留引用及时间轴、分位数、配置、指标等独有内容。My-TSF 的旧 Eval CSV 仍按其独立协议读取。
 
 物理转换按阶段写入 `migrations/npz_*_20260928.json`，只有 `complete: true` 表示该阶段全部处理完成；报告中的 `issues` 和计数保留无法匹配的来源。转换不运行模型，不重新计算文件哈希。完整读取示例和恢复命令见 TFC 的 `UNIFIED_DATA.md`。Work1 正式共享预测入口在发布事务成功后会自动把任务 JSON 的点预测改为库内引用。
+
+### 本轮转换已完成（2026-09-29）
+
+场景、填补、普通预测 NPZ、对照预测 NPZ、JSON 及配套输入、Work1 输入六个阶段均已完成。原路径和逻辑字段继续可读，已登记公共数值的物理副本已改为库引用。JSON 报告中的 12 条 `no_shared_values` 已完整复核为纯任务计划 `slots.json`，保留原始记录及 `review` 说明，未解决项为 0。
+
+收尾时库内窗口、场景、来源和数组记录数未变；真实论文 JSON/分布及 Work1 P2/P3 输入重读通过。迁移未运行模型或重算文件哈希。阶段结果与验证边界统一记录在 TFC 的 `docs/REFACTOR_COMPLETION_PLAN_20260928.md`，保留内容见 `docs/LEGACY_ARTIFACT_DEPENDENCIES_20260928.md`。
