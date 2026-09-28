@@ -2,7 +2,7 @@
 
 历史 clean 预测可直接用无模型依赖的 `D:/anaconda3/python.exe Eval/legacy_results.py --model chronos2 --dataset Australia_Solar_H --term long --window 0` 定位具体 CSV、预测长度和结果表；追加 `--include-values` 可直接读取该窗口的逐点预测，不传 `--window` 时列出匹配批次。此入口只浏览原样文件，不把旧预测当成统一库的精确缓存。
 
-维护中的入口是 `Eval/run_eval.py`（单项、批量、干净序列）和 `Eval/run_batch_eval.py`（批量调度）；模型适配在 `model_adapters.py`，注册在 `model_registry.py`。
+旧 Eval 协议的维护入口是 `Eval/run_eval.py`（单项、批量、干净序列）和 `Eval/run_batch_eval.py`（批量调度）；模型适配在 `model_adapters.py`，注册在 `model_registry.py`。继续旧协议时保留其原输入与结果语义；新研究从 TFC 的独立研究目录调度这些模型适配，并先按完整合同查询统一库，普通结果发布到共享库，专题过程写入自己的 run。
 
 预测长度与 short/medium/long 规则单独位于 `forecast_protocol.py`，只依赖 Pandas；TFC 的实验计划可直接读取，不会为计算长度导入 GluonTS 或加载模型。旧 `eval_pipeline` 仍导出相同接口。
 
