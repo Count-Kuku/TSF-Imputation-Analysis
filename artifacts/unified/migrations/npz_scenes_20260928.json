@@ -1,0 +1,17 @@
+{
+  "phase": "scenes",
+  "applied": true,
+  "counts": {
+    "already_compact": 13307,
+    "fields": 988956,
+    "bytes_saved": 2301876981,
+    "compacted": 233932
+  },
+  "elapsed_seconds": 1335.4690000000119,
+  "issues": [],
+  "file_hashes_computed": 0,
+  "model_calls": 0,
+  "complete": true,
+  "root": "D:\\Projects\\GitHub\\My-TSF-Research\\artifacts",
+  "processed_tasks": 247239
+}
