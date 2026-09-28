@@ -12,6 +12,8 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 
 新研究只读检查精确复用时，用 `tfc_data.py reuse --scene <scene_id> --method <method_key> --fill-contract-file <fill_contract.json>`；预测再补 `--model`、`--horizon`、`--point-kind` 和 `--forecast-contract-file`。计算入口是 TFC 的 `research_pipeline.shared_results.ensure_fill` / `ensure_prediction`，普通点值写回本库。通用作业的 `runs/<run_id>/` 只保存配置、状态、来源及库内记录 ID；研究专用轨迹保存在所属研究 run。旧导入来源若没有新版 `method_contract`，仍可浏览与读取，但不会仅凭方法名自动成为新合同的缓存命中。
 
+一批场景的实时覆盖用 `tfc_data.py coverage --collection <集合> --method <公共方法键> --limit <数量>` 查看；可追加 `--output <新CSV文件>` 保存当时的逐场景来源表。预测合同若因实际窗口和掩码而各不相同，用 `--forecast-contracts-file` 传入 `{场景ID: 完整合同}` JSON 映射，不能以一个场景的合同代表整批。
+
 对照预测按 `clean`、`native_nan`、`model_default` 三种类型单独查询；不计作填补方法。可用 `tfc_data.py reference --scene <scene_id> --kind clean --model <model> --horizon <H> --point-kind P50 --contract-file <forecast_contract.json>` 只读检查，新计算使用 `ensure_baseline`。完整预测合同必须匹配，库里有同模型同长度的旧记录也不一定能跳过模型调用。
 
 已登记的 `series_*_work1_v1` 公共方法查询可省略填补合同文件，必要时用 `--period` 指定原周期；例如 `tfc_data.py reuse --scene <scene_id> --method series_linear_work1_v1`。
