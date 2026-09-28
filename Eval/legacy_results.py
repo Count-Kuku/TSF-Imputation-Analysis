@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import re
 from pathlib import Path
 
@@ -36,6 +37,10 @@ def cohorts(root: Path = LEGACY) -> list[dict]:
                              if name.startswith(prefix) and name[len(prefix):-4].isdigit())
             if len(indices) != len(names) or indices != list(range(len(indices))):
                 raise ValueError(f"Legacy forecast numbering changed: {folder}")
+            if not indices:
+                raise ValueError(f"Empty legacy prediction directory: {folder}")
+            if metrics is not None and int(metrics["windows"]) != len(indices):
+                raise ValueError(f"Legacy forecast count differs from metrics: {folder}")
             if metrics is None:
                 first = folder / f"{folder.name}_0.csv"
                 with first.open(encoding="utf-8-sig", newline="") as handle:
@@ -51,6 +56,19 @@ def cohorts(root: Path = LEGACY) -> list[dict]:
                 "metrics_file": str(summary) if metrics is not None else None,
             })
     return records
+
+
+def read_prediction(path: Path, horizon: int) -> list[dict[str, str]]:
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if reader.fieldnames != ["date", "prediction"]:
+            raise ValueError(f"Invalid legacy prediction columns: {path}")
+        values = list(reader)
+    if not values or len(values) != horizon:
+        raise ValueError(f"Legacy prediction length differs from cohort: {path}")
+    if any(not row["date"] or not math.isfinite(float(row["prediction"])) for row in values):
+        raise ValueError(f"Invalid legacy prediction values: {path}")
+    return values
 
 
 def main() -> None:
@@ -74,8 +92,7 @@ def main() -> None:
             parser.error("--window requires one matching cohort and an available index")
         item = found[0]
         path = Path(item["prediction_dir"]) / f"{Path(item['prediction_dir']).name}_{args.window}.csv"
-        with path.open(encoding="utf-8-sig", newline="") as handle:
-            values = list(csv.DictReader(handle))
+        values = read_prediction(path, item["horizon"])
         item = dict(item, prediction_file=str(path), point_count=len(values),
                     first_date=values[0]["date"], last_date=values[-1]["date"])
         if args.include_values:
