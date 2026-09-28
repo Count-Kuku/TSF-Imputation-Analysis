@@ -1,6 +1,6 @@
 # 统一缺失、填补与预测数据池
 
-场景生成合同可由 TFC 的 `research_pipeline.shared_scenarios.ensure_scenario` 登记和精确复用；`tfc_data.py scenes` 支持 `--pattern-key`、`--seed`、`--target-ratio` 筛选。现有 248,089 条研究场景归属全部已登记：Stage1 8,100 条、Work1 732 条、预测反馈别名 460 条、论文扩展 1,482 条、Stage2 正式面板 237,165 条及额外种子 150 条。已核对实际掩码与可确认的参数；论文扩展未记录的种子留空。相同数值数组由库去重保存。说明见 TFC 的 `docs/SCENARIO_CONTRACTS_20260928.md`。
+场景生成合同可由 TFC 的 `research_pipeline.shared_scenarios.ensure_scenario` 登记和精确复用；`tfc_data.py scenes` 支持 `--pattern-key`、`--seed`、`--target-ratio` 筛选。现有 249,913 条研究场景归属全部已登记：Stage1 8,100 条、Work1 732 条、预测反馈别名 460 条、论文扩展 1,482 条、Stage2 正式面板 237,165 条、V0.113 额外种子 150 条及 V0.123 四次运行的替代种子 1,824 条。V0.123 的四份清单共用 456 个实际场景。已核对实际掩码与可确认的参数；论文扩展未记录的种子留空。相同数值数组由库去重保存。说明见 TFC 的 `docs/SCENARIO_CONTRACTS_20260928.md`。
 
 **日常唯一数值入口：`library.sqlite3`。** 使用 TFC 的 `research_pipeline.unified_library.Library` 或 `scripts/tfc_data.py` 查询。场景由实际窗口和布尔掩码确定；同一场景可有多份来源记录，但当前填补和预测按既定优先级选择。新结果写入同一库，不为补齐方法矩阵自动运行模型。
 
@@ -26,7 +26,7 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 
 论文参数实验的旧 `__generic` 方法键混合三种生成模型，已为 9,720 条填补及其绑定预测建立 `__generated_by_<model>` 专属键；原记录保留，数组数量仍未增加。旧键的多值组合由 `tfc_data.py library --scene ... --method ...` 的 `fill_ambiguous` 标出。细节见 TFC 的 `docs/PAPER_MODEL_METHOD_MIGRATION_20260928.md`。
 
-Stage2 的 39 份面板和额外种子场景，以及 12 个版本的 251,775 条填补来源、302,235 条绑定点预测来源、1,351 条 clean 对照来源已逐值迁入。V0.119 的三次运行分别保留来源，共用 V0.118.2 的选中场景。分位数、配置、指标、候选回放与重复预测保留在各研究版本目录。面板归属与公共/私有边界见 TFC 的 `docs/STAGE2_MASK_PANEL_INVENTORY_20260928.md` 和 `docs/STAGE2_SHARED_RESULTS_MIGRATION_20260928.md`。
+Stage2 的 39 份 CSV 面板、V0.113 和 V0.123 替代种子场景，以及 12 个版本的 251,775 条填补来源、302,235 条绑定点预测来源、1,351 条 clean 对照来源已逐值迁入。V0.119 的三次运行分别保留来源，共用 V0.118.2 的选中场景。分位数、配置、指标、候选回放与重复预测保留在各研究版本目录。面板归属与公共/私有边界见 TFC 的 `docs/STAGE2_MASK_PANEL_INVENTORY_20260928.md` 和 `docs/STAGE2_SHARED_RESULTS_MIGRATION_20260928.md`。
 
 2026-09-15 的静态场景、方法与预测覆盖快照已清理，避免把过时计数当作实时结果。`completion.json`、`audit.json` 和 `import_corrections.json` 保留当时导入与核验的历史证据；其中的旧计数不是当前覆盖。需要新 CSV 时按需使用 TFC 的 `tfc_data.py export` 或 `coverage --output`。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
 
