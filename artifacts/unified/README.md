@@ -12,6 +12,10 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 
 新研究只读检查精确复用时，用 `tfc_data.py reuse --scene <scene_id> --method <method_key> --fill-contract-file <fill_contract.json>`；预测再补 `--model`、`--horizon`、`--point-kind` 和 `--forecast-contract-file`。计算入口是 TFC 的 `research_pipeline.shared_results.ensure_fill` / `ensure_prediction`，普通点值写回本库。通用作业的 `runs/<run_id>/` 只保存配置、状态、来源及库内记录 ID；研究专用轨迹保存在所属研究 run。旧导入来源若没有新版 `method_contract`，仍可浏览与读取，但不会仅凭方法名自动成为新合同的缓存命中。
 
+已登记的 `series_*_work1_v1` 公共方法查询可省略填补合同文件，必要时用 `--period` 指定原周期；例如 `tfc_data.py reuse --scene <scene_id> --method series_linear_work1_v1`。
+
+2026-09-28 已将逐值核实的 Work1 P2/P5 基础填补 3,240 条及绑定预测 33,504 条登记到六个 `series_*_work1_v1` 公共方法键。原记录与预测合同保留，`arrays` 数量未增加。哪些方法通过或未通过核对、来源如何追溯，见 TFC 的 `docs/WORK1_SHARED_MIGRATION_20260928.md`。
+
 `summary.json`、`scenes.csv`、`methods.csv`、`prediction_coverage.csv` 及[导入时 README](README_import_snapshot_20260915.md)都是 2026-09-15 的导出快照，不能代表后来新增研究的实时覆盖。`audit.json` 仅核查当时导入批次。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
 
 完整使用约定见 TFC 的 `UNIFIED_DATA.md`、`DATA_ACCESS.md`、`docs/RESULTS.md` 和 `docs/ADDING_STUDY.md`。
