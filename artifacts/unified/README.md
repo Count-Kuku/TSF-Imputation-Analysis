@@ -31,3 +31,9 @@ Stage2 的 39 份 CSV 面板、V0.113 和 V0.123 替代种子场景，以及 12 
 2026-09-15 的静态场景、方法与预测覆盖快照已清理，避免把过时计数当作实时结果。`completion.json`、`audit.json` 和 `import_corrections.json` 保留当时导入与核验的历史证据；其中的旧计数不是当前覆盖。需要新 CSV 时按需使用 TFC 的 `tfc_data.py export` 或 `coverage --output`。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
 
 完整使用约定见 TFC 的 `UNIFIED_DATA.md`、`DATA_ACCESS.md`、`docs/RESULTS.md` 和 `docs/ADDING_STUDY.md`。
+
+## 旧脚本与旧产物的统一读取
+
+TFC 的旧 NPZ/JSON 读取入口已同步接入 `research_pipeline.artifact_io.load`、`load_json` / `loads_json`。已转换的文件保持原路径和字段：公共数组由本库还原，文件只保留引用及时间轴、分位数、配置、指标等独有内容。My-TSF 的旧 Eval CSV 仍按其独立协议读取。
+
+物理转换按阶段写入 `migrations/npz_*_20260928.json`，只有 `complete: true` 表示该阶段全部处理完成；报告中的 `issues` 和计数保留无法匹配的来源。转换不运行模型，不重新计算文件哈希。完整读取示例和恢复命令见 TFC 的 `UNIFIED_DATA.md`。Work1 正式共享预测入口在发布事务成功后会自动把任务 JSON 的点预测改为库内引用。
