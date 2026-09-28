@@ -16,6 +16,8 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 
 2026-09-28 已将逐值核实的 Work1 P2/P5 基础填补 3,240 条及绑定预测 33,504 条登记到六个 `series_*_work1_v1` 公共方法键。原记录与预测合同保留，`arrays` 数量未增加。哪些方法通过或未通过核对、来源如何追溯，见 TFC 的 `docs/WORK1_SHARED_MIGRATION_20260928.md`。
 
+论文参数实验的旧 `__generic` 方法键混合三种生成模型，已为 9,720 条填补及其绑定预测建立 `__generated_by_<model>` 专属键；原记录保留，数组数量仍未增加。旧键的多值组合由 `tfc_data.py library --scene ... --method ...` 的 `fill_ambiguous` 标出。细节见 TFC 的 `docs/PAPER_MODEL_METHOD_MIGRATION_20260928.md`。
+
 `summary.json`、`scenes.csv`、`methods.csv`、`prediction_coverage.csv` 及[导入时 README](README_import_snapshot_20260915.md)都是 2026-09-15 的导出快照，不能代表后来新增研究的实时覆盖。`audit.json` 仅核查当时导入批次。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
 
 完整使用约定见 TFC 的 `UNIFIED_DATA.md`、`DATA_ACCESS.md`、`docs/RESULTS.md` 和 `docs/ADDING_STUDY.md`。
