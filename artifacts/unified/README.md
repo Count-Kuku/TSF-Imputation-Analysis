@@ -1,0 +1,17 @@
+# 统一缺失、填补与预测数据池
+
+**日常唯一数值入口：`library.sqlite3`。** 使用 TFC 的 `research_pipeline.unified_library.Library` 或 `scripts/tfc_data.py` 查询。场景由实际窗口和布尔掩码确定；同一场景可有多份来源记录，但当前填补和预测按既定优先级选择。新结果写入同一库，不为补齐方法矩阵自动运行模型。
+
+```powershell
+D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py library
+D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py scenes --collection stage1 --dataset ETTh1 --limit 10
+D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py library --scene <scene_id> --method linear --model chronos2 --horizon 48
+```
+
+无参数 `library` 显示实时原始记录数和来源集合；具体当前填补/预测请按场景和方法查询。要据此跳过模型调用，还须匹配实际填补值、模型、预测长度、点预测定义和完整运行合同。新写入在共享 `forecast_lock()` 内提交事务，预测必须绑定填补值 ID。
+
+新研究只读检查精确复用时，用 `tfc_data.py reuse --scene <scene_id> --method <method_key> --fill-contract-file <fill_contract.json>`；预测再补 `--model`、`--horizon`、`--point-kind` 和 `--forecast-contract-file`。计算入口是 TFC 的 `research_pipeline.shared_results.ensure_fill` / `ensure_prediction`，普通点值写回本库。通用作业的 `runs/<run_id>/` 只保存配置、状态、来源及库内记录 ID；研究专用轨迹保存在所属研究 run。旧导入来源若没有新版 `method_contract`，仍可浏览与读取，但不会仅凭方法名自动成为新合同的缓存命中。
+
+`summary.json`、`scenes.csv`、`methods.csv`、`prediction_coverage.csv` 及[导入时 README](README_import_snapshot_20260915.md)都是 2026-09-15 的导出快照，不能代表后来新增研究的实时覆盖。`audit.json` 仅核查当时导入批次。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
+
+完整使用约定见 TFC 的 `UNIFIED_DATA.md`、`DATA_ACCESS.md`、`docs/RESULTS.md` 和 `docs/ADDING_STUDY.md`。

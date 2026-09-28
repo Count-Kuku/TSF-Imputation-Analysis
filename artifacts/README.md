@@ -2,6 +2,8 @@
 
 这里是所有 TFC 工作树共同指向的物理目录。`unified/library.sqlite3` 是日常场景、填补和预测数值的唯一入口；`unified/README.md` 给出查询方式。各研究的 `runs/<run_id>/` 保存冻结配置、状态、结果、失败记录和额外数组。
 
+新的跨研究通用一维填补与点预测通过 TFC 的 `research_pipeline.shared_results.ensure_fill` / `ensure_prediction` 按完整合同先查后算，正式数值写入同一库；通用作业配置、状态和库内记录 ID 放 `unified/runs/<run_id>/`，不再复制这些数组。用 `scripts/tfc_data.py reuse` 加填补与预测合同 JSON 可只读查看是否能精确复用。旧导入来源没有新版方法合同的记录仍可读取，但不能仅凭同名方法自动当成新计算的缓存。专题候选轨迹、诊断及指标继续放所属研究的 run。
+
 统一库还支持与一维窗口分开的表格场景、整表填补和绑定预测。通过 TFC 的 `Library.put_table_scene` / `get_table_fill` / `get_table_prediction` 查询，或用 `scripts/tfc_data.py table-scenes` 与 `table` 导出普通 CSV；旧 Eval CSV 仍直接留在 `legacy_eval/`。
 
 - `missing_imputation_forecast/`：旧 Stage 1/2 正式产物。
