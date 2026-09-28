@@ -26,6 +26,6 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 
 论文参数实验的旧 `__generic` 方法键混合三种生成模型，已为 9,720 条填补及其绑定预测建立 `__generated_by_<model>` 专属键；原记录保留，数组数量仍未增加。旧键的多值组合由 `tfc_data.py library --scene ... --method ...` 的 `fill_ambiguous` 标出。细节见 TFC 的 `docs/PAPER_MODEL_METHOD_MIGRATION_20260928.md`。
 
-`summary.json`、`scenes.csv`、`methods.csv`、`prediction_coverage.csv` 及[导入时 README](README_import_snapshot_20260915.md)都是 2026-09-15 的导出快照，不能代表后来新增研究的实时覆盖。`audit.json` 仅核查当时导入批次。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
+2026-09-15 的静态场景、方法与预测覆盖快照已清理，避免把过时计数当作实时结果。`completion.json`、`audit.json` 和 `import_corrections.json` 保留当时导入与核验的历史证据；其中的旧计数不是当前覆盖。需要新 CSV 时按需使用 TFC 的 `tfc_data.py export` 或 `coverage --output`。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
 
 完整使用约定见 TFC 的 `UNIFIED_DATA.md`、`DATA_ACCESS.md`、`docs/RESULTS.md` 和 `docs/ADDING_STUDY.md`。
