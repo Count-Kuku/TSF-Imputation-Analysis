@@ -1,6 +1,6 @@
 # 统一缺失、填补与预测数据池
 
-场景生成合同可由 TFC 的 `research_pipeline.shared_scenarios.ensure_scenario` 登记和精确复用；`tfc_data.py scenes` 支持 `--pattern-key`、`--seed` 筛选。Stage1 的 8,100 个场景已从正式清单逐掩码核对并补录模式、比例、参数和可确认的种子，数值数组没有复制。说明见 TFC 的 `docs/SCENARIO_CONTRACTS_20260928.md`。
+场景生成合同可由 TFC 的 `research_pipeline.shared_scenarios.ensure_scenario` 登记和精确复用；`tfc_data.py scenes` 支持 `--pattern-key`、`--seed`、`--target-ratio` 筛选。现有 10,774 条研究场景归属全部已登记：Stage1 8,100 条、Work1 732 条、预测反馈别名 460 条、论文扩展 1,482 条。已核对实际掩码与可确认的参数；论文扩展未记录的种子留空，数值数组没有复制。说明见 TFC 的 `docs/SCENARIO_CONTRACTS_20260928.md`。
 
 **日常唯一数值入口：`library.sqlite3`。** 使用 TFC 的 `research_pipeline.unified_library.Library` 或 `scripts/tfc_data.py` 查询。场景由实际窗口和布尔掩码确定；同一场景可有多份来源记录，但当前填补和预测按既定优先级选择。新结果写入同一库，不为补齐方法矩阵自动运行模型。
 
