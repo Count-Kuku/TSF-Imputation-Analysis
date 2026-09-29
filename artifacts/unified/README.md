@@ -21,8 +21,6 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 
 `runs/<run_id>/` 保存公共作业配置、状态、失败和库内记录 ID。专题候选、优化轨迹、选择器、指标与独有数组放 `artifacts/<study>/runs/<run_id>/`。读取旧 NPZ/JSON 使用 TFC 的 `research_pipeline.artifact_io`；公共字段从本库还原，原文件保留私有字段。Work1 正式入口发布成功后自动将任务点预测改为库引用。
 
-`migrations/npz_*_20260928.json` 是六阶段转换的正式报告，均于 2026-09-29 完成。JSON 报告的 12 份纯任务计划已逐项复核，无未解决项。`completion.json`、`audit.json`、`import_corrections.json` 保留历史导入证据，其中旧计数不作为当前覆盖；过时的静态覆盖快照已清理。
-
 旧 Eval 的原样预测 CSV 从 [legacy_eval/](../legacy_eval/README.md) 读取，其逐次输入和模型合同仍有缺项，不强行当作本库的精确缓存。
 
 ## 详细说明
@@ -32,5 +30,5 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py libr
 - `UNIFIED_DATA.md`：数据读取、导出、旧产物读取器及恢复命令。
 - `DATA_ACCESS.md`：物理路径配置与工作树接入。
 - `docs/ADDING_STUDY.md`：新研究、方法和模式的接入示例。
-- `docs/DATA_MIGRATION.md`：各研究的场景映射、方法身份、迁移计数及报告。
-- `docs/REFACTOR_STATUS.md`：共享/私有边界、验证范围及保留项。
+- 根 `README.md`：两个项目共同的架构总览与研究入口。
+- `experiments/<study>/README.md`：具体研究的状态、正式结果、数据集合与使用限制。
