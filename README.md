@@ -23,7 +23,7 @@
 
 新研究的代码、测试和结论文档按研究主题放在 TFC；只在确实需要新增基础模型适配或基础填补实现时修改本项目。论文固定方法已可从 `artifacts/imputation_optimization_paper/method_exports/` 独立导出，不依赖本项目的预测器或旧输出目录。
 
-早期 BM 注入、旧评估和可视化操作说明保存在[历史 README](docs/history/README_before_restructure_20260926.md)。其中提到的 `data/datasets/BM`、`data/datasets/Imputed`、`results_analysis` 在当前工作树已不存在，不能据此认定统一库缺结果。
+BM 注入、模型评估和窗口分析分别从 [缺失生成工具](tools/Missing_Value_Injection/README.md)、[Eval](Eval/README.md) 和 [Analysis](Analysis/README.md) 进入。重构前的重复 README 已移出工作目录，原文仍可从 Git 历史查询。旧 `data/datasets/BM`、`data/datasets/Imputed`、`results_analysis` 当前不存在；已有公共结果先查统一库，历史 CSV 按产物索引定位。
 
 ## GitHub 仓库
 

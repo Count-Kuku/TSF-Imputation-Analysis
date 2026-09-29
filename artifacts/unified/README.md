@@ -1,8 +1,6 @@
 # 统一缺失、填补与预测数据池
 
-场景生成合同可由 TFC 的 `research_pipeline.shared_scenarios.ensure_scenario` 登记和精确复用；`tfc_data.py scenes` 支持 `--pattern-key`、`--seed`、`--target-ratio` 筛选。现有 249,913 条研究场景归属全部已登记：Stage1 8,100 条、Work1 732 条、预测反馈别名 460 条、论文扩展 1,482 条、Stage2 正式面板 237,165 条、V0.113 额外种子 150 条及 V0.123 四次运行的替代种子 1,824 条。V0.123 的四份清单共用 456 个实际场景。已核对实际掩码与可确认的参数；论文扩展未记录的种子留空。相同数值数组由库去重保存。说明见 TFC 的 `docs/SCENARIO_CONTRACTS_20260928.md`。
-
-**日常唯一数值入口：`library.sqlite3`。** 使用 TFC 的 `research_pipeline.unified_library.Library` 或 `scripts/tfc_data.py` 查询。场景由实际窗口和布尔掩码确定；同一场景可有多份来源记录，但当前填补和预测按既定优先级选择。新结果写入同一库，不为补齐方法矩阵自动运行模型。
+**日常数值入口是 `library.sqlite3`。** 由 TFC 的 `research_pipeline.unified_library.Library` 或 `scripts/tfc_data.py` 查询；TFC 工作树指向本目录的同一物理副本。
 
 ```powershell
 D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py library
@@ -10,36 +8,29 @@ D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py scen
 D:/anaconda3/python.exe D:/Projects/PycharmProjects/TFC/scripts/tfc_data.py library --scene <scene_id> --method linear --model chronos2 --horizon 48
 ```
 
-无参数 `library` 显示实时原始记录数和来源集合；具体当前填补/预测请按场景和方法查询。要据此跳过模型调用，还须匹配实际填补值、模型、预测长度、点预测定义和完整运行合同。新写入在共享 `forecast_lock()` 内提交事务，预测必须绑定填补值 ID。
+## 查询与发布
 
-新研究只读检查精确复用时，用 `tfc_data.py reuse --scene <scene_id> --method <method_key> --fill-contract-file <fill_contract.json>`；预测再补 `--model`、`--horizon`、`--point-kind` 和 `--forecast-contract-file`。计算入口是 TFC 的 `research_pipeline.shared_results.ensure_fill` / `ensure_prediction`，普通点值写回本库。通用作业的 `runs/<run_id>/` 只保存配置、状态、来源及库内记录 ID；研究专用轨迹保存在所属研究 run。旧导入来源若没有新版 `method_contract`，仍可浏览与读取，但不会仅凭方法名自动成为新合同的缓存命中。
+- `library` / `scenes` 浏览已有值和实时覆盖；`reuse` 按方法及完整预测合同判断是否能跳过计算。`coverage --output` 和 `export` 可按需导出普通 CSV。
+- 场景按实际窗口和掩码识别，可用 `--pattern-key`、`--seed`、`--target-ratio` 筛选。新模式使用 `shared_scenarios.ensure_scenario`，显式记录模式版本、比例、参数与种子。
+- 公共填补和预测使用 `shared_results.ensure_fill` / `ensure_prediction`；对照使用 `ensure_baseline`。接口在共享锁内查询、按需计算并发布，预测绑定实际填补值。
+- 精确复用需要匹配实际输入、方法实现与参数、模型/权重和代码版本、H、种子、批量设置和点值定义。只有方法名相同不能作为缓存命中依据；缺项不自动补齐实验矩阵。
+- `clean`、`native_nan`、`model_default` 是独立对照，通过 `reference` 查询，不计作外部填补方法。
+- 已登记的 `series_*_work1_v1` 方法可由 `reuse` 自动生成方法合同，需要周期时传 `--period`。旧来源合同不完整时仍可浏览，不自动作为新任务的精确缓存。
 
-一批场景的实时覆盖用 `tfc_data.py coverage --collection <集合> --method <公共方法键> --limit <数量>` 查看；可追加 `--output <新CSV文件>` 保存当时的逐场景来源表。预测合同若因实际窗口和掩码而各不相同，用 `--forecast-contracts-file` 传入 `{场景ID: 完整合同}` JSON 映射，不能以一个场景的合同代表整批。
+## 文件归属
 
-对照预测按 `clean`、`native_nan`、`model_default` 三种类型单独查询；不计作填补方法。可用 `tfc_data.py reference --scene <scene_id> --kind clean --model <model> --horizon <H> --point-kind P50 --contract-file <forecast_contract.json>` 只读检查，新计算使用 `ensure_baseline`。完整预测合同必须匹配，库里有同模型同长度的旧记录也不一定能跳过模型调用。
+`runs/<run_id>/` 保存公共作业配置、状态、失败和库内记录 ID。专题候选、优化轨迹、选择器、指标与独有数组放 `artifacts/<study>/runs/<run_id>/`。读取旧 NPZ/JSON 使用 TFC 的 `research_pipeline.artifact_io`；公共字段从本库还原，原文件保留私有字段。Work1 正式入口发布成功后自动将任务点预测改为库引用。
 
-已登记的 `series_*_work1_v1` 公共方法查询可省略填补合同文件，必要时用 `--period` 指定原周期；例如 `tfc_data.py reuse --scene <scene_id> --method series_linear_work1_v1`。
+`migrations/npz_*_20260928.json` 是六阶段转换的正式报告，均于 2026-09-29 完成。JSON 报告的 12 份纯任务计划已逐项复核，无未解决项。`completion.json`、`audit.json`、`import_corrections.json` 保留历史导入证据，其中旧计数不作为当前覆盖；过时的静态覆盖快照已清理。
 
-预测反馈历史的 `linear`、`forward`、`backward`、`pchip` 也已逐值核实并接入相同公共方法键：新增 960 条填补来源、3,856 条绑定预测来源，数值数组数不变。`mean` 在 12/240 个场景与公共实现不同，未归并。细节见 TFC 的 `docs/FEEDBACK_SHARED_MIGRATION_20260928.md`。
+旧 Eval 的原样预测 CSV 从 [legacy_eval/](../legacy_eval/README.md) 读取，其逐次输入和模型合同仍有缺项，不强行当作本库的精确缓存。
 
-2026-09-28 已将逐值核实的 Work1 P2/P5 基础填补 3,240 条及绑定预测 33,504 条登记到六个 `series_*_work1_v1` 公共方法键。原记录与预测合同保留，`arrays` 数量未增加。哪些方法通过或未通过核对、来源如何追溯，见 TFC 的 `docs/WORK1_SHARED_MIGRATION_20260928.md`。
+## 详细说明
 
-论文参数实验的旧 `__generic` 方法键混合三种生成模型，已为 9,720 条填补及其绑定预测建立 `__generated_by_<model>` 专属键；原记录保留，数组数量仍未增加。旧键的多值组合由 `tfc_data.py library --scene ... --method ...` 的 `fill_ambiguous` 标出。细节见 TFC 的 `docs/PAPER_MODEL_METHOD_MIGRATION_20260928.md`。
+维护入口集中在 TFC，避免两仓库重复维护长篇规则：
 
-Stage2 的 39 份 CSV 面板、V0.113 和 V0.123 替代种子场景，以及 12 个版本的 251,775 条填补来源、302,235 条绑定点预测来源、1,351 条 clean 对照来源已逐值迁入。V0.119 的三次运行分别保留来源，共用 V0.118.2 的选中场景。分位数、配置、指标、候选回放与重复预测保留在各研究版本目录。面板归属与公共/私有边界见 TFC 的 `docs/STAGE2_MASK_PANEL_INVENTORY_20260928.md` 和 `docs/STAGE2_SHARED_RESULTS_MIGRATION_20260928.md`。
-
-2026-09-15 的静态场景、方法与预测覆盖快照已清理，避免把过时计数当作实时结果。`completion.json`、`audit.json` 和 `import_corrections.json` 保留当时导入与核验的历史证据；其中的旧计数不是当前覆盖。需要新 CSV 时按需使用 TFC 的 `tfc_data.py export` 或 `coverage --output`。正式 NPZ、manifest、配置、指标和失败记录仍留在各自研究 run；本库用于日常数值检索与精确复用。
-
-完整使用约定见 TFC 的 `UNIFIED_DATA.md`、`DATA_ACCESS.md`、`docs/RESULTS.md` 和 `docs/ADDING_STUDY.md`。
-
-## 旧脚本与旧产物的统一读取
-
-TFC 的旧 NPZ/JSON 读取入口已同步接入 `research_pipeline.artifact_io.load`、`load_json` / `loads_json`。已转换的文件保持原路径和字段：公共数组由本库还原，文件只保留引用及时间轴、分位数、配置、指标等独有内容。My-TSF 的旧 Eval CSV 仍按其独立协议读取。
-
-物理转换按阶段写入 `migrations/npz_*_20260928.json`，只有 `complete: true` 表示该阶段全部处理完成；报告中的 `issues` 和计数保留无法匹配的来源。转换不运行模型，不重新计算文件哈希。完整读取示例和恢复命令见 TFC 的 `UNIFIED_DATA.md`。Work1 正式共享预测入口在发布事务成功后会自动把任务 JSON 的点预测改为库内引用。
-
-### 本轮转换已完成（2026-09-29）
-
-场景、填补、普通预测 NPZ、对照预测 NPZ、JSON 及配套输入、Work1 输入六个阶段均已完成。原路径和逻辑字段继续可读，已登记公共数值的物理副本已改为库引用。JSON 报告中的 12 条 `no_shared_values` 已完整复核为纯任务计划 `slots.json`，保留原始记录及 `review` 说明，未解决项为 0。
-
-收尾时库内窗口、场景、来源和数组记录数未变；真实论文 JSON/分布及 Work1 P2/P3 输入重读通过。迁移未运行模型或重算文件哈希。阶段结果与验证边界统一记录在 TFC 的 `docs/REFACTOR_COMPLETION_PLAN_20260928.md`，保留内容见 `docs/LEGACY_ARTIFACT_DEPENDENCIES_20260928.md`。
+- `UNIFIED_DATA.md`：数据读取、导出、旧产物读取器及恢复命令。
+- `DATA_ACCESS.md`：物理路径配置与工作树接入。
+- `docs/ADDING_STUDY.md`：新研究、方法和模式的接入示例。
+- `docs/DATA_MIGRATION.md`：各研究的场景映射、方法身份、迁移计数及报告。
+- `docs/REFACTOR_STATUS.md`：共享/私有边界、验证范围及保留项。
